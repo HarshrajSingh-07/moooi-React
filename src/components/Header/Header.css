@@ -1,0 +1,31 @@
+header{
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 60px;
+    font-size: 25px;
+    font-family: "Rubik", sans-serif;
+}
+header h3{
+    margin: 0;
+    font-size: 35px;
+    font-weight: 450;
+    letter-spacing: 10px;
+}
+.headLeft{
+    width: 33.3%;
+    display: flex;
+    justify-content: flex-start;
+}
+.headCent{
+    width: 33.3%;
+    display: flex;
+    justify-content: center;
+}
+.headRight{
+    width: 33.3%;
+    display: flex;
+    justify-content: flex-end;
+    gap: 30px;
+}
