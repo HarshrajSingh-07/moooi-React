@@ -29,3 +29,15 @@ header h3{
     justify-content: flex-end;
     gap: 30px;
 }
+@media only screen and (max-width: 576px){
+    .headRight{
+        gap: 10px;
+    }
+    header{
+        font-size: 20px ;
+        padding: 30px 25px;
+    }
+    header h3{
+        font-size: 30px;
+    }
+}

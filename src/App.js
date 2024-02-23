@@ -6,6 +6,7 @@ import Main from './components/main/Main';
 import Manu from './components/manu-btn/Manu';
 import Presents from './components/moooi-Presents/Presents';
 import Product from './components/Product-story/Productstory';
+import Strategy from './components/Strategy/Strategy';
 function App() {
   return (
    <>
@@ -16,6 +17,7 @@ function App() {
    <Design/>
    <Product/>
    <Presents/>
+   <Strategy/>
    </>
   );
 }

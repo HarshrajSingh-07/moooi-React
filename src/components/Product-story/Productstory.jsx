@@ -10,16 +10,12 @@ const product = () => {
       </div>
       <div className="right-product">
         <div className="rightContent">
-        <span>product story</span>
-          <h1>
-            The Hana Family: Where comfort and beauty unfurl in generous
-            proportions
-          </h1>
+          <span>product story</span>
+          <h1>Hana Chair - Versatility & Customisable</h1>
           <div className="productBtn">
-        <button>Discover the Hana Chair family</button>
+            <button>Discover the Hana Chair family</button>
+          </div>
         </div>
-        </div>   
-        
       </div>
     </section>
   );
