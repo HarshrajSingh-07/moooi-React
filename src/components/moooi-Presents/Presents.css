@@ -44,6 +44,7 @@
     opacity: 0.9;
     text-decoration: none;
     margin-top: 70px;
+    border-bottom: 1px solid #2e2e2e;
 }
 .cool-link::after {
     content: '';

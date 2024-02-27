@@ -1,5 +1,4 @@
 #main {
-    /* background-image: url('../../assets/images/homebg.webp'); */
     background-image:
         linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
         url('../../../public/assets/images/homebg.webp');

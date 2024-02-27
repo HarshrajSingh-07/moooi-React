@@ -9,7 +9,6 @@ const Main = () => {
         <h1>Gimme a Kisss Lounge Chair</h1>
         <button>Discover our new Kisss Lounge Chair</button>
       </div>
-      
     </section>
   );
 };

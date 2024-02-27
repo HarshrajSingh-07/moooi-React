@@ -1,0 +1,119 @@
+/* Footer styles */
+#footer {
+    background-color: #000;
+    color: #fff;
+    padding: 5.1666666667vw 2.7777777778vw 30px;
+}
+
+/* Main footer container */
+.footer-main {
+    width: 100%;
+}
+
+/* Top section of the footer */
+.footer-top {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Styling for text select component */
+.selectText button {
+    width: 21vw;
+    min-width: 280px;
+    padding: 15px 14px;
+    margin-bottom: 75px;
+    border: 1px solid #929292;
+    border-radius: 50px;
+    background: transparent;
+}
+
+.selectText select {
+    width: 70%;
+    font-size: 20px;
+    background: transparent;
+    border: none;
+    color: white;
+    text-align: center;
+}
+
+.B2T {
+    color: white;
+    font-size: 28px;
+}
+
+.selectText select:focus {
+    outline: none;
+}
+
+/* Middle section of the footer */
+.footer-mid ul {
+    width: min(1080px, 100%);
+    columns: 26.3888888889vw 2;
+    column-gap: 2.777778vw;
+    list-style: none;
+    padding-left: 5px;
+    margin-bottom: 100px;
+}
+
+.footer-mid ul li {
+    font-size: 28px;
+    padding: 14px 0;
+}
+
+/* Bottom section of the footer */
+.footer-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+.footerIcon {
+    width: 25%;
+    display: flex;
+    font-size: 35px;
+    flex-wrap: wrap;
+}
+
+.fnav {
+    width: 53%;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 35px;
+    margin-bottom: 50px;
+}
+
+.fnav a {
+    text-decoration: none;
+    color: #929292;
+    font-size: 22px;
+    padding: 8px 15px;
+}
+
+.socialicon {
+    padding: 0 15px;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 600px) {
+    .footer-mid ul {
+        columns: 1;
+        margin-bottom: 50px;
+    }
+
+    .footer-bottom {
+        flex-direction: column
+    }
+
+    .footerIcon {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: nowrap;
+        margin-bottom: 50px;
+    }
+
+    .footer-mid ul {
+        margin-bottom: 50px;
+    }
+}
