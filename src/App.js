@@ -9,13 +9,21 @@ import Podcast from './components/podcast/Podcast';
 import Product from './components/Product-story/Productstory';
 import Strategy from './components/Strategy/Strategy';
 import Footer from './components/Footer/Footer';
+import Signup from './components/Signup/Signup';
+import { useState } from 'react';
 
 function App() {
+  const [show,setShow]=useState(false);
+  function handleShow(){
+    setShow(!show);
+  }
   return (
     <>
+  
+    {show? <Signup/>:null}
       <Header />
       <Main />
-      <Manu />  
+      <Manu handleShow={handleShow} />  
       <Collection />
       <Design />
       <Product />
@@ -25,6 +33,7 @@ function App() {
         Get inspired by our Design Dreams podcast
       </Podcast> 
       <Footer />
+    
     </>
   );
 }

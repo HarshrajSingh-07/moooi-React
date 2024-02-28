@@ -1,16 +1,19 @@
 import React from "react";
 import "../manu-btn/Manu.css";
 
-function Manu() {
+
+function Manu({handleShow}) {
   return (
-    <div className="manuItem">
-      <div className="innerBtn">
-      <button>
-        <img src="assets/images/manu-button.png" alt="" />
-        <span>Manu</span>
-      </button>
+    <section>
+      <div className="manuItem">
+        <div className="innerBtn">
+          <button onClick={handleShow}>
+            <img src="assets/images/manu-button.png" alt="" />
+            <span>Menu</span>
+          </button>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }
 
