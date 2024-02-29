@@ -1,15 +1,19 @@
 import React, { useEffect, useState } from "react";
 import './Signup.css'
-import { auth } from "../../firebase";
+import { FirebaseApp } from "firebase/app";
+import { collection, doc, setDoc } from 'firebase/firestore';
+import { auth, db } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
 const Signup = () => {
+  const [user1, setUser1] = useState(null);
   const [user, setUser] = useState({
     email: "", fname: "", lname: "", password: "", confirmpassword: ""
   });
   const [errors, setErrors] = useState({
     email: "", fname: "", lname: "", password: "", confirmpassword: ""
   });
+  const[finalErr,setFinalErr]=useState("")
 
   useEffect(() => {
     console.log(user);
@@ -20,7 +24,6 @@ const Signup = () => {
     setUser({ ...user, [name]: value });
     setErrors({ ...errors, [name]: "" }); // Clear error when input changes
   }
-
   const handleSignup = (e) => {
     e.preventDefault();
     const newErrors = {};
@@ -44,19 +47,42 @@ const Signup = () => {
     // Proceed with signup if there are no errors
     if (Object.keys(newErrors).length === 0) {
       // Perform signup
-      handleSignupWithFirebase(user.email,user.password);
+      handleSignupWithFirebase(user.email,user.password,user.fname);
     }
   }
   const handleSignupWithFirebase = async (email,password) => {
     try {
       const response = await createUserWithEmailAndPassword(auth,email, password);
       console.log('User signed up:', response.user);
+      await setDoc(doc(db, 'users', response.user.uid), {
+        username: user.fname,
+        // contact: contact
+    });
+      setFinalErr("Sucessfully signup")
       // You can redirect the user to another page or show a success message
     } catch (error) {
-      // setError(error.message);
-      console.log(error);
+      console.log(error.message)
+      setFinalErr(error.message.substring(10)+'..!');
     }
   };
+  
+
+  useEffect(() => {
+      // Check if user is authenticated
+      const unsubscribe = auth.onAuthStateChanged((user) => {
+          if (user) {
+              // User is signed in
+              setUser1(user);
+              console.log(user1);
+          } else {
+              // No user is signed in
+              setUser1(null);
+          }
+      });
+
+      // Unsubscribe from the auth listener on unmount
+      return () => unsubscribe();
+  }, []);
 
   return (
     <section id="signup">
@@ -89,6 +115,7 @@ const Signup = () => {
             <input type="password" name="confirmpassword" autoComplete="off" value={user.confirmpassword} onChange={handleInputs} />
             {errors.confirmpassword && <span className='error'>{errors.confirmpassword}</span>}
           </div>
+          {finalErr && <span className={finalErr.includes('Sucessfully')? "txt-green":'finalerror'}>{finalErr}</span>}
           <button type="submit">Create Account</button>
         </form>
       </div>

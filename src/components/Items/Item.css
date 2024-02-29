@@ -1,0 +1,108 @@
+.items-head{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 80%;
+    margin: auto;
+    padding: 6.9444444444vw 2.7777777778vw 5.5555555556vw;
+}
+.item-text{
+    text-align: center;
+}
+.item-text h1{
+    color: #1f1f1f;
+    font-weight: 50;
+    font-size: 70px;
+    font-style: italic;
+    margin: 0;
+}
+.item-text p{
+    color: #909090;
+    font-size: 18px;
+    padding: 7px 27vw;
+}
+.itemsBtn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+}
+.itemsBtn button{
+    background-color: transparent;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 50px;
+    box-shadow: inset 0 0 0 1px #929292;
+    margin-top: 10px;
+}
+.arow{
+    padding: 7px 9px !important;
+}
+.active{
+    background-color: #e3d9c6 !important ;  
+    box-shadow: inset 0 0 0 1px transparent !important;
+}
+.filterBtn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    color: #fff;
+}  
+.filterBtn button{
+    width: 110px;
+    border-radius: 20px;
+    display: flex;
+    padding: 7px 15px;
+    background-color: #1f1f1f;
+    border: none;
+    color: white;
+    margin: 25px 0;
+    font-size: 15px;
+}
+.filterBtn span{
+    width: 40%;
+}
+.filterBtn p{
+    margin: 0;
+    width: 60%;
+}
+
+.cartimg{
+    padding: 0 55px;
+}
+.cartimg img{
+    width: 100%;
+    height: 100%;
+}
+.cartText{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+.cartItem h4{
+    font-weight: 100;
+    font-family: "Ojuju", sans-serif;
+    margin: 0;
+}
+.cards {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+  }
+  .card {
+    background-color: dodgerblue;
+    color: white;
+    padding: 1rem;
+    height: 4rem;
+  }
+  @media (min-width: 600px) {
+    .cards { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (min-width: 900px) {
+    .cards { grid-template-columns: repeat(3, 1fr); }
+  }
+    

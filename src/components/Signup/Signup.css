@@ -13,7 +13,7 @@
 .signupContainer{
     width: 300px;
     height: auto;
-    background: #1f1f1f;
+    background: Linear-gradient(270deg,rgba(33,33,33,.6) 14.44%,rgba(70,69,67,.6) 93.61%),#000;
     color: white;
     display: flex;
     padding: 30px;
@@ -75,4 +75,20 @@
     padding: 0;
     text-align: left;
     padding: 0em 1.125rem 0em;
+}
+.finalerror{
+    color: #cc2222 !important;
+    font-size: 14px !important;
+    display: block;
+    padding: 0;
+    text-align: center;
+    padding: 0.3em 1.125rem 0.4em;
+}
+.txt-green{
+    color: #11c648 !important;
+    font-size: 16px !important;
+    display: block;
+    padding: 0;
+    text-align: center;
+    padding: 0em 1.125rem 0.7em;
 }
