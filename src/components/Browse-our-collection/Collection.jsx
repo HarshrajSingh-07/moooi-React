@@ -1,6 +1,7 @@
 import React from "react";
 import "../Browse-our-collection/Collection.css";
 import "../manu-btn/Manu.css";
+import { Link } from "react-router-dom";
 
 const collectionData = [
   {
@@ -41,12 +42,14 @@ function Collection() {
       <h3>BROWSE OUR COLLECTION</h3>
       <div style={{width:"100%"}}>
       <div className="card">
-          {collectionData.map((item) => {
+          {collectionData.map((item,index) => {
             return (
+              <Link to={item.title} key={index}>
               <div className="item">
                 <img src={item.src} alt={item.alt} />
                 <span>{item.title}</span>
               </div>
+              </Link>
             );
           })}
         </div>
