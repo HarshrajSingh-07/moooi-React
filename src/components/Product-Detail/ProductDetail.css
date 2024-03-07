@@ -1,0 +1,326 @@
+#productDetail {
+  width: 100%;
+  height: auto;
+  margin-top: -102px;
+  font-family: "Ojuju", sans-serif;
+}
+
+.productDetailHead {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0vh 3vw;
+  padding-bottom: 110px;
+}
+
+.productDetailHead h1 {
+  font-family: "Oswald", sans-serif;
+  max-width: 66%;
+  font-size: 95px;
+  font-weight: 100;
+  margin: 0;
+  margin: 15px 0px;
+}
+
+.productDetailHead span {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin-left: 10px;
+  font-family: "Quicksand", sans-serif;
+}
+
+.prodimg {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.prodimg img {
+  max-height: 100%;
+  max-width: 100%;
+  height: auto;
+  width: auto;
+}
+
+.productImg {
+  background-image: url("https://www.moooi.com/_next/image?url=https%3A%2F%2Fcdn.moooi.com%2Ftmp%2Fimage-thumbnails%2FCollection%2FHome-Fragrance%2FRoom%20Fragrance%20Defy%20Gravity%2Fimage-thumb__37659__header_fullscreen_2x_jpg%2Fgravity-hero.webp&w=3840&q=80");
+  width: 100%;
+  height: 100vh;
+  margin-top: -102px;
+  object-fit: cover;
+  background-position: center;
+}
+
+.detailRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #5f5f5f;
+}
+
+.detailLeft {
+  width: 67%;
+}
+
+.detailLeft p {
+  font-size: 35px;
+  font-weight: 50;
+  font-family: "Smooch Sans", sans-serif;
+}
+
+.detailRight {
+  width: 30%;
+}
+
+.detailRight li {
+  font-size: 17px;
+  font-weight: 50;
+  display: flex;
+  align-items: center;
+}
+
+.cart-icon {
+  font-size: 40px;
+  margin-right: 20px;
+}
+
+.detailBtn {
+  background-color: transparent;
+  font-size: 18px;
+  border: none;
+  color: #3f3f3f;
+  border-bottom: 0.5px solid #5f5f5f;
+}
+
+.specs button {
+  background-color: #fff;
+  color: #3f3f3f;
+  border: none;
+  margin: 0;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 25px;
+  display: flex;
+  min-width: 145px;
+  padding: 10px 12px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 30px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.varBtn button {
+  background-color: #fff;
+  color: #1f1f1f;
+  border: none;
+  margin: 0;
+  font-size: 22px !important;
+  font-weight: 400;
+  border-radius: 25px;
+  padding: 3px 12px;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+
+.specsIcon {
+  font-size: 30px;
+}
+
+.variants {
+  display: flex;
+  align-items: center;
+}
+
+.leftVar {
+  width: 45%;
+}
+
+.leftVar h2 {
+  font-size: 13px;
+}
+
+.leftVar p {
+  font-family: "Nanum Gothic Coding", monospace;
+  font-size: 40px;
+  margin: 30px 0;
+}
+
+.rightVar {
+  width: 50%;
+  display: flex;
+}
+
+.var-img {
+  padding: 5px 40px;
+}
+
+.var-img img {
+  width: 100%;
+}
+
+.var-item {
+  max-width: 350px;
+  margin: 10px;
+  padding: 1.3888888889vw;
+  background-color: #f3f3f3;
+  margin: 35px 15px 35px 15px;
+}
+
+.variant-name {
+  text-align: center;
+  font-size: 18px;
+  color: #1f1f1f;
+  margin: 0;
+}
+
+.var-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.var-detail span {
+  color: rgb(128 123 123 / 61%);
+  font-size: 13px;
+  margin: 10px 0;
+}
+
+.varientShip {
+  display: flex;
+  align-items: center;
+}
+
+.shipIcon {
+  color: #4b4848;
+  font-size: 18px;
+  margin-right: 7px;
+}
+
+.ourCommitments {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
+}
+
+.commitments {
+  min-height: 50%;
+  max-width: 1340px;
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.commitments h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.8px;
+  margin: 0;
+}
+
+.commitments p {
+  font-family: "Montserrat", sans-serif;
+  font-weight: 240;
+  margin: 25px 0;
+  font-size: 43px;
+  padding: 0 25px;
+}
+
+.policies {
+  min-height: 35%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.policy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30%;
+  text-align: center;
+}
+
+.policy-icon {
+  color: #929292;
+  font-size: 70px;
+  min-height: 100px;
+}
+
+.innerpolicy {
+  min-height: 250px;
+  max-width: 350px;
+}
+
+.innerpolicy h2 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 420;
+  margin: 0;
+  margin: 15px 0;
+}
+
+.innerpolicy p {
+  margin: 0;
+  color: #1f1f1f;
+  font-size: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+
+  .commitments {
+    min-height: 30%;
+  }
+
+  .commitments p {
+    font-size: 30px;
+  }
+
+  .policy-icon {
+    min-height: 50px;
+    font-size: 50px;
+  }
+
+  .innerpolicy {
+    padding: 0 10px;
+  }
+
+  .innerpolicy h2 {
+    font-size: 18px;
+  }
+
+  .innerpolicy p {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 765px) {
+  .productDetailHead {
+    width: 95%;
+    padding-bottom: 0;
+  }
+
+  .detailRow {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .detailLeft {
+    width: 100%;
+  }
+
+  .detailLeft p {
+    font-size: 25px;
+  }
+
+  .detailRight ul {
+    padding: 0;
+  }
+}

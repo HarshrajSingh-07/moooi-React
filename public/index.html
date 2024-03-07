@@ -3,7 +3,6 @@
 
 <head>
   <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#000000" />
   <meta name="description" content="Web site created using create-react-app" />
@@ -19,6 +18,7 @@
     href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,700&family=Noto+Sans+Gothic&family=Nunito&family=Roboto+Slab&family=Rubik:ital,wght@0,300..900;1,300..900&family=Syne&display=swap"
     rel="stylesheet">
   <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <Link rel="icon" type="image/icon type" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAACnklEQVR4Ac1XMaxhQRSVtX0fAFHpFP5qNFvS0/dWIfqIkIiKik4oVP9TQvm3JEQovF+sbRRLJ6GR5+6cZHbyvMzzeX/l/ZucZDJ37rlnZt7cN2O7xbxe71eGEMMPhhcGhWHPoAK8/QYfHxNCjO2DhsR2hm8MdYY1w4mB3sGJj20wRM0KQXIHQ4VhC2KT2HIOx73Jnxh+MpxB9EGA4xWctyb/zveY/jMUcN8yc5H8QSKeru05looeDORw6JN/YagYBbndbnK5XOTxeLRt4UcbffBp2tdEVJBTKyDK8Ec/EGQ+n48SiQSVy2XqdDrUbDYpl8tRJBJBEgBt9MGHMRhL8XgcsUKoDsgV1Z71hix5MBikYrFIu92OtKaqKk2nUwgDaDaboY+0tt1uEQsOIxF11m+38aq1li07ZnU8HsnIJpMJYOhHLDgMtuMXctt46TzpZx8Oh2k+nwuy5XJJpVKJCoUCjcdjgp3PZwH0wYcxi8WCuIEDXLJVOCE3BDzr1eEjSiaTdDgcCLbZbAh76nA4CIjFYrRarUQSRVHQJ/wYixgYOMAFTskqvNhk597pdFImkyHMDDYYDCgQCFxsT7vdFgJarZZ2mTEWMWKVwAVOWV2AgL1MQDabFQm63S6+6IsVqtVqwo+2doYYixhu4DISsIcA1YyAarUq/GibFKB+CgF7iwSILVAsFKCIY2iRgGdRiCwQIApRCGXxmoBer3fvMUTMewLWyP3vZ1TXV8JUKkX9fp9GoxHl83mQXhSidDpNw+EQQBt9WgGIQSw4wCWrhA3kNvwdgwQVDfD7/fpg9N3sB5f8dyy/kDwe+gsJF+G07Epm/aXU8mu5fCVeLXiYWP00k7+Ko/zM/r7zcVrnD1v7tRxmn+dvkue5YuZ5/hfEJt6Oybp5twAAAABJRU5ErkJggg=="/> 
   <!--
       Notice the use of %PUBLIC_URL% in the tags above.
       It will be replaced with the URL of the `public` folder during the build.
@@ -28,22 +28,33 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-  <title>React App</title>
+  <title id="title">Homepage - Moooi</title>
 </head>
-
+<script>
+  let url = window.location.href;
+    
+    // Find the index of the third '/'
+    let firstSlashIndex = url.indexOf('/') + 1; // First '/'
+    let secondSlashIndex = url.indexOf('/', firstSlashIndex) + 1; // Second '/'
+    let thirdSlashIndex = url.indexOf('/', secondSlashIndex) + 1; // Third '/'
+    
+    // Extract the substring after the third '/'
+    let wordAfterThirdSlash = url.substring(thirdSlashIndex);
+    
+    // Output the result
+    console.log(wordAfterThirdSlash);
+    if(wordAfterThirdSlash==="")
+    {
+      document.getElementById("title").innerText="Homepage - Moooi";
+    }else{
+      document.getElementById("title").innerText=wordAfterThirdSlash + " - Moooi";
+    }
+   
+</script>
 <body>
   <noscript>You need to enable JavaScript to run this app.</noscript>
+ 
   <div id="root"></div>
-  <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
 </body>
 
 </html>

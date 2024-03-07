@@ -1,4 +1,6 @@
 import "./App.css";
+import { useEffect, useState } from "react";
+import { Route, Routes } from "react-router-dom";
 import Collection from "./components/Browse-our-collection/Collection";
 import Design from "./components/Design-Dream/Design";
 import Header from "./components/Header/Header";
@@ -10,29 +12,57 @@ import Product from "./components/Product-story/Productstory";
 import Strategy from "./components/Strategy/Strategy";
 import Footer from "./components/Footer/Footer";
 import Login from "./components/Login/Login";
-import Signup from "./components/Signup/Signup";
-import { useState } from "react";
+import Signup from "./components/Signup/Signup.jsx"
 import Items from "./components/Items/Items";
-import { Route, Routes } from "react-router-dom";
-import { BeddingBath,BeddingBathhead} from "./components/Items/itemData1";
-import { Furniture , Furnitureobj} from "./components/Items/itemData2";
-import { Lighting , LightingHead} from "./components/Items/ItemData3.js";
-import { HomeAccessories , HomeAccessoriesHead} from "./components/Items/ItemData4.js";
-import { WallFloor , WallFloorHead} from "./components/Items/ItemData5.js";
-import { BodyBeauty , BodyBeautyHead} from "./components/Items/ItemData6.js";
+import { BeddingBath, BeddingBathhead } from "./components/Items/itemData1";
+import { Furniture, Furnitureobj } from "./components/Items/itemData2";
+import { Lighting, LightingHead } from "./components/Items/ItemData3.js";
+import {
+  HomeAccessories,
+  HomeAccessoriesHead,
+} from "./components/Items/ItemData4.js";
+import { WallFloor, WallFloorHead } from "./components/Items/ItemData5.js";
+import { BodyBeauty, BodyBeautyHead } from "./components/Items/ItemData6.js";
+import {
+  AllCollection,
+  collectionhead,
+} from "./components/Items/AllCollection.js";
+import ProductDetail from "./components/Product-Detail/ProductDetail";
+import ScrollToTop from "./ScrollToTop.jsx";
 
 function App() {
   const [show, setShow] = useState(false);
+  const [urlMain,setUrlMain]=useState('');
   function handleShow() {
     setShow(!show);
   }
+  useEffect(() => {
+    const url = window.location.href;
+    const parsedUrl = new URL(url);
+  const decodedPathname = decodeURIComponent(parsedUrl.pathname);
+  const categoryPath = decodedPathname.split('/').slice(1, 3).join('/');
+  console.log(categoryPath);
+  })
+ 
   return (
     <>
-      {show ? <Login /> : null}
+    <ScrollToTop>
+      {/* <ProductDetail cardItem={AllCollection} obj={collectionhead}/> */}
+      {/* {show==='show' ? <Login /> : show==='login'? <Login/>:show==='signup'?<Signup/>:null} */}
 
       <Routes>
         <Route
-          path="Bedding & Bath"
+          path="/collection"
+          element={
+            <>
+              <Header />
+              <Items cardItem={AllCollection} obj={collectionhead} />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/Bedding & Bath"
           element={
             <>
               <Header />
@@ -42,7 +72,17 @@ function App() {
           }
         />
         <Route
-          path="Furniture"
+          path={`/productdetails/:id1/:id`}
+          element={
+            <>
+              <Header />
+              <ProductDetail />
+              <Footer />
+            </>
+          }
+        />
+        <Route
+          path="/Furniture"
           element={
             <>
               <Header />
@@ -51,8 +91,9 @@ function App() {
             </>
           }
         />
+       
         <Route
-          path="Lighting"
+          path="/Lighting"
           element={
             <>
               <Header />
@@ -61,8 +102,9 @@ function App() {
             </>
           }
         />
+       
         <Route
-          path="Home Accessories"
+          path="/Home Accessories"
           element={
             <>
               <Header />
@@ -71,8 +113,9 @@ function App() {
             </>
           }
         />
+      
         <Route
-          path="Wall & Floor"
+          path="/Wall & Floor"
           element={
             <>
               <Header />
@@ -81,8 +124,9 @@ function App() {
             </>
           }
         />
+        
         <Route
-          path="Body & Beauty"
+          path="/Body & Beauty"
           element={
             <>
               <Header />
@@ -91,7 +135,7 @@ function App() {
             </>
           }
         />
-
+       
         <Route
           path="/"
           element={
@@ -116,6 +160,7 @@ function App() {
           }
         />
       </Routes>
+      </ScrollToTop>
     </>
   );
 }

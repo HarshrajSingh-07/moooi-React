@@ -16,32 +16,37 @@ Header{
 .item-text h1{
     color: #1f1f1f;
     font-weight: 50;
-    font-size: 70px;
+    font-size: 72px;
     font-style: italic;
     margin: 0;
 }
 .item-text p{
-    color: #909090;
-    font-size: 18px;
-    padding: 7px 27vw;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 250;
+    /* color: #909090; */
+    color: #1f1f1f;
+    font-size: 20px;
+    padding: 7px 10vw;
 }
 .itemsBtn{
     width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
-
 }
 .itemsBtn button{
+    font-family: "Nunito", sans-serif;
+    font-size: 17px;
     background-color: transparent;
     border: none;
-    padding: 8px 15px;
+    padding: 8px 20px;
     border-radius: 50px;
     box-shadow: inset 0 0 0 1px #929292;
     margin-top: 10px;
 }
 .arow{
-    padding: 7px 9px !important;
+    padding: 7px 10px !important;
 }
 .active{
     background-color: #e3d9c6 !important ;  
@@ -74,7 +79,7 @@ Header{
 
 .cartimg{
     padding: 0 45px;
-    height: 550px;
+    height: 575px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -86,17 +91,20 @@ Header{
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-decoration: none;
 }
 .carditem h4{
-    font-size: 14px;
+    font-size: 16px;
     color: #1f1f1f;
     font-weight: 100;
     font-family: "Ojuju", sans-serif;
     margin: 0;
 }
 .strong{
-    font-size: 12px;
+    text-transform: uppercase;
+    font-size: 13px;
     font-weight:600;
+    font-family: "Montserrat", sans-serif;
 }
 .availability{
     font-size: 12px;
@@ -110,14 +118,63 @@ Header{
     display: grid;
     gap: 1rem;
   }
+  .cards a{
+    text-decoration: none;
+  }
   .carditem {
     padding: 1rem;
     height: auto;
   }
+  @media (max-width:576px) {
+    .item-text h1{
+        font-size: 50px;
+    }
+    .item-text p{
+        padding:0;
+    }
+  }
   @media (min-width: 600px) {
     .cards { grid-template-columns: repeat(2, 1fr); }
+    .item-text h1{
+        font-size: 55px;
+    }
+    .item-text p{
+        padding:7px 7vw;
+    }
   }
   @media (min-width: 900px) {
     .cards { grid-template-columns: repeat(3, 1fr); }
+    .item-text h1{
+        font-size: 100px;
+    }
+    .item-text p{
+        padding:7px 20vw;
+    }
   }
+
+  .suggestion{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    margin:12.5vw 25vw;
+}
+.suggestion h2{
+    font-size: 15px;
+    font-family: "Ojuju", sans-serif;
+    margin: 0;
+}
+.suggestion p{
+    font-size: 48px;
+    font-weight:100;
+    font-family: "Manrope", sans-serif;
+}
+.suggestion button{
+    background-color: transparent;
+    border: none;
+    padding: 15px 20px;
+    border-radius: 50px;
+    box-shadow: inset 0 0 0 1px #929292;
+    margin: 10px;
+}
     

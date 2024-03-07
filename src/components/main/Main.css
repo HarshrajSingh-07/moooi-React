@@ -12,7 +12,8 @@
 }
 .main-head{
     width: 100%;
-    padding-top: 275px;
+    /* padding-top: 275px; */
+    padding-top: 25vh;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -59,12 +60,14 @@
 }
 @media only screen and (max-width: 576px){
     .main-head h1{
-        font-size: 45px;
+        font-size: 40px;
     }
     .main-head p{
         font-size: 14px;
     }
     .main-head button{
         margin-top: 35px;
+        padding: 10px 14    px;
+        font-size: 15px; 
     }
 }

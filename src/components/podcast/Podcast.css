@@ -1,3 +1,11 @@
 .podcastBtn {
    margin-top: 40px; 
 }
+@media only screen and (max-width: 576px){
+   .podcastBtn{
+      margin-top: 20px;
+   }
+   .cool-link{
+      font-size: 20px;
+   }
+}
