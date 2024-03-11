@@ -1,4 +1,4 @@
-export const Bath = [
+export const Towel = [
     {
       src: "https://www.moooi.com/_next/image?url=https%3A%2F%2Fcdn.moooi.com%2Ftmp%2Fimage-thumbnails%2FCollection%2FBath%2FTowel%2Fimage-thumb__65444__header_fullscreen_2x_jpg%2FDodo-Pavone-Towel_Stack-Topshot.webp&w=1080&q=80",
       itemname: "Dodo Pavone Towel ",
@@ -35,8 +35,8 @@ export const Bath = [
       availability: "In Stock",
     },
   ];
-  export let BathHead = {
-    title: "Bath",
+  export let towelHead = {
+    title: "Towel",
     btn: ["All Bath", "Towel", "Beach Towels","Kimono","Bathrobe"],
   };
   

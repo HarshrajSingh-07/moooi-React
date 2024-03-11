@@ -1,15 +1,13 @@
 import React, { useEffect, useState } from "react";
 import "./ProductDetail.css";
+import BuyPro from "../Buycard/BuyPro";
 import { LiaShippingFastSolid } from "react-icons/lia";
 import { TbTruckReturn } from "react-icons/tb";
 import { GiMeepleCircle } from "react-icons/gi";
-import { VscCircleSmall } from "react-icons/vsc";
-import { BsCartCheckFill } from "react-icons/bs";
-import { FaShippingFast } from "react-icons/fa";
 import { FiShoppingBag } from "react-icons/fi";
 import { IoIosAdd } from "react-icons/io";
 import { useParams } from "react-router-dom";
-import {BeddingBath}  from "../Items/itemData1";
+import { BeddingBath } from "../Items/itemData1";
 import { Furniture } from "../Items/itemData2";
 import { Lighting } from "../Items/ItemData3";
 import { HomeAccessories } from "../Items/ItemData4";
@@ -17,10 +15,10 @@ import { WallFloor } from "../Items/ItemData5";
 import { BodyBeauty } from "../Items/ItemData6";
 
 const ProductDetail = () => {
-  const [data,setData]=useState([]);
-  const [mydata,setMyData]=useState({})
-  let { id,id1 } = useParams();
-  console.log(id,id1);
+  const [data, setData] = useState([]);
+  const [mydata, setMyData] = useState({});
+  let { id, id1 } = useParams();
+  console.log(id, id1);
   let files = [
     BeddingBath,
     Furniture,
@@ -30,54 +28,42 @@ const ProductDetail = () => {
     BodyBeauty,
   ];
 
- useEffect(()=>{
-   files.forEach((item, index) => {
+  useEffect(() => {
+    files.forEach((item, index) => {
       item.forEach((element, i) => {
         console.log(element.type);
-        if(element.type===id1)
-        {
+        if (element.type === id1) {
           setData(item[id]);
         }
       });
     });
- 
-  // console.log(data);
-},[id])
- 
- 
+
+    // console.log(data);
+  }, [id]);
+
   // console.log("mydata",mydata)
   // console.log(mydata.src)
   console.log(id);
   return (
     <section id="productDetail">
-      {/* <div className="productImg">
-             
-      </div> */}
-    
       <div className="prodimg">
-              <img src={data.src}></img>
+        <img src={data.src}></img>
       </div>
-
       <div className="productDetailHead">
-        <h1 >{data.itemname}</h1>
+        <h1>{data.itemname}</h1>
+        <BuyPro src={data.src} title={data.itemname} price={data.price}/>
         <span>MOOOI, 2021</span>
         <div className="varBtn">
-        <br />
-        <h2>{data.price}</h2><br />
-                  <button>
-                    <IoIosAdd className="cartIcon" /> 
-                    <FiShoppingBag className="cartIcon" />
-                  </button>
-
-                </div>
-
+          <button>
+          <h2 className="detailprice">{data.price}</h2>
+            <IoIosAdd className="cartIcon" />
+            <FiShoppingBag className="cartIcon" />
+          </button>
+        </div>
         <div className="detailRow">
           <div className="detailLeft">
-            <p>
-              Clear your mind and opt for a fresh start every day with Defy
-              Gravity. With rare ambergris, Australian sandalwood, seaweeds,
-              driftwood and African buchu. The crisp marine notes in Defy
-              Gravity brings …
+            <p><h5>{data.type}</h5>
+            Elevate your space with our exquisite product, {data.itemname}, crafted to perfection. Whether it's for {data.type}, our product promises to captivate your senses and redefine your ambiance.
             </p>
             <button className="detailBtn">Read more</button>
           </div>
@@ -85,7 +71,7 @@ const ProductDetail = () => {
           <div className="detailRight">
             <ul>
               <li>
-                <LiaShippingFastSolid className="cart-icon"/>
+                <LiaShippingFastSolid className="cart-icon" />
                 <span>Free Shipping</span>
               </li>
               <li>
@@ -99,66 +85,6 @@ const ProductDetail = () => {
             </ul>
           </div>
         </div>
-
-        {/* <div className="variants">
-          <div className="leftVar">
-            <div className="leftText">
-              <h2>VARIANTS</h2>
-              <p>Room Fragrance Defy Gravity is available in 2 models.</p>
-              <div className="specs">
-                <button>View 2 variants</button>
-              </div>
-            </div>
-          </div>
-          <div className="rightVar">
-            <div className="var-item">
-              <div className="var-img">
-                <img
-                  src="https://www.moooi.com/_next/image?url=https%3A%2F%2Fcdn.moooi.com%2Fassets%2FCollection%2FHome-Fragrance%2FRoom%2520Fragrance%2520Defy%2520Gravity%2Froom-spray-defy-gravity-spray-V2.png&w=2048&q=80"
-                  alt="variants"
-                />
-              </div>
-              <div className="var-detail">
-                <p className="variant-name">Room spray Defy Gravity 200ml,</p>
-                <p>Multicolour</p>
-                <span>$65</span>
-                <div className="varientShip">
-                  <FaShippingFast className="shipIcon" />
-                  <span>ship in 2 day</span>
-                </div>
-                <div className="varBtn">
-                  <button>
-                    <IoIosAdd className="cartIcon" />
-                    <FiShoppingBag className="cartIcon" />
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div className="var-item">
-              <div className="var-img">
-                <img
-                  src="https://www.moooi.com/_next/image?url=https%3A%2F%2Fcdn.moooi.com%2Fassets%2FCollection%2FHome-Fragrance%2FRoom%2520Fragrance%2520Defy%2520Gravity%2Froom-spray-defy-gravity-reed-diffuser-V2.png&w=3840&q=80"
-                  alt="variants"
-                />
-              </div>
-              <div className="var-detail">
-                <p className="variant-name">Room spray Defy Gravity 200ml,</p>
-                <p>Multicolour</p>
-                <span>$65</span>
-                <div className="varientShip">
-                  <FaShippingFast className="shipIcon" />
-                  <span>ship in 2 day</span>
-                </div>
-                <div className="varBtn">
-                  <button>
-                    <IoIosAdd className="cartIcon" />
-                    <FiShoppingBag className="cartIcon" />
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div> */}
       </div>
       <div className="ourCommitments">
         <div className="commitments">

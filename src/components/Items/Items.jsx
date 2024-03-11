@@ -30,6 +30,7 @@ const Items = ({ cardItem, obj }) => {
             </button>
           </Link>
           {obj.btn.map((item, index) => (
+            <Link to={`/${item.toLowerCase()}`} key={index} >
             <button
               key={index}
               className={index === targetIndex ? "active" : null}
@@ -38,6 +39,7 @@ const Items = ({ cardItem, obj }) => {
             >
               {item}
             </button>
+            </Link>
           ))}
         </div>
         <div className="filterBtn">

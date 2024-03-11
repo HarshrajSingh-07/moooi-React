@@ -12,9 +12,10 @@ import Product from "./components/Product-story/Productstory";
 import Strategy from "./components/Strategy/Strategy";
 import Footer from "./components/Footer/Footer";
 import Login from "./components/Login/Login";
-import Signup from "./components/Signup/Signup.jsx"
+import Signup from "./components/Signup/Signup.jsx";
 import Items from "./components/Items/Items";
 import { BeddingBath, BeddingBathhead } from "./components/Items/itemData1";
+import { Bath, BathHead } from "./components/Items/SubItem";
 import { Furniture, Furnitureobj } from "./components/Items/itemData2";
 import { Lighting, LightingHead } from "./components/Items/ItemData3.js";
 import {
@@ -32,134 +33,137 @@ import ScrollToTop from "./ScrollToTop.jsx";
 
 function App() {
   const [show, setShow] = useState(false);
-  const [urlMain,setUrlMain]=useState('');
+  const [urlMain, setUrlMain] = useState("");
   function handleShow() {
     setShow(!show);
   }
   useEffect(() => {
     const url = window.location.href;
     const parsedUrl = new URL(url);
-  const decodedPathname = decodeURIComponent(parsedUrl.pathname);
-  const categoryPath = decodedPathname.split('/').slice(1, 3).join('/');
-  console.log(categoryPath);
-  })
- 
+    const decodedPathname = decodeURIComponent(parsedUrl.pathname);
+    const categoryPath = decodedPathname.split("/").slice(1, 3).join("/");
+    console.log(categoryPath);
+  });
+
   return (
     <>
-    <ScrollToTop>
-      {/* <ProductDetail cardItem={AllCollection} obj={collectionhead}/> */}
-      {/* {show==='show' ? <Login /> : show==='login'? <Login/>:show==='signup'?<Signup/>:null} */}
+      <ScrollToTop>
+        {/* <ProductDetail cardItem={AllCollection} obj={collectionhead}/> */}
+        {/* {show==='show' ? <Login /> : show==='login'? <Login/>:show==='signup'?<Signup/>:null} */}
 
-      <Routes>
-        <Route
-          path="/collection"
-          element={
-            <>
-              <Header />
-              <Items cardItem={AllCollection} obj={collectionhead} />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/Bedding & Bath"
-          element={
-            <>
-              <Header />
-              <Items cardItem={BeddingBath} obj={BeddingBathhead} />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path={`/productdetails/:id1/:id`}
-          element={
-            <>
-              <Header />
-              <ProductDetail />
-              <Footer />
-            </>
-          }
-        />
-        <Route
-          path="/Furniture"
-          element={
-            <>
-              <Header />
-              <Items cardItem={Furniture} obj={Furnitureobj} />
-              <Footer />
-            </>
-          }
-        />
-       
-        <Route
-          path="/Lighting"
-          element={
-            <>
-              <Header />
-              <Items cardItem={Lighting} obj={LightingHead} />
-              <Footer />
-            </>
-          }
-        />
-       
-        <Route
-          path="/Home Accessories"
-          element={
-            <>
-              <Header />
-              <Items cardItem={HomeAccessories} obj={HomeAccessoriesHead} />
-              <Footer />
-            </>
-          }
-        />
-      
-        <Route
-          path="/Wall & Floor"
-          element={
-            <>
-              <Header />
-              <Items cardItem={WallFloor} obj={WallFloorHead} />
-              <Footer />
-            </>
-          }
-        />
-        
-        <Route
-          path="/Body & Beauty"
-          element={
-            <>
-              <Header />
-              <Items cardItem={BodyBeauty} obj={BodyBeautyHead} />
-              <Footer />
-            </>
-          }
-        />
-       
-        <Route
-          path="/"
-          element={
-            <>
-              <Header />
-              <Main />
-              <Manu handleShow={handleShow} />
-              <Collection />
-              <Design />
-              <Product />
-              <Presents />
-              <Strategy />
-              <Podcast
-                span={"PRODUCT STORY"}
-                btnText={"Listen now!"}
-                src={"/assets/images/phone.webp"}
-              >
-                Get inspired by our Design Dreams podcast
-              </Podcast>
-              <Footer />
-            </>
-          }
-        />
-      </Routes>
+        <Routes>
+          <Route
+            path="/collection"
+            element={
+              <>
+                <Header />
+                <Items cardItem={AllCollection} obj={collectionhead} />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Bedding & Bath"
+            element={
+              <>
+                <Header />
+                <Items cardItem={BeddingBath} obj={BeddingBathhead} />
+                <Footer />
+              </>
+            }
+          />
+
+          {/* <Route path="/Items/:itemName" element={<Items cardItem={Bath} obj={BathHead}/>} /> */}
+
+          <Route
+            path={`/productdetails/:id1/:id`}
+            element={
+              <>
+                <Header />
+                <ProductDetail />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/Furniture"
+            element={
+              <>
+                <Header />
+                <Items cardItem={Furniture} obj={Furnitureobj} />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="/Lighting"
+            element={
+              <>
+                <Header />
+                <Items cardItem={Lighting} obj={LightingHead} />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="/Home Accessories"
+            element={
+              <>
+                <Header />
+                <Items cardItem={HomeAccessories} obj={HomeAccessoriesHead} />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="/Wall & Floor"
+            element={
+              <>
+                <Header />
+                <Items cardItem={WallFloor} obj={WallFloorHead} />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="/Body & Beauty"
+            element={
+              <>
+                <Header />
+                <Items cardItem={BodyBeauty} obj={BodyBeautyHead} />
+                <Footer />
+              </>
+            }
+          />
+
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />
+                <Main />
+                <Manu handleShow={handleShow} />
+                <Collection />
+                <Design />
+                <Product />
+                <Presents />
+                <Strategy />
+                <Podcast
+                  span={"PRODUCT STORY"}
+                  btnText={"Listen now!"}
+                  src={"/assets/images/phone.webp"}
+                >
+                  Get inspired by our Design Dreams podcast
+                </Podcast>
+                <Footer />
+              </>
+            }
+          />
+        </Routes>
       </ScrollToTop>
     </>
   );

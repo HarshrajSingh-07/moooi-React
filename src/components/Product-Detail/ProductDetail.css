@@ -57,20 +57,31 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  color: #5f5f5f;
 }
 
 .detailLeft {
   width: 67%;
 }
-
-.detailLeft p {
-  font-size: 35px;
-  font-weight: 50;
-  font-family: "Smooch Sans", sans-serif;
+.proname{
+  font-size: 10px;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  font-weight: 800;
 }
 
+.detailLeft p {
+  color: #1f1f1f;
+  font-size: 35px;
+  font-weight: 275;
+  font-family: "Montserrat", sans-serif;
+}
+.detailLeft h5{
+  margin: 10px 0 15px 0;
+  font-weight: 400;
+}
 .detailRight {
+  color: #5f5f5f;
   width: 30%;
 }
 
@@ -116,14 +127,19 @@
   color: #1f1f1f;
   border: none;
   margin: 0;
-  font-size: 22px !important;
+  font-size: 28px !important;
   font-weight: 400;
   border-radius: 25px;
-  padding: 3px 12px;
+  padding: 5px 12px;
   justify-content: space-between;
   align-items: center;
   margin-top: 20px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+}
+.detailprice{
+  display: inline-block;
+  font-size: 28px;
+  margin:0;
 }
 
 .specsIcon {
