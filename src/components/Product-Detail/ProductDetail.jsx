@@ -13,6 +13,9 @@ import { Lighting } from "../Items/ItemData3";
 import { HomeAccessories } from "../Items/ItemData4";
 import { WallFloor } from "../Items/ItemData5";
 import { BodyBeauty } from "../Items/ItemData6";
+import Bag from "../Bag/Bag";
+
+
 
 const ProductDetail = () => {
   const [data, setData] = useState([]);
@@ -46,6 +49,7 @@ const ProductDetail = () => {
   console.log(id);
   return (
     <section id="productDetail">
+    {/* <Bag  /> */}
       <div className="prodimg">
         <img src={data.src}></img>
       </div>

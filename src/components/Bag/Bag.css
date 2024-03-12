@@ -1,0 +1,122 @@
+#Bag {
+    width: 100%;
+    font-family: "Oswald", sans-serif;
+   
+}
+.bagContainer__close{
+    height: 80vh;
+    box-sizing: border-box;
+    position: fixed;
+    transform: translateX(120%);
+    right:15px;
+    top: 15px;
+   width: min(500px,100%);
+    padding: calc(2.7777777778vw + 20px) 2vw 1.3888888889vw;
+    /* background-color: #fff; */
+    border-radius: 10px;
+    /* display: block; */
+    transition: all 0.6s ease-in-out;
+}
+.cartcards{
+    padding: 0 20px;
+    height: 50vh;
+    overflow-y: scroll;
+}
+.bagContainer {
+    height: 80vh;
+    box-sizing: border-box;
+    position: fixed;
+    transform: translateX(0%);
+    right:15px;
+    top: 15px;
+   width: min(450px,100%);
+    background-color: #fff;
+    border-radius: 10px;
+    /* display: block; */
+    transition: all 0.6s ease-in-out;
+}
+.close{
+    top: 25px;
+    right: 45px;
+    position: absolute;
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+}
+.close svg{
+    color: #3f3f3f;
+    width: 25px;
+    transform: rotate(45deg);
+}
+.close:hover svg{
+    transition: 0.2s ease-in-out;
+    transform: rotate(120deg);
+}
+.bagImg {
+    width: 25%;
+}
+
+.bagImg img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+}
+
+.bagCards {
+    height: 120px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.BagHeader {
+    color: #3f3f3f;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 50px 35px 0;
+}
+.BagHeader h1{
+    font-size: 40px;
+    font-weight: 300;
+    letter-spacing: 2px;
+    margin: 0;
+    margin-bottom: 1.3888888889vw;
+}
+.bagIcons{
+    width:35%;
+    font-size: 25px;
+    display: flex;
+    justify-content: space-around;
+}
+.bagDetails{
+    font-weight: 350;
+    width:65%;  
+    margin-left: 10px;
+}
+.bagDetails p{
+    font-size: 18px;
+    letter-spacing: 0.8px;
+    margin: 0;
+}
+.bagDetails span{
+    color: #929292;
+}
+
+
+.bagprice {
+    width: 20%;
+    text-align: right;
+    letter-spacing: 2px;
+}
+.subtotal{
+    width: 85%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 25px;
+    margin-top: 20px;
+    border-top: 1px solid #3f3f3f;
+}
