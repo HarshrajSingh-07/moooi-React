@@ -1,35 +1,32 @@
 #Bag {
     width: 100%;
     font-family: "Oswald", sans-serif;
-   
+    
 }
 .bagContainer__close{
-    height: 80vh;
-    box-sizing: border-box;
+    height: 74vh;
+    box-shadow: 3px 3px 11px rgba(0,0,0,.13);
     position: fixed;
     transform: translateX(120%);
     right:15px;
     top: 15px;
-   width: min(500px,100%);
     padding: calc(2.7777777778vw + 20px) 2vw 1.3888888889vw;
-    /* background-color: #fff; */
     border-radius: 10px;
-    /* display: block; */
     transition: all 0.6s ease-in-out;
 }
 .cartcards{
     padding: 0 20px;
-    height: 50vh;
+    height: 60%;
     overflow-y: scroll;
 }
 .bagContainer {
-    height: 80vh;
-    box-sizing: border-box;
+    height: 74vh;
+    box-shadow: 3px 3px 11px rgba(0,0,0,.13);
     position: fixed;
     transform: translateX(0%);
     right:15px;
     top: 15px;
-   width: min(450px,100%);
+    width: min(400px,100%);
     background-color: #fff;
     border-radius: 10px;
     /* display: block; */
@@ -111,12 +108,61 @@
     letter-spacing: 2px;
 }
 .subtotal{
-    width: 85%;
-    margin: 0 auto;
+    color: #929292;
+    font-weight: 300;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: 0 25px;
-    margin-top: 20px;
-    border-top: 1px solid #3f3f3f;
+    padding: 0 3px;
+    flex-direction: row;
+}
+.subtotal p{
+    margin: 0;
+}
+.bagButtons{
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.bagButtons button{
+    min-width: 150px;
+    min-height: 40px;
+    margin-bottom: 10px;
+    border: none;
+    background-color: #fff;
+    border-radius: 2.5em;
+    box-shadow: 3px 3px 10px rgba(0,0,0,.1);
+}
+.CheackBtn{
+    background-color: #1f1f1f !important;
+    color: #fff;
+}
+.bagFooter{
+    margin: 0 auto;         
+    padding-top: 15px;
+    width: 85%;
+    border-top: 1px solid #929292;
+    gap:20px;
+    display: flex;
+    flex-direction: column;
+}
+@media screen and (max-width: 365px){
+    .bagFooter{
+        flex-direction: row;
+    }
+    .bagButtons{
+        width: 60%;
+       justify-content: end;
+    }
+    .subtotal{
+        width: 40%;
+        flex-direction: column;
+        justify-content: space-around;
+        /* align-items: start; */
+    }
+}
+.blur{
+    filter: blur(5px);
 }

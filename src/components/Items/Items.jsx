@@ -4,7 +4,7 @@ import { HiOutlineChevronLeft } from "react-icons/hi";
 import { BsFilterRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-const Items = ({ cardItem, obj }) => {
+const Items = ({link, cardItem, obj }) => {
   const [targetIndex, setTargetIndex] = useState(0);
 
   const pageHandlerBtn = (e) => {
@@ -24,7 +24,7 @@ const Items = ({ cardItem, obj }) => {
           </p>
         </div>
         <div className="itemsBtn">
-          <Link to="/collection">
+          <Link to={link}>
             <button className="arow">
               <HiOutlineChevronLeft />
             </button>

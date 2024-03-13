@@ -30,6 +30,7 @@ import {
 } from "./components/Items/AllCollection.js";
 import ProductDetail from "./components/Product-Detail/ProductDetail";
 import ScrollToTop from "./ScrollToTop.jsx";
+import OrderSummary from "./components/Order summary/OrderSummary.jsx";
 
 function App() {
   const [show, setShow] = useState(false);
@@ -57,7 +58,7 @@ function App() {
             element={
               <>
                 <Header />
-                <Items cardItem={AllCollection} obj={collectionhead} />
+                <Items link={"/"} cardItem={AllCollection} obj={collectionhead} />
                 <Footer />
               </>
             }
@@ -67,7 +68,7 @@ function App() {
             element={
               <>
                 <Header />
-                <Items cardItem={BeddingBath} obj={BeddingBathhead} />
+                <Items link={"/collection"} cardItem={BeddingBath} obj={BeddingBathhead} />
                 <Footer />
               </>
             }
@@ -90,7 +91,7 @@ function App() {
             element={
               <>
                 <Header />
-                <Items cardItem={Furniture} obj={Furnitureobj} />
+                <Items  link={"/Bedding & Bath"} cardItem={Furniture} obj={Furnitureobj} />
                 <Footer />
               </>
             }
@@ -101,7 +102,7 @@ function App() {
             element={
               <>
                 <Header />
-                <Items cardItem={Lighting} obj={LightingHead} />
+                <Items link={"/Furniture"} cardItem={Lighting} obj={LightingHead} />
                 <Footer />
               </>
             }
@@ -112,7 +113,7 @@ function App() {
             element={
               <>
                 <Header />
-                <Items cardItem={HomeAccessories} obj={HomeAccessoriesHead} />
+                <Items link={"/Lighting"} cardItem={HomeAccessories} obj={HomeAccessoriesHead} />
                 <Footer />
               </>
             }
@@ -123,7 +124,7 @@ function App() {
             element={
               <>
                 <Header />
-                <Items cardItem={WallFloor} obj={WallFloorHead} />
+                <Items link={"/Furniture"} cardItem={WallFloor} obj={WallFloorHead} />
                 <Footer />
               </>
             }
@@ -134,12 +135,21 @@ function App() {
             element={
               <>
                 <Header />
-                <Items cardItem={BodyBeauty} obj={BodyBeautyHead} />
+                <Items link={"/Furniture"} cardItem={BodyBeauty} obj={BodyBeautyHead} />
                 <Footer />
               </>
             }
           />
-
+          <Route
+            path="/ordersummary"
+            element={
+              <>
+                <Header />
+                <OrderSummary/>
+                <Footer />
+              </>
+            }
+          />
           <Route
             path="/"
             element={

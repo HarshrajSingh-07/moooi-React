@@ -17,6 +17,7 @@ import Bag from "../Bag/Bag";
 
 
 
+
 const ProductDetail = () => {
   const [data, setData] = useState([]);
   const [mydata, setMyData] = useState({});
@@ -50,6 +51,7 @@ const ProductDetail = () => {
   return (
     <section id="productDetail">
     {/* <Bag  /> */}
+    {/* <OrderSummary/> */}
       <div className="prodimg">
         <img src={data.src}></img>
       </div>

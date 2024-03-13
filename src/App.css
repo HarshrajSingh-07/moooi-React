@@ -4,8 +4,9 @@ body{
 *{
     box-sizing: border-box;
 }
-.menu-blur{
+/* .menu-blur{
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.2);
-}
+    filter: blur(5px);
+    z-index: 555;
+} */

@@ -4,6 +4,7 @@ import { IoMdSearch } from "react-icons/io";
 import { BsGrid1X2 } from "react-icons/bs";
 import { FiShoppingBag } from "react-icons/fi";
 import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 const Bag = ({ isBagOpen, toggleBag }) => {
   const cartItem = useSelector((state) => state.cart.items);
   console.log(cartItem);
@@ -15,6 +16,10 @@ const Bag = ({ isBagOpen, toggleBag }) => {
     document.body.style.overflowY = "auto"; // Enable horizontal scrolling
     document.body.classList.remove("menu-blur");
   }
+  const handleBagBtn=()=>{
+
+  }
+ 
   return (
     <>
       <section id="Bag">
@@ -39,25 +44,36 @@ const Bag = ({ isBagOpen, toggleBag }) => {
             </div>
           </div>
           <div className="cartcards">
-          {cartItem.map((value, index) => {
-            return (
-              <>
-                <div className="bagCards" key={index}>
-                  <div className="bagImg">
-                    <img src={value.img} alt="" />
+            {cartItem.map((value, index) => {
+              return (
+                <>
+                  <div className="bagCards" key={index}>
+                    <div className="bagImg">
+                      <img src={value.img} alt="" />
+                    </div>
+                    <div className="bagDetails">
+                      <p>{value.quantity}x {value.name}</p>
+                      <span>60x70, Calligraphy Bird blue</span>
+                    </div>
+                    <div className="bagprice">{value.price}</div>
                   </div>
-                  <div className="bagDetails">
-                    <p>3 x {value.name}</p>
-                    <span>60x70, Calligraphy Bird blue</span>
-                  </div>
-                  <div className="bagprice">{value.price}</div>
-                </div>
-              </>
-            );
-          })}</div>
-          <div className="subtotal">
-            <p>SUBTOTAL</p>
-            <span>$7656</span>
+                </>
+              );
+            })}
+          </div>
+          <div className="bagFooter">
+            <div className="subtotal">
+              <p>SUBTOTAL</p>
+              <span>$7656</span>
+            </div>
+            <div className="bagButtons">
+              <Link to="/ordersummary">
+              <button onClick={handleBagBtn}>View Bag</button>
+              </Link>
+              <Link to="/ordersummary">
+              <button className="CheackBtn">Cheackout</button>
+              </Link>
+            </div>
           </div>
         </div>
       </section>
