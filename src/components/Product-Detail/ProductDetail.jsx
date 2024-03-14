@@ -14,6 +14,7 @@ import { HomeAccessories } from "../Items/ItemData4";
 import { WallFloor } from "../Items/ItemData5";
 import { BodyBeauty } from "../Items/ItemData6";
 import Bag from "../Bag/Bag";
+import { AllCollection } from "../Items/AllCollection";
 
 
 
@@ -22,7 +23,6 @@ const ProductDetail = () => {
   const [data, setData] = useState([]);
   const [mydata, setMyData] = useState({});
   let { id, id1 } = useParams();
-  console.log(id, id1);
   let files = [
     BeddingBath,
     Furniture,
@@ -30,12 +30,12 @@ const ProductDetail = () => {
     HomeAccessories,
     WallFloor,
     BodyBeauty,
+    AllCollection
   ];
 
   useEffect(() => {
     files.forEach((item, index) => {
       item.forEach((element, i) => {
-        console.log(element.type);
         if (element.type === id1) {
           setData(item[id]);
         }
@@ -47,7 +47,7 @@ const ProductDetail = () => {
 
   // console.log("mydata",mydata)
   // console.log(mydata.src)
-  console.log(id);
+  // console.log(id);
   return (
     <section id="productDetail">
     {/* <Bag  /> */}

@@ -73,9 +73,6 @@ function App() {
               </>
             }
           />
-
-          {/* <Route path="/Items/:itemName" element={<Items cardItem={Bath} obj={BathHead}/>} /> */}
-
           <Route
             path={`/productdetails/:id1/:id`}
             element={

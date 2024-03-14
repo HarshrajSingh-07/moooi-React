@@ -5,21 +5,11 @@ import { BsGrid1X2 } from "react-icons/bs";
 import { FiShoppingBag } from "react-icons/fi";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
 const Bag = ({ isBagOpen, toggleBag }) => {
   const cartItem = useSelector((state) => state.cart.items);
   console.log(cartItem);
 
-  if (isBagOpen) {
-    document.body.style.overflowY = "hidden"; // Disable horizontal scrolling
-    document.body.classList.add("menu-blur");
-  } else {
-    document.body.style.overflowY = "auto"; // Enable horizontal scrolling
-    document.body.classList.remove("menu-blur");
-  }
-  const handleBagBtn=()=>{
-
-  }
- 
   return (
     <>
       <section id="Bag">
@@ -44,22 +34,18 @@ const Bag = ({ isBagOpen, toggleBag }) => {
             </div>
           </div>
           <div className="cartcards">
-            {cartItem.map((value, index) => {
-              return (
-                <>
-                  <div className="bagCards" key={index}>
-                    <div className="bagImg">
-                      <img src={value.img} alt="" />
-                    </div>
-                    <div className="bagDetails">
-                      <p>{value.quantity}x {value.name}</p>
-                      <span>60x70, Calligraphy Bird blue</span>
-                    </div>
-                    <div className="bagprice">{value.price}</div>
-                  </div>
-                </>
-              );
-            })}
+            {cartItem.map((value, index) => (
+              <div className="bagCards" key={index}>
+                <div className="bagImg" key={index}>
+                  <img src={value.img} alt="" />
+                </div>
+                <div className="bagDetails">
+                  <p>{value.quantity}x {value.name}</p>
+                  <span>60x70, Calligraphy Bird blue</span>
+                </div>
+                <div className="bagprice">{value.price}</div>
+              </div>
+            ))}
           </div>
           <div className="bagFooter">
             <div className="subtotal">
@@ -68,10 +54,10 @@ const Bag = ({ isBagOpen, toggleBag }) => {
             </div>
             <div className="bagButtons">
               <Link to="/ordersummary">
-              <button onClick={handleBagBtn}>View Bag</button>
+                <button onClick={toggleBag}>View Bag</button>
               </Link>
-              <Link to="/ordersummary">
-              <button className="CheackBtn">Cheackout</button>
+              <Link to="/collection">
+                <button className="CheackBtn" onClick={toggleBag}>Continue Shopping</button>
               </Link>
             </div>
           </div>
