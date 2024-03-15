@@ -20,7 +20,7 @@ const BuyPro = ({ src, title, price}) => {
                 <span>In Stock</span>
             </div>
             <div className="buyButton">
-                <button onClick={()=>addHandle({img:src,name:title,price:price,quantity:1})}>Buy</button>
+                <button onClick={()=>addHandle({img:src,name:title,price:price.slice(1),quantity:1,subTotal:0})}>Buy</button>
             </div>
            </div>
             <div className="productView">

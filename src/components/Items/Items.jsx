@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 const Items = ({link, cardItem, obj }) => {
   const [targetIndex, setTargetIndex] = useState(0);
-
+ 
   const pageHandlerBtn = (e) => {
     const index = parseInt(e.target.value, 10);
     setTargetIndex(index);

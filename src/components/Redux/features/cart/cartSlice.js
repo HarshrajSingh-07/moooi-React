@@ -4,8 +4,8 @@ const cartSlice = createSlice({
   name: "cart",
   initialState: {
     items: [],
+    totalPrice: 0,
   },
-
   reducers: {
     addToCart: (state, action) => {
       const newItem = action.payload;
@@ -14,45 +14,57 @@ const cartSlice = createSlice({
       );
 
       if (existingItem) {
-        // If the item already exists in the cart, increase its quantity
         existingItem.quantity++;
       } else {
-        // If it's a new item, add it to the cart
         state.items.push({ ...newItem, quantity: 1 });
       }
-
-      console.log("Current cart state:", state.items);
+      // state.totalPrice += newItem.price;
     },
     removeFromCart: (state, action) => {
-      const itemIdToRemove = action.payload;
-      state.items = state.items.filter((item) => item.name !== itemIdToRemove);
+      const itemNameToRemove = action.payload;
+      const itemToRemove = state.items.find(
+        (item) => item.name === itemNameToRemove
+      );
+
+      if (itemToRemove) {
+        // state.totalPrice -= itemToRemove.price * itemToRemove.quantity;
+        state.items = state.items.filter(
+          (item) => item.name !== itemNameToRemove
+        );
+      }
     },
-    
-    // increaseQuantity:(state) => {
-    //   state.quantity += 1;
-    // },
-    // decreaseQuantity: (state) => {
-    //   if(state.quantity>0){
-    //     state.quantity -= 1;
-    //   }
-    // }
-    decreaseQuantity(state, action) {
+    decreaseQuantity: (state, action) => {
       const itemName = action.payload;
-      const itemToDecrease = state.items.find(item => item.name === itemName);
+      const itemToDecrease = state.items.find(
+        (item) => item.name === itemName
+      );
       if (itemToDecrease && itemToDecrease.quantity > 1) {
         itemToDecrease.quantity--;
+        // state.totalPrice -= itemToDecrease.price; // Adjust total price
       }
     },
-    increaseQuantity(state, action) {
+    increaseQuantity: (state, action) => {
       const itemName = action.payload;
-      const itemToIncrease = state.items.find(item => item.name === itemName);
+      const itemToIncrease = state.items.find(
+        (item) => item.name === itemName
+      );
       if (itemToIncrease) {
         itemToIncrease.quantity++;
+        // state.totalPrice += itemToIncrease.price; // Adjust total price
       }
     },
+    totalPriceHandler:(state,action)=>{
+      state.totalPrice=action.payload
+    }
   },
 });
 
-export const { addToCart, removeFromCart,increaseQuantity,decreaseQuantity } = cartSlice.actions;
+export const {
+  addToCart,
+  removeFromCart,
+  increaseQuantity,
+  decreaseQuantity,
+  totalPriceHandler
+} = cartSlice.actions;
 
 export default cartSlice.reducer;

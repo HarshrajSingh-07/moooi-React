@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./OrderSummary.css";
 import { useDispatch, useSelector } from "react-redux";
 import { RxCross2 } from "react-icons/rx";
@@ -6,26 +6,36 @@ import {
   decreaseQuantity,
   increaseQuantity,
   removeFromCart,
+  totalPriceHandler,
 } from "../Redux/features/cart/cartSlice";
 import { MdAdd } from "react-icons/md";
 import { HiMinusSm } from "react-icons/hi";
+
 const OrderSummary = () => {
   const dispatch = useDispatch();
 
   const cartItem = useSelector((state) => state.cart.items);
+  const totalPrice = useSelector((state) => state.cart.totalPrice);
 
   const handleRemoveItem = (itemId) => {
     dispatch(removeFromCart(itemId));
   };
+
   const handleIncrease = (itemName) => {
-    console.log("Increase");
     dispatch(increaseQuantity(itemName));
   };
+
   const handleDecrease = (itemName) => {
     dispatch(decreaseQuantity(itemName));
-    console.log("decrese");
   };
 
+  // Calculate subtotal based on items in the cart
+  const subtotal = cartItem.reduce((acc, item) => {
+    console.log(item.price,item.quantity);
+    return +acc + item.price * item.quantity;
+  }, 0);
+  dispatch(totalPriceHandler(subtotal));
+// console.log("total price",totalPrice);
   return (
     <section id="OrderSummary">
       <div className="summaryRow">
@@ -35,11 +45,19 @@ const OrderSummary = () => {
             {cartItem.map((value, index) => (
               <div className="summarycart" key={index}>
                 <div className="summaryImg">
-                  <img className="sum__img" src={value.img} alt={value.name} />
+                  <img
+                    className="sum__img"
+                    src={value.img}
+                    alt={value.name}
+                  />
                 </div>
                 <div className="summaryCartDetail">
                   <div className="summaryDetail">
-                    <h1>{value.quantity}<RxCross2 className="crossQty"/>{value.name}</h1>
+                    <h1>
+                      {value.quantity}
+                      <RxCross2 className="crossQty" />
+                      {value.name}
+                    </h1>
                     <span>60x70, Calligraphy Bird blue</span>
                     <div className="summaryCartBtn">
                       <div className="itemCount">
@@ -58,13 +76,17 @@ const OrderSummary = () => {
                         </div>
                       </div>
                       <div className="summaryButtons">
-                        <button onClick={() => handleRemoveItem(value.name)}>
+                        <button
+                          onClick={() => handleRemoveItem(value.name)}
+                        >
                           Delete
                         </button>
                         <button>Save to mood boards</button>
                       </div>
                       <div className="SummaryPrice">
-                        <h4 className="Sumprice">{value.price}</h4>
+                        <h4 className="Sumprice">
+                          {(value.price * value.quantity) }
+                        </h4>
                       </div>
                     </div>
                   </div>
@@ -81,7 +103,7 @@ const OrderSummary = () => {
           <div className="OrderSummary">
             <div className="subTotal">
               <p>Subtotal</p>
-              <span>£1,965.00</span>
+              <span>£{subtotal}</span>
             </div>
             <div className="shipping">
               <p>Shipping</p>
@@ -89,7 +111,7 @@ const OrderSummary = () => {
             </div>
             <div className="orderTotal">
               <h1>Total</h1>
-              <h2>£1,965.00</h2>
+              <h2>£{subtotal}</h2>
             </div>
           </div>
           <div className="FinalBuyBtn">

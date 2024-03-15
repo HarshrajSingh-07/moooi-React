@@ -3,11 +3,24 @@ import "./Bag.css";
 import { IoMdSearch } from "react-icons/io";
 import { BsGrid1X2 } from "react-icons/bs";
 import { FiShoppingBag } from "react-icons/fi";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import {
+ totalPriceHandler,
+} from "../Redux/features/cart/cartSlice";
 import { Link } from "react-router-dom";
 
 const Bag = ({ isBagOpen, toggleBag }) => {
+
+  const dispatch = useDispatch();
+
   const cartItem = useSelector((state) => state.cart.items);
+
+  const subtotal = cartItem.reduce((acc, item) => {
+    console.log(item.price,item.quantity);
+    return +acc + item.price * item.quantity;
+  }, 0);
+  
+  dispatch(totalPriceHandler(subtotal));
   console.log(cartItem);
 
   return (
@@ -43,14 +56,14 @@ const Bag = ({ isBagOpen, toggleBag }) => {
                   <p>{value.quantity}x {value.name}</p>
                   <span>60x70, Calligraphy Bird blue</span>
                 </div>
-                <div className="bagprice">{value.price}</div>
+                <div className="bagprice">{(value.price * value.quantity)}</div>
               </div>
             ))}
           </div>
           <div className="bagFooter">
             <div className="subtotal">
               <p>SUBTOTAL</p>
-              <span>$7656</span>
+              <span>${subtotal}</span>
             </div>
             <div className="bagButtons">
               <Link to="/ordersummary">
