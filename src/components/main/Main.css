@@ -10,7 +10,8 @@
     background-repeat: no-repeat;
     color: white;
 }
-.main-head{
+
+.main-head {
     width: 60%;
     height: 90%;
     /* padding-top: 25vh; */
@@ -20,20 +21,24 @@
     align-items: center;
     justify-content: center;
 }
-.main-head h1{
+
+.main-head h1 {
     text-align: center;
     margin: 0;
     font-size: 97px;
     font-weight: 500;
 }
-.main-head p{
+
+.main-head p {
     margin-bottom: 15px;
-    color: hsla(0,0%,100%,.8);;
+    color: hsla(0, 0%, 100%, .8);
+    ;
     font-size: 20px;
     letter-spacing: 4px;
     font-family: "Rubik", sans-serif;
 }
-.main-head button{
+
+.main-head button {
     color: #4d4d4d;
     font-size: 20px;
     font-family: "Cinzel", serif;
@@ -42,49 +47,61 @@
     margin-top: 75px;
     background-color: #fff;
     border-radius: 2.5em;
-    box-shadow: 3px 3px 10px rgba(0,0,0,.1);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, .1);
 }
-@media only screen and (max-width: 1024px){
-    .main-head h1{
+
+@media only screen and (max-width: 1024px) {
+    .main-head h1 {
         font-size: 75px;
-        /* padding: 0px 20px; */
-        /* transition: 0.6s all; */
     }
-    .main-head p{
+
+    .main-head p {
         margin-bottom: 40px;
         font-size: 16px;
     }
-    .main-head button{
+
+    .main-head button {
         font-size: 18px;
         padding: 10px 15px;
     }
 }
-@media only screen and (max-width: 991px){
-    .main-head{
+
+@media only screen and (max-width: 991px) {
+    .main-head {
         width: 70%;
     }
-    .main-head h1{
+
+    .main-head h1 {
         font-size: 85px;
     }
 }
-@media only screen and (max-width: 576px){
-    .main-head h1{
-        font-size: 40px;
-    }
-    .main-head p{
-        font-size: 14px;
-    }
-    .main-head button{
-        margin-top: 35px;
-        padding: 10px 14    px;
-        font-size: 15px; 
-    }
-}
-@media only screen and (max-width: 768px){
-    .main-head h1{
+
+@media only screen and (max-width: 768px) {
+    .main-head h1 {
         font-size: 65px;
     }
-    .main-head{
+
+    .main-head {
         width: 70%;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .main-head {
+        width: 85%;
+    }
+
+    .main-head h1 {
+        font-size: 45px;
+    }
+
+    .main-head p {
+        font-size: 14px;
+    }
+
+    .main-head button {
+        margin-top: 35px;
+        padding: 10px 14px;
+        font-size: 14px;
     }
 }

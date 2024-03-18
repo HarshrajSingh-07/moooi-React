@@ -40,12 +40,14 @@
 }
 
 .card > a span {
-  text-align: center;
-  height: 10%;
-  padding-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 20%;
 }
 
 .card > a img {
+  height: 80%;
   width: 100%;
 }
 

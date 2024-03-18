@@ -49,8 +49,8 @@ function App() {
   return (
     <>
       <ScrollToTop>
-        {/* <ProductDetail cardItem={AllCollection} obj={collectionhead}/> */}
-        {/* {show==='show' ? <Login /> : show==='login'? <Login/>:show==='signup'?<Signup/>:null} */}
+        {/* <ProductDetail cardItem={AllCollection} obj={collectionhead}/>
+         {show==='show' ? <Login /> : show==='login'? <Login/>:show==='signup'?<Signup/>:null} */}
 
         <Routes>
           <Route

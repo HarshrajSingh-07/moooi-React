@@ -98,7 +98,7 @@ const OrderSummary = () => {
         <div className="summaryTotal">
           <div className="totalHead">
             <h3>Order summary</h3>
-            <button>Need Some Help?</button>
+            <button><span>Need Some Help?</span></button>
           </div>
           <div className="OrderSummary">
             <div className="subTotal">
