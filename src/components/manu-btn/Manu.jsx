@@ -7,7 +7,7 @@ function Manu({handleShow}) {
     <section>
       <div className="manuItem">
         <div className="innerBtn">
-          <button onClick={handleShow}>
+          <button onClick={()=>{handleShow()}}>
             <img src="assets/images/manu-button.png" alt="" />
             <span>Menu</span>
           </button>

@@ -30,7 +30,7 @@ const Items = ({link, cardItem, obj }) => {
             </button>
           </Link>
           {obj.btn.map((item, index) => (
-            <Link to={`/${item.toLowerCase()}`} key={index} >
+            <Link to={`/${item.toLowerCase()}`} key={index}>
             <button
               key={index}
               className={index === targetIndex ? "active" : null}

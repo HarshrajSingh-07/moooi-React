@@ -5,7 +5,7 @@ import { collection, doc, setDoc } from 'firebase/firestore';
 import { auth, db } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 
-const Signup = () => {
+const Signup = ({handleLogin}) => {
   const [user1, setUser1] = useState(null);
   const [user, setUser] = useState({
     email: "", fname: "", lname: "", password: "", confirmpassword: ""
@@ -118,6 +118,10 @@ const Signup = () => {
           {finalErr && <span className={finalErr.includes('Sucessfully')? "txt-green":'finalerror'}>{finalErr}</span>}
           <button type="submit">Create Account</button>
         </form>
+        <div className="SignupFooter">
+          <span className="haveAccount">Already have an account?</span>
+          <button className="loginBtn" onClick={handleLogin}><span>Login</span></button>
+        </div>
       </div>
     </section>
   );

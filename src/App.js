@@ -15,7 +15,6 @@ import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup.jsx";
 import Items from "./components/Items/Items";
 import { BeddingBath, BeddingBathhead } from "./components/Items/itemData1";
-import { Bath, BathHead } from "./components/Items/SubItem";
 import { Furniture, Furnitureobj } from "./components/Items/itemData2";
 import { Lighting, LightingHead } from "./components/Items/ItemData3.js";
 import {
@@ -33,10 +32,17 @@ import ScrollToTop from "./ScrollToTop.jsx";
 import OrderSummary from "./components/Order summary/OrderSummary.jsx";
 
 function App() {
-  const [show, setShow] = useState(false);
+  const [show, setShow] = useState(null);
   const [urlMain, setUrlMain] = useState("");
   function handleShow() {
-    setShow(!show);
+    setShow("show");
+  }
+  function handleLogin() {
+    setShow("login");
+  }
+  function handleSignup() {
+    setShow("signup");
+    console.log("signup");
   }
   useEffect(() => {
     const url = window.location.href;
@@ -49,16 +55,24 @@ function App() {
   return (
     <>
       <ScrollToTop>
-        {/* <ProductDetail cardItem={AllCollection} obj={collectionhead}/>
-         {show==='show' ? <Login /> : show==='login'? <Login/>:show==='signup'?<Signup/>:null} */}
-
+        {show === "show" ? (
+          <Login handleSignup={handleSignup} />
+        ) : show === "login" ? (
+          <Login handleSignup={handleSignup} />
+        ) : show === "signup" ? (
+          <Signup handleLogin={handleLogin} />
+        ) : null}
         <Routes>
           <Route
             path="/collection"
             element={
               <>
-                <Header />
-                <Items link={"/"} cardItem={AllCollection} obj={collectionhead} />
+                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Items
+                  link={"/"}
+                  cardItem={AllCollection}
+                  obj={collectionhead}
+                />
                 <Footer />
               </>
             }
@@ -67,8 +81,12 @@ function App() {
             path="/Bedding & Bath"
             element={
               <>
-                <Header />
-                <Items link={"/collection"} cardItem={BeddingBath} obj={BeddingBathhead} />
+                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Items
+                  link={"/collection"}
+                  cardItem={BeddingBath}
+                  obj={BeddingBathhead}
+                />
                 <Footer />
               </>
             }
@@ -77,7 +95,7 @@ function App() {
             path={`/productdetails/:id1/:id`}
             element={
               <>
-                <Header />
+                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
                 <ProductDetail />
                 <Footer />
               </>
@@ -87,8 +105,12 @@ function App() {
             path="/Furniture"
             element={
               <>
-                <Header />
-                <Items  link={"/Bedding & Bath"} cardItem={Furniture} obj={Furnitureobj} />
+                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Items
+                  link={"/Bedding & Bath"}
+                  cardItem={Furniture}
+                  obj={Furnitureobj}
+                />
                 <Footer />
               </>
             }
@@ -98,8 +120,12 @@ function App() {
             path="/Lighting"
             element={
               <>
-                <Header />
-                <Items link={"/Furniture"} cardItem={Lighting} obj={LightingHead} />
+                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Items
+                  link={"/Furniture"}
+                  cardItem={Lighting}
+                  obj={LightingHead}
+                />
                 <Footer />
               </>
             }
@@ -109,8 +135,12 @@ function App() {
             path="/Home Accessories"
             element={
               <>
-                <Header />
-                <Items link={"/Lighting"} cardItem={HomeAccessories} obj={HomeAccessoriesHead} />
+                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Items
+                  link={"/Lighting"}
+                  cardItem={HomeAccessories}
+                  obj={HomeAccessoriesHead}
+                />
                 <Footer />
               </>
             }
@@ -120,8 +150,12 @@ function App() {
             path="/Wall & Floor"
             element={
               <>
-                <Header />
-                <Items link={"/Furniture"} cardItem={WallFloor} obj={WallFloorHead} />
+                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Items
+                  link={"/Furniture"}
+                  cardItem={WallFloor}
+                  obj={WallFloorHead}
+                />
                 <Footer />
               </>
             }
@@ -131,8 +165,12 @@ function App() {
             path="/Body & Beauty"
             element={
               <>
-                <Header />
-                <Items link={"/Furniture"} cardItem={BodyBeauty} obj={BodyBeautyHead} />
+                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Items
+                  link={"/Furniture"}
+                  cardItem={BodyBeauty}
+                  obj={BodyBeautyHead}
+                />
                 <Footer />
               </>
             }
@@ -141,8 +179,8 @@ function App() {
             path="/ordersummary"
             element={
               <>
-                <Header />
-                <OrderSummary/>
+                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <OrderSummary />
                 <Footer />
               </>
             }
