@@ -82,3 +82,11 @@
     justify-content: space-around;
   }
 }
+@media only screen and (max-width: 327px){
+  #collection h3 {
+    text-align: center;
+}
+.container {
+  padding: 150px 30px;
+}
+}

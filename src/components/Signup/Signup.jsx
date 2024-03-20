@@ -4,8 +4,9 @@ import { FirebaseApp } from "firebase/app";
 import { collection, doc, setDoc } from 'firebase/firestore';
 import { auth, db } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
+import BasicModal from "../Login/Modals";
 
-const Signup = ({handleLogin}) => {
+const Signup = ({handleLogin  , open,handleOpen,handleClose}) => {
   const [user1, setUser1] = useState(null);
   const [user, setUser] = useState({
     email: "", fname: "", lname: "", password: "", confirmpassword: ""
@@ -54,14 +55,16 @@ const Signup = ({handleLogin}) => {
     try {
       const response = await createUserWithEmailAndPassword(auth,email, password);
       console.log('User signed up:', response.user);
+      handleOpen("Signup Successfully !");
+      setFinalErr("Sucessfully signup")
+      // handleLogin();
       await setDoc(doc(db, 'users', response.user.uid), {
         username: user.fname,
         // contact: contact
     });
-      setFinalErr("Sucessfully signup")
+     
       // You can redirect the user to another page or show a success message
     } catch (error) {
-      console.log(error.message)
       setFinalErr(error.message.substring(10)+'..!');
     }
   };
@@ -86,33 +89,35 @@ const Signup = ({handleLogin}) => {
 
   return (
     <section id="signup">
+    <button onClick={handleOpen}>click</button>
+  <BasicModal handleClose={handleClose} handleOpen={handleOpen} open={open} msg={'Signup Successfully !'} />
       <div className="signupContainer">
         <form onSubmit={handleSignup}>
           <h1>Welcome!</h1>
           <span>Create an account</span>
           <div className="inputarea firstinput">
             <label>E-mail address*</label>
-            <input type="email" name="email" autoComplete="off" value={user.email} onChange={handleInputs} />
+            <input type="email" name="email" value={user.email} onChange={handleInputs} />
             {errors.email && <span className='error'>{errors.email}</span>}
           </div>
           <div className="inputarea">
             <label>First name*</label>
-            <input type="text" name="fname" autoComplete="off" value={user.fname} onChange={handleInputs} />
+            <input type="text" name="fname" value={user.fname} onChange={handleInputs} />
             {errors.fname && <span className='error'>{errors.fname}</span>}
           </div>
           <div className="inputarea">
             <label>Last Name*</label>
-            <input type="text" name="lname" autoComplete="off" value={user.lname} onChange={handleInputs} />
+            <input type="text" name="lname" value={user.lname} onChange={handleInputs} />
             {errors.lname && <span className='error'>{errors.lname}</span>}
           </div>
           <div className="inputarea">
             <label>Create password*</label>
-            <input type="password" name="password" autoComplete="off" value={user.password} onChange={handleInputs} />
+            <input type="password" name="password" value={user.password} onChange={handleInputs} />
             {errors.password && <span className='error'>{errors.password}</span>}
           </div>
           <div className="inputarea">
             <label>Confirm password*</label>
-            <input type="password" name="confirmpassword" autoComplete="off" value={user.confirmpassword} onChange={handleInputs} />
+            <input type="password" name="confirmpassword" value={user.confirmpassword} onChange={handleInputs} />
             {errors.confirmpassword && <span className='error'>{errors.confirmpassword}</span>}
           </div>
           {finalErr && <span className={finalErr.includes('Sucessfully')? "txt-green":'finalerror'}>{finalErr}</span>}

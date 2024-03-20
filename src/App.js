@@ -33,14 +33,25 @@ import OrderSummary from "./components/Order summary/OrderSummary.jsx";
 
 function App() {
   const [show, setShow] = useState(null);
+  const [menu, setMenu] = useState(false);
   const [urlMain, setUrlMain] = useState("");
+  const [open, setOpen] = useState(false);
+  const [SuccessMsg,setSuccessMsg]=useState(null)
+  const handleOpen = (msg) => {
+    setOpen(true)
+    setSuccessMsg(msg);
+  }
+  const handleClose = () => setOpen(false);
   function handleShow() {
-    setShow("show");
+    setMenu(!menu);
+    setShow("login");
   }
   function handleLogin() {
+    // setMenu(!menu);
     setShow("login");
   }
   function handleSignup() {
+    // setMenu(!menu);
     setShow("signup");
     console.log("signup");
   }
@@ -52,22 +63,49 @@ function App() {
     console.log(categoryPath);
   });
 
+  
+
+
   return (
     <>
       <ScrollToTop>
-        {show === "show" ? (
+        {/* {show === "show" ? (
           <Login handleSignup={handleSignup} />
         ) : show === "login" ? (
           <Login handleSignup={handleSignup} />
         ) : show === "signup" ? (
           <Signup handleLogin={handleLogin} />
+        ) : null} */}
+        {menu ? (
+          <>
+            {show === "login" ? (
+              <Login
+                handleSignup={handleSignup}
+                open={open}
+                handleClose={handleClose}
+                handleOpen={handleOpen}
+              />
+            ) : (
+              <Signup
+                handleLogin={handleLogin}
+                open={open}
+                handleClose={handleClose}
+                handleOpen={handleOpen}
+              />
+            )}
+          </>
         ) : null}
         <Routes>
           <Route
             path="/collection"
             element={
               <>
-                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Header
+                  Textcolor={"#000"}
+                  backgroundColor={"#fff"}
+                  leftHeader={"none"}
+                  CenterHead={"start"}
+                />
                 <Items
                   link={"/"}
                   cardItem={AllCollection}
@@ -81,7 +119,12 @@ function App() {
             path="/Bedding & Bath"
             element={
               <>
-                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Header
+                  Textcolor={"#000"}
+                  backgroundColor={"#fff"}
+                  leftHeader={"none"}
+                  CenterHead={"start"}
+                />
                 <Items
                   link={"/collection"}
                   cardItem={BeddingBath}
@@ -95,7 +138,12 @@ function App() {
             path={`/productdetails/:id1/:id`}
             element={
               <>
-                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Header
+                  Textcolor={"#000"}
+                  backgroundColor={"#fff"}
+                  leftHeader={"none"}
+                  CenterHead={"start"}
+                />
                 <ProductDetail />
                 <Footer />
               </>
@@ -105,7 +153,12 @@ function App() {
             path="/Furniture"
             element={
               <>
-                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Header
+                  Textcolor={"#000"}
+                  backgroundColor={"#fff"}
+                  leftHeader={"none"}
+                  CenterHead={"start"}
+                />
                 <Items
                   link={"/Bedding & Bath"}
                   cardItem={Furniture}
@@ -120,7 +173,12 @@ function App() {
             path="/Lighting"
             element={
               <>
-                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Header
+                  Textcolor={"#000"}
+                  backgroundColor={"#fff"}
+                  leftHeader={"none"}
+                  CenterHead={"start"}
+                />
                 <Items
                   link={"/Furniture"}
                   cardItem={Lighting}
@@ -135,7 +193,12 @@ function App() {
             path="/Home Accessories"
             element={
               <>
-                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Header
+                  Textcolor={"#000"}
+                  backgroundColor={"#fff"}
+                  leftHeader={"none"}
+                  CenterHead={"start"}
+                />
                 <Items
                   link={"/Lighting"}
                   cardItem={HomeAccessories}
@@ -150,7 +213,12 @@ function App() {
             path="/Wall & Floor"
             element={
               <>
-                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Header
+                  Textcolor={"#000"}
+                  backgroundColor={"#fff"}
+                  leftHeader={"none"}
+                  CenterHead={"start"}
+                />
                 <Items
                   link={"/Furniture"}
                   cardItem={WallFloor}
@@ -165,7 +233,12 @@ function App() {
             path="/Body & Beauty"
             element={
               <>
-                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Header
+                  Textcolor={"#000"}
+                  backgroundColor={"#fff"}
+                  leftHeader={"none"}
+                  CenterHead={"start"}
+                />
                 <Items
                   link={"/Furniture"}
                   cardItem={BodyBeauty}
@@ -179,7 +252,12 @@ function App() {
             path="/ordersummary"
             element={
               <>
-                <Header Textcolor={'#000'} backgroundColor={'#fff'}/>
+                <Header
+                  Textcolor={"#000"}
+                  backgroundColor={"#fff"}
+                  leftHeader={"none"}
+                  CenterHead={"start"}
+                />
                 <OrderSummary />
                 <Footer />
               </>

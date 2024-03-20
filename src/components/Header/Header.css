@@ -4,7 +4,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 60px;
+    padding: 30px 50px;
     font-size: 25px;
     font-family: "Rubik", sans-serif;
     box-sizing: border-box;
@@ -34,17 +34,27 @@ header h3{
     width: 33.3%;
     display: flex;
     justify-content: flex-end;
-    gap: 30px;
+    gap: 50px;
 }
+@media only screen and (max-width: 768px){
+   .headRight{
+        gap: 25px;
+    }
+    header{
+        padding: 30px 20px;
+    }
+    
+}
+
 @media only screen and (max-width: 576px){
     .headRight{
         gap: 10px;
     }
     header{
         font-size: 20px ;
-        padding: 30px 25px;
     }
     header h3{
-        font-size: 30px;
+        font-size: 25px;
     }
 }
+

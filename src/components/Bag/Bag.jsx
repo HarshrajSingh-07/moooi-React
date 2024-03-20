@@ -16,12 +16,11 @@ const Bag = ({ isBagOpen, toggleBag }) => {
   const cartItem = useSelector((state) => state.cart.items);
 
   const subtotal = cartItem.reduce((acc, item) => {
-    console.log(item.price,item.quantity);
     return +acc + item.price * item.quantity;
   }, 0);
   
   dispatch(totalPriceHandler(subtotal));
-  console.log(cartItem);
+
 
   return (
     <>

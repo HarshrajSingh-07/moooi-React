@@ -51,6 +51,9 @@
 }
 
 @media only screen and (max-width: 1024px) {
+    .main-head{
+        width: 75%;
+    }
     .main-head h1 {
         font-size: 75px;
     }
@@ -67,12 +70,9 @@
 }
 
 @media only screen and (max-width: 991px) {
-    .main-head {
-        width: 70%;
-    }
 
     .main-head h1 {
-        font-size: 85px;
+        font-size: 70px;
     }
 }
 

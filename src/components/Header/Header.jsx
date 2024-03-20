@@ -7,7 +7,7 @@ import { FiShoppingBag } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Bag from "../Bag/Bag"; // Import the Bag component
 
-const Header = ({Textcolor,backgroundColor}) => {
+const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead }) => {
   const [isBagOpen, setIsBagOpen] = useState(false); // State to manage bag visibility
 
   const toggleBag = () => {
@@ -16,11 +16,11 @@ const Header = ({Textcolor,backgroundColor}) => {
 
   return (
     <>
-      <header style={{ color: Textcolor, backgroundColor:backgroundColor}}>
-        <div className="headLeft">
+      <header style={{ color: Textcolor, backgroundColor: backgroundColor }}>
+        <div className="headLeft" style={{ display: leftHeader }}>
           <IoMicOutline />
         </div>
-        <div className="headCent">
+        <div className="headCent" style={{ justifyContent : CenterHead }}>
           <Link to="/" element="./App.js">
             <h3 style={{ color: Textcolor }}>moooi</h3>
           </Link>
@@ -34,7 +34,7 @@ const Header = ({Textcolor,backgroundColor}) => {
       </header>
       {/* Render the Bag component conditionally based on the state */}
       {/* {isBagOpen && <Bag toggleBag={toggleBag} />}   */}
-      <Bag isBagOpen={isBagOpen} toggleBag={toggleBag}  />
+      <Bag isBagOpen={isBagOpen} toggleBag={toggleBag} />
     </>
   );
 };
