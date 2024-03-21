@@ -31,74 +31,88 @@ const OrderSummary = () => {
 
   // Calculate subtotal based on items in the cart
   const subtotal = cartItem.reduce((acc, item) => {
-    console.log(item.price,item.quantity);
+    console.log(item.price, item.quantity);
     return +acc + item.price * item.quantity;
   }, 0);
   dispatch(totalPriceHandler(subtotal));
-// console.log("total price",totalPrice);
+  // console.log("total price",totalPrice);
   return (
     <section id="OrderSummary">
       <div className="summaryRow">
         <div className="ShoppingBag">
           <h1>Shopping bag</h1>
           <div className="summaryCards">
-            {cartItem.map((value, index) => (
-              <div className="summarycart" key={index}>
-                <div className="summaryImg">
-                  <img
-                    className="sum__img"
-                    src={value.img}
-                    alt={value.name}
-                  />
+            {cartItem.length === 0 ? (
+              <div className="emptyCard">
+                <h1 class="text-shadow"> -- "Your Cart is Empty" -- </h1>
+                <div class="tags">
+                  <p class="text-shadow">
+                    <small>
+                      "Oops! Looks like your cart is empty. Start adding items
+                      to continue shopping."
+                    </small>
+                  </p>
                 </div>
-                <div className="summaryCartDetail">
-                  <div className="summaryDetail">
-                    <h1>
-                      {value.quantity}
-                      <RxCross2 className="crossQty" />
-                      {value.name}
-                    </h1>
-                    <span>60x70, Calligraphy Bird blue</span>
-                    <div className="summaryCartBtn">
-                      <div className="itemCount">
-                        <div
-                          className="increaseQty"
-                          onClick={() => handleDecrease(value.name)}
-                        >
-                          <HiMinusSm />
+              </div>
+            ) : (
+              cartItem.map((value, index) => (
+                <div className="summarycart" key={index}>
+                  <div className="summaryImg">
+                    <img
+                      className="sum__img"
+                      src={value.img}
+                      alt={value.name}
+                    />
+                  </div>
+                  <div className="summaryCartDetail">
+                    <div className="summaryDetail">
+                      <h1>
+                        {value.quantity}
+                        <RxCross2 className="crossQty" />
+                        {value.name}
+                      </h1>
+                      <span>60x70, Calligraphy Bird blue</span>
+                      <div className="summaryCartBtn">
+                        <div className="itemCount">
+                          <div
+                            className="increaseQty"
+                            onClick={() => handleDecrease(value.name)}
+                          >
+                            <HiMinusSm />
+                          </div>
+                          <div className="CurrentQty">{value.quantity}</div>
+                          <div
+                            className="decreaseQty"
+                            onClick={() => handleIncrease(value.name)}
+                          >
+                            <MdAdd />
+                          </div>
                         </div>
-                        <div className="CurrentQty">{value.quantity}</div>
-                        <div
-                          className="decreaseQty"
-                          onClick={() => handleIncrease(value.name)}
-                        >
-                          <MdAdd />
+                        <div className="summaryButtons">
+                          <button onClick={() => handleRemoveItem(value.name)}>
+                            Delete
+                          </button>
+                          <button>Save to mood boards</button>
                         </div>
-                      </div>
-                      <div className="summaryButtons">
-                        <button
-                          onClick={() => handleRemoveItem(value.name)}
-                        >
-                          Delete
-                        </button>
-                        <button>Save to mood boards</button>
-                      </div>
-                      <div className="SummaryPrice">
-                        <h4 className="Sumprice">
-                          {(value.price * value.quantity) }
-                        </h4>
+                        <div className="SummaryPrice">
+                          <h4 className="Sumprice">
+                            {value.price * value.quantity}
+                          </h4>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
         <div className="summaryTotal">
           <div className="totalHead">
             <h3>Order summary</h3>
-            <button><span>Need Some Help?</span></button>
+            <button>
+              <span>Need Some Help?</span>
+            </button>
           </div>
           <div className="OrderSummary">
             <div className="subTotal">

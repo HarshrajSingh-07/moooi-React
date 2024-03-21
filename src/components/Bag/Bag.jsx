@@ -4,13 +4,10 @@ import { IoMdSearch } from "react-icons/io";
 import { BsGrid1X2 } from "react-icons/bs";
 import { FiShoppingBag } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
-import {
- totalPriceHandler,
-} from "../Redux/features/cart/cartSlice";
+import { totalPriceHandler } from "../Redux/features/cart/cartSlice";
 import { Link } from "react-router-dom";
 
 const Bag = ({ isBagOpen, toggleBag }) => {
-
   const dispatch = useDispatch();
 
   const cartItem = useSelector((state) => state.cart.items);
@@ -18,9 +15,8 @@ const Bag = ({ isBagOpen, toggleBag }) => {
   const subtotal = cartItem.reduce((acc, item) => {
     return +acc + item.price * item.quantity;
   }, 0);
-  
-  dispatch(totalPriceHandler(subtotal));
 
+  dispatch(totalPriceHandler(subtotal));
 
   return (
     <>
@@ -46,18 +42,25 @@ const Bag = ({ isBagOpen, toggleBag }) => {
             </div>
           </div>
           <div className="cartcards">
-            {cartItem.map((value, index) => (
-              <div className="bagCards" key={index}>
-                <div className="bagImg" key={index}>
-                  <img src={value.img} alt="" />
-                </div>
-                <div className="bagDetails">
-                  <p>{value.quantity}x {value.name}</p>
-                  <span>60x70, Calligraphy Bird blue</span>
-                </div>
-                <div className="bagprice">{(value.price * value.quantity)}</div>
-              </div>
-            ))}
+            {cartItem.length === 0
+              ?(<div className="emptyBag"><h1> -- No Items in Bag -- </h1>
+              <p>No items in your cart yet. Start shopping!</p></div>)
+              : cartItem.map((value, index) => (
+                  <div className="bagCards" key={index}>
+                    <div className="bagImg" key={index}>
+                      <img src={value.img} alt="" />
+                    </div>
+                    <div className="bagDetails">
+                      <p>
+                        {value.quantity}x {value.name}
+                      </p>
+                      <span>60x70, Calligraphy Bird blue</span>
+                    </div>
+                    <div className="bagprice">
+                      {value.price * value.quantity}
+                    </div>
+                  </div>
+                ))}
           </div>
           <div className="bagFooter">
             <div className="subtotal">
@@ -69,7 +72,9 @@ const Bag = ({ isBagOpen, toggleBag }) => {
                 <button onClick={toggleBag}>View Bag</button>
               </Link>
               <Link to="/collection">
-                <button className="CheackBtn" onClick={toggleBag}>Continue Shopping</button>
+                <button className="CheackBtn" onClick={toggleBag}>
+                  Continue Shopping
+                </button>
               </Link>
             </div>
           </div>

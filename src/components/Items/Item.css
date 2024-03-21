@@ -32,6 +32,9 @@
     justify-content: center;
     gap: 10px;
 }
+.itemsBtn a{
+    color: #1f1f1f;
+}
 .itemsBtn button{
     font-family: "Nunito", sans-serif;
     font-size: 17px;
@@ -59,7 +62,7 @@
     width: 110px;
     border-radius: 20px;
     display: flex;
-    padding: 7px 15px;
+    padding: 12px 15px;
     background-color: #1f1f1f;
     border: none;
     color: white;
@@ -99,6 +102,7 @@
     font-weight: 100;
     font-family: "Ojuju", sans-serif;
     margin: 0;
+    text-align: center;
 }
 .strong{
     text-transform: uppercase;

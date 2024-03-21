@@ -37,6 +37,7 @@ function App() {
   const [urlMain, setUrlMain] = useState("");
   const [open, setOpen] = useState(false);
   const [SuccessMsg,setSuccessMsg]=useState(null)
+  
   const handleOpen = (msg) => {
     setOpen(true)
     setSuccessMsg(msg);

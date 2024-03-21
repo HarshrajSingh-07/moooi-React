@@ -1,7 +1,9 @@
 body{
     overflow-x: hidden;
 }
-
+a,Link{
+    color: #1f1f1f;
+}
 *{
     box-sizing: border-box;
     margin: 0;

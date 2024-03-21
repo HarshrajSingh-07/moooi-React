@@ -42,7 +42,8 @@
     /* padding: 0px 25px 0px 15px; */
     display: flex;
     flex-direction: column;
-    width: min(400px, 90%);
+    width: min(400px, 93%);
+    /* height: 400px; */
     position: fixed;
     right: 15px;
     bottom: 10px;
@@ -53,6 +54,17 @@
 .BuyProDetail {
     display: flex;
     margin: 10px 10px 5px;
+}
+.belowclick{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.priceStock{
+    display:flex;
+    flex-direction: column;
+    margin-top: 10px;
+    margin-left: 7px;
 }
 
 .Product-info {
@@ -100,7 +112,7 @@
 
 .Product-info span {
     color: #666;
-    margin: 10px;
+    margin: 4px;
     font-size: 12px;
     font-weight: 50;
 }
@@ -111,7 +123,17 @@
 
 @media screen and (max-width:576px) {
     #BuyProduct:hover .productView {
-        height: 0;
+        display: none;
+    }
+    #BuyDetail{
+        height: 60vh;
+    }
+    .BuyProDetail{
+        height: 460px;
+        justify-content: space-between;
+    }
+    .belowclick{
+        flex-direction: column;
     }
     .arrow {
         display: flex;
@@ -127,6 +149,7 @@
     .hideDown {
         display: none;
     }
+   
 
     .BuyProDetail {
         flex-direction: column;
@@ -138,10 +161,12 @@
         width: 100%;
         align-items: center;
     }
-
-    .Product-info span {
-        margin: 7px;
+    .priceStock{
+        margin: 7px 0;
+        margin-left: 0;
+        align-items: center;
     }
+    
 
     .BuyImg {
         width: 45%;

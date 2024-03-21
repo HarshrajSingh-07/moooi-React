@@ -1,7 +1,6 @@
 #Bag {
     width: 100%;
     font-family: "Oswald", sans-serif;
-    
 }
 .bagContainer__close{
     height: 74vh;
@@ -14,6 +13,7 @@
     background-color: #fff;
     border-radius: 10px;
     transition: all 0.6s ease-in-out;
+    z-index: 3;
 }
 .cartcards{
     padding: 0 20px;
@@ -35,7 +35,6 @@
     background-color: #555; /* Change the color when hovered */
   }
 .bagContainer {
-    z-index: 2;
     height: 74vh;
     box-shadow: 3px 3px 11px rgba(0,0,0,.13);
     position: fixed;
@@ -46,6 +45,7 @@
     background-color: #fff;
     border-radius: 10px;
     transition: all 0.6s ease-in-out;
+    z-index: 3;
 }
 .close{
     height: 5%;
@@ -64,6 +64,18 @@
 .close:hover svg{
     transition: 0.2s ease-in-out;
     transform: rotate(120deg);
+}
+.emptyBag{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    font-weight: 100;
+}
+.emptyBag h1{
+    font-weight: 300;
 }
 .bagImg {
     width: 25%;

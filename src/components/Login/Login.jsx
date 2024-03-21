@@ -6,6 +6,7 @@ import "firebase/auth";
 import { auth } from "../../firebase";
 import { Box, Modal, Typography } from "@mui/material";
 import BasicModal from "./Modals";
+import {RemoveScroll} from 'react-remove-scroll';
 
 const Login = ({ handleSignup, open, handleOpen, handleClose }) => {
   const [data, setData] = useState({
@@ -58,6 +59,7 @@ const Login = ({ handleSignup, open, handleOpen, handleClose }) => {
   };
 
   return (
+    <RemoveScroll>
     <section id="login">
       <div>
         <BasicModal
@@ -104,8 +106,10 @@ const Login = ({ handleSignup, open, handleOpen, handleClose }) => {
             Signup Now
           </button>
         </div>
-      </div>
+      </div> 
     </section>
+    </RemoveScroll>  
+   
   );
 };
 

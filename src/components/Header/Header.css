@@ -9,7 +9,10 @@ header{
     font-family: "Rubik", sans-serif;
     box-sizing: border-box;
     position: fixed;
+    z-index: 2;
+    transition: top 0.3s ease;
 }
+
 header h3{
     margin: 0;
     font-size: 35px;

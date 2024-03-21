@@ -1,10 +1,7 @@
 .manuItem{
     width: 100%;
-    display: flex;
-    justify-content: center;
     position: fixed;
-    bottom: 0;
-    font-family: "Cinzel", serif;
+    bottom: 10px;
     z-index: 999;
 }
 .manuItem span{
@@ -24,6 +21,7 @@
 .innerBtn{
     width: 100px;
     height: 100px;
+    margin: 0 auto;
     overflow: hidden;
     border-radius: 50%;
 }
