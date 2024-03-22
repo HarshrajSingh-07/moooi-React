@@ -119,69 +119,73 @@ const Signup = ({ handleLogin, open, handleOpen, handleClose }) => {
           <form onSubmit={handleSignup}>
             <h1>Welcome!</h1>
             <span>Create an account</span>
-            <div className="inputarea firstinput">
-              <label>E-mail address*</label>
-              <input
-                type="email"
-                name="email"
-                value={user.email}
-                onChange={handleInputs}
-              />
-              {errors.email && <span className="error">{errors.email}</span>}
-            </div>
-            <div className="inputarea">
-              <label>First name*</label>
-              <input
-                type="text"
-                name="fname"
-                value={user.fname}
-                onChange={handleInputs}
-              />
-              {errors.fname && <span className="error">{errors.fname}</span>}
-            </div>
-            <div className="inputarea">
-              <label>Last Name*</label>
-              <input
-                type="text"
-                name="lname"
-                value={user.lname}
-                onChange={handleInputs}
-              />
-              {errors.lname && <span className="error">{errors.lname}</span>}
-            </div>
-            <div className="inputarea">
-              <label>Create password*</label>
-              <input
-                type="password"
-                name="password"
-                value={user.password}
-                onChange={handleInputs}
-              />
-              {errors.password && (
-                <span className="error">{errors.password}</span>
+            <div className="signup-fields">
+              <div className="inputarea firstinput">
+                <label>E-mail address*</label>
+                <input
+                  type="email"
+                  name="email"
+                  value={user.email}
+                  onChange={handleInputs}
+                />
+                {errors.email && <span className="error">{errors.email}</span>}
+              </div>
+              <div className="inputarea">
+                <label>First name*</label>
+                <input
+                  type="text"
+                  name="fname"
+                  value={user.fname}
+                  onChange={handleInputs}
+                />
+                {errors.fname && <span className="error">{errors.fname}</span>}
+              </div>
+              <div className="inputarea">
+                <label>Last Name*</label>
+                <input
+                  type="text"
+                  name="lname"
+                  value={user.lname}
+                  onChange={handleInputs}
+                />
+                {errors.lname && <span className="error">{errors.lname}</span>}
+              </div>
+              <div className="inputarea">
+                <label>Create password*</label>
+                <input
+                  type="password"
+                  name="password"
+                  value={user.password}
+                  onChange={handleInputs}
+                />
+                {errors.password && (
+                  <span className="error">{errors.password}</span>
+                )}
+              </div>
+              <div className="inputarea">
+                <label>Confirm password*</label>
+                <input
+                  type="password"
+                  name="confirmpassword"
+                  value={user.confirmpassword}
+                  onChange={handleInputs}
+                />
+                {errors.confirmpassword && (
+                  <span className="error">{errors.confirmpassword}</span>
+                )}
+              </div>
+              {finalErr && (
+                <span
+                  className={
+                    finalErr.includes("Sucessfully")
+                      ? "txt-green"
+                      : "finalerror"
+                  }
+                >
+                  {finalErr}
+                </span>
               )}
             </div>
-            <div className="inputarea">
-              <label>Confirm password*</label>
-              <input
-                type="password"
-                name="confirmpassword"
-                value={user.confirmpassword}
-                onChange={handleInputs}
-              />
-              {errors.confirmpassword && (
-                <span className="error">{errors.confirmpassword}</span>
-              )}
-            </div>
-            {finalErr && (
-              <span
-                className={
-                  finalErr.includes("Sucessfully") ? "txt-green" : "finalerror"
-                }
-              >
-                {finalErr}
-              </span>
-            )}
             <button type="submit">Create Account</button>
           </form>
           <div className="SignupFooter">

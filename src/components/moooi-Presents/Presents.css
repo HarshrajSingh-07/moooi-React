@@ -92,3 +92,12 @@
         margin-top: 22px;
     }
 }
+@media only screen and (max-height: 545px){
+    .leftContent h1{
+        font-size: 40px;
+    }
+    .cool-link{
+        margin-top: 35px;
+    }
+
+}

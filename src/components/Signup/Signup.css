@@ -3,27 +3,35 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
     /* background: red; */
     z-index: 999;
 }
-.signupContainer{
-    width: min(340px,100%);
-    height: auto;
-    background: Linear-gradient(270deg,rgba(33,33,33,.6) 14.44%,rgba(70,69,67,.6) 93.61%),#000;
+.signupContainer {
+    width: min(340px, 100%);
+    max-height: calc(100vh - 10em); /* Set max-height relative to viewport height */
+    overflow-y: auto;
+    background: linear-gradient(270deg, rgba(33, 33, 33, .6) 14.44%, rgba(70, 69, 67, .6) 93.61%), #000;
     color: white;
-    display: flex;
-    flex-direction: column;
     padding: 30px;
-    justify-content: center;
     text-align: center;
     border-radius: 6px;
+    position: fixed; /* Change to fixed positioning */
+    bottom: 0;
+    top: 50%; /* Adjust top position */
+    left: 50%;
+    transform: translate(-50%, -50%); /* Center the container */
 }
 .signupContainer form{
     width: 100%;
+}
+.signup-fields{
+    /* height:50vh;
+    padding-top: 13px; 
+    /* overflow: scroll; */
 }
 .inputarea{
     border-radius: 6px;
@@ -64,6 +72,7 @@
 .signupContainer button{
     background: transparent;
     border: none;
+    margin-top: 10px;
     font-size: 18px;
     color: white;
     border-bottom:1px solid #fff;

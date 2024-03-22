@@ -59,7 +59,6 @@
     }
 
     .main-head p {
-        margin-bottom: 40px;
         font-size: 16px;
     }
 
@@ -104,4 +103,28 @@
         padding: 10px 14px;
         font-size: 14px;
     }
+}
+@media only screen and (max-height: 545px){
+    .main-head p{
+        font-size: 15px;
+    }
+    .main-head h1{
+        font-size: 55px;
+    }
+    .main-head button{
+        font-size: 16px;
+        margin-top: 25px;
+        padding: 10px 25px;
+    }
+}
+@media only screen and (max-height: 545px) and (max-width:770px){
+   .main-head h1{
+    font-size: 30px;
+   }
+   .main-head {
+    width: 85%;
+}
+.main-head button{
+    font-size: 15px;
+}
 }

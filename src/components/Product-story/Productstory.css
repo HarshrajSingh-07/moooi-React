@@ -84,6 +84,16 @@
         font-size: 25px;
     }
 }
+@media only screen and (max-height:545px) {
+    .productBtn button{
+        padding: 10px 30px;
+        margin-top: 35px;
+        font-size: 20px;
+    }
+    .rightContent h1{
+        font-size: 40px;
+    }
 
+}
 
 

@@ -50,3 +50,10 @@
     }
     
 }
+@media only screen and (max-height:445px) {
+    .strategy-contain h1{
+        font-size: 50px;
+        padding: .9444444444vw 0;
+    }
+    
+}

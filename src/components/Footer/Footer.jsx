@@ -30,8 +30,8 @@ const Footer = () => {
                 <option value="Sweden">Sweden</option>
                 <option value="my country/region is not listed">My country/region is not listed</option>
               </select>
-              <span>
-                <SlArrowDown id="country-down-icon" />
+              <span >
+                <SlArrowDown className="country-down-icon" />
               </span>
             </button>
           </div>
