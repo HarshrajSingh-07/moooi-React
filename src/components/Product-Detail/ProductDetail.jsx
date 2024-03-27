@@ -41,17 +41,10 @@ const ProductDetail = () => {
         }
       });
     });
-
-    // console.log(data);
   }, [id]);
 
-  // console.log("mydata",mydata)
-  // console.log(mydata.src)
-  // console.log(id);
   return (
     <section id="productDetail">
-    {/* <Bag  /> */}
-    {/* <OrderSummary/> */}
       <div className="prodimg">
         <img src={data.src}></img>
       </div>
@@ -62,8 +55,10 @@ const ProductDetail = () => {
         <div className="varBtn">
           <button>
           <h2 className="detailprice">{data.price}</h2>
+            <div className="detailicon">
             <IoIosAdd className="cartIcon" />
             <FiShoppingBag className="cartIcon" />
+            </div>
           </button>
         </div>
         <div className="detailRow">
@@ -102,14 +97,7 @@ const ProductDetail = () => {
           </p>
         </div>
         <div className="policies">
-          <div className="policy">
-            <LiaShippingFastSolid className="policy-icon" />
-            <div className="innerpolicy">
-              <h2>Free Shipping</h2>
-              <p>Free Shipping on all orders over $100</p>
-            </div>
-          </div>
-          <div className="policy">
+        <div className="policy">
             <TbTruckReturn className="policy-icon" />
             <div className="innerpolicy">
               <h2>Easy Returns Within 100 Days</h2>
@@ -117,6 +105,13 @@ const ProductDetail = () => {
                 If you're not in love with our product you may return within 100
                 days of receipt without given reasons.
               </p>
+            </div>
+          </div>
+          <div className="policy">
+            <LiaShippingFastSolid className="policy-icon" />
+            <div className="innerpolicy">
+              <h2>Free Shipping</h2>
+              <p>Free Shipping on all orders over $100</p>
             </div>
           </div>
           <div className="policy">

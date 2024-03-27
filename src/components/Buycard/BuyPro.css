@@ -39,11 +39,9 @@
     box-shadow: 3px 3px 11px rgba(0, 0, 0, .13);
     border-radius: 6px;
     box-sizing: border-box;
-    /* padding: 0px 25px 0px 15px; */
     display: flex;
     flex-direction: column;
-    width: min(400px, 93%);
-    /* height: 400px; */
+    width: min(400px, 92%);
     position: fixed;
     right: 15px;
     bottom: 10px;

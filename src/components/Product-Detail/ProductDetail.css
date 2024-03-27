@@ -7,18 +7,18 @@
 }
 
 .productDetailHead {
+  height: 70vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0vh 3vw;
-  padding-bottom: 110px;
 }
 
 .productDetailHead h1 {
-  font-family: "Oswald", sans-serif;
+  font-family: "Montserrat", sans-serif;
   max-width: 66%;
   font-size: 95px;
-  font-weight: 100;
+  font-weight: 200;
   margin: 0;
   margin: 15px 0px;
 }
@@ -32,7 +32,7 @@
 }
 
 .prodimg {
-  height: 100vh;
+  height: 90vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,12 +58,15 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  padding-left: 5px;
 }
 
 .detailLeft {
-  width: 67%;
+  width: 60%;
+  margin-top: 50px;
 }
-.proname{
+
+.proname {
   font-size: 10px;
   display: inline-block;
   margin: 0;
@@ -73,29 +76,40 @@
 
 .detailLeft p {
   color: #1f1f1f;
-  font-size: 35px;
-  font-weight: 275;
+  font-size: 30px;
+  font-weight: 250;
   font-family: "Montserrat", sans-serif;
 }
-.detailLeft h5{
-  margin: 10px 0 15px 0;
-  font-weight: 400;
+
+.detailLeft h5 {
+  font-size: 40px;
+  margin-bottom: 15px;
+  font-weight: 300;
 }
+
 .detailRight {
   color: #5f5f5f;
-  width: 30%;
+  width: 36%;
+}
+
+.detailRight ul {
+  margin-top: 50px;
 }
 
 .detailRight li {
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 50;
   display: flex;
   align-items: center;
 }
 
+.detailRight li span {
+  font-size: 13px;
+}
+
 .cart-icon {
-  font-size: 40px;
-  margin-right: 20px;
+  font-size: 35px;
+  margin-right: 15px;
 }
 
 .detailBtn {
@@ -103,6 +117,7 @@
   font-size: 18px;
   border: none;
   color: #3f3f3f;
+  margin-top: 25px;
   border-bottom: 0.5px solid #5f5f5f;
 }
 
@@ -124,11 +139,13 @@
 }
 
 .varBtn button {
+  width: min(127px, 100%);
+  display: flex;
+  position: relative;
   background-color: #fff;
   color: #1f1f1f;
   border: none;
   margin: 0;
-  font-size: 28px !important;
   font-weight: 400;
   border-radius: 25px;
   padding: 5px 12px;
@@ -137,10 +154,18 @@
   margin-top: 20px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 }
-.detailprice{
+
+.detailicon {
+  position: absolute;
+  top: 7.4px;
+  right: 10px;
+  font-size: 23px;
+}
+
+.detailprice {
   display: inline-block;
-  font-size: 28px;
-  margin:0;
+  font-size: 25px;
+  margin: 0;
 }
 
 .specsIcon {
@@ -222,10 +247,10 @@
   flex-direction: column;
   justify-content: center;
   height: 100vh;
+  gap: 50px;
 }
 
 .commitments {
-  min-height: 50%;
   max-width: 1340px;
   margin: 0 auto;
   text-align: center;
@@ -237,6 +262,7 @@
 
 .commitments h2 {
   font-family: "Oswald", sans-serif;
+  font-weight: 500;
   font-size: 16px;
   letter-spacing: 0.8px;
   margin: 0;
@@ -244,25 +270,26 @@
 
 .commitments p {
   font-family: "Montserrat", sans-serif;
-  font-weight: 240;
+  font-weight: 200;
   margin: 25px 0;
-  font-size: 43px;
-  padding: 0 25px;
+  font-size: 40px;
+  padding: 0 5vw;
+  margin-bottom: 0;
 }
 
 .policies {
-  min-height: 35%;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 15px;
+  padding: 5vh;
 }
 
 .policy {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 30%;
+  width: 33%;
   text-align: center;
 }
 
@@ -272,16 +299,13 @@
   min-height: 100px;
 }
 
-.innerpolicy {
-  min-height: 250px;
-  max-width: 350px;
-}
 
 .innerpolicy h2 {
   font-family: "Oswald", sans-serif;
-  font-weight: 420;
+  font-weight: 400;
   margin: 0;
   margin: 15px 0;
+  font-size: 23px;
 }
 
 .innerpolicy p {
@@ -318,10 +342,31 @@
   }
 }
 
-@media screen and (max-width: 765px) {
+@media screen and (max-width: 991px) {
+  .productDetailHead h1 {
+    font-size: 74px;
+  }
+
+  .detailLeft p {
+    font-size: 23px;
+  }
+
+  .policies {
+    gap: 0;
+    padding: 2vw;
+  }
+}
+
+@media screen and (max-width: 768px) {
   .productDetailHead {
     width: 95%;
     padding-bottom: 0;
+    margin: 0vh 2.5vw;
+  }
+
+  .productDetailHead h1 {
+    max-width: 100%;
+    font-size: 65px;
   }
 
   .detailRow {
@@ -329,15 +374,95 @@
     align-items: start;
   }
 
+  .varBtn button {
+    width: min(120px, 100%);
+  }
+
+  .detailprice {
+    font-size: 22px;
+  }
+
+  .detailicon {
+    font-size: 20px;
+  }
+
   .detailLeft {
-    width: 100%;
+    width: 95%;
+    margin: 20px 0;
+  }
+
+  .detailLeft h5 {
+    font-size: 23px;
   }
 
   .detailLeft p {
-    font-size: 25px;
+    font-size: 23px;
+  }
+
+  .detailRight {
+    width: 100%;
   }
 
   .detailRight ul {
     padding: 0;
+  }
+
+  .ourCommitments {
+    height: 140vh;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .commitments {
+    min-height: 0;
+  }
+
+  .commitments p {
+    font-size: 23px;
+  }
+
+  .policies {
+    height: 90vh;
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .policy {
+    width: 80%;
+    /* Adjust width for better fit on smaller screens */
+  }
+
+  .innerpolicy {
+    min-height: 150px;
+    min-width: 100%;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .productDetailHead{
+    height: 100vh;
+  }
+  .productDetailHead h1 {
+    font-size: 45px;
+  }
+  .detailRight ul li{
+    padding-bottom: 7px;
+  }
+
+  .detailprice {
+    font-size: 18px;
+  }
+
+  .detailicon {
+    font-size: 18px;
+    top: 5.4px;
+  }
+
+  .varBtn button {
+    width: min(110px, 100%);
+  }
+
+  .detailLeft p {
+    font-size: 22px;
   }
 }

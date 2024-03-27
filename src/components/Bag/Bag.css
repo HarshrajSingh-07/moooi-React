@@ -41,19 +41,16 @@
     transform: translateX(0%);
     right:15px;
     top: 15px;
-    width: min(400px,90%);
+    width: min(400px,91%);
     background-color: #fff;
     border-radius: 10px;
     transition: all 0.6s ease-in-out;
     z-index: 3;
 }
 .close{
-    height: 5%;
     top: 25px;
-    right: 45px;
-    position: relative;
-    display: flex;
-    justify-content: end;
+    right: 37gpx;
+    position: absolute;
     cursor: pointer;
 }
 .close svg{
@@ -101,7 +98,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 50px 25px 0;
+    padding: 50px 25px 10px;
+    margin-top: 10px;
 }
 .BagHeader h1{
     font-size: 40px;
@@ -112,17 +110,17 @@
 }
 .bagIcons{
     width:40%;
-    font-size: 25px;
+    font-size: 22px;
     display: flex;
     justify-content: space-around;
 }
 .bagDetails{
     font-weight: 350;
     width:65%;  
-    margin-left: 10px;
+    margin-left: 15px;
 }
 .bagDetails p{
-    font-size: 18px;
+    font-size: 16px;
     letter-spacing: 0.8px;
     margin: 0;
 }
@@ -160,13 +158,14 @@
     min-height: 40px;
     margin-bottom: 10px;
     border: none;
+    color: #1f1f1f;
     background-color: #fff;
     border-radius: 2.5em;
     box-shadow: 3px 3px 10px rgba(0,0,0,.1);
 }
 .CheackBtn{
     background-color: #1f1f1f !important;
-    color: #fff;
+    color: #fff !important;
 }
 .bagFooter{
     height: 20%;
