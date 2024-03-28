@@ -22,6 +22,10 @@ const Bag = ({ isBagOpen, toggleBag }) => {
     <>
       <section id="Bag">
         <div className={isBagOpen ? "bagContainer" : "bagContainer__close"}>
+        <div className="bagnavbarIcons">
+              <div className="bagHeadIcons"><IoMdSearch />
+              <BsGrid1X2 /></div>
+            
           <div className="close">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -32,14 +36,10 @@ const Bag = ({ isBagOpen, toggleBag }) => {
               <path d="M26 0h12v64H26z" />
               <path d="M0 38V26h64v12z" />
             </svg>
-          </div>
+          </div></div>
           <div className="BagHeader">
             <h1>Bag</h1>
-            <div className="bagIcons">
-              <IoMdSearch />
-              <BsGrid1X2 />
-              <FiShoppingBag />
-            </div>
+            
           </div>
           <div className="cartcards">
             {cartItem.length === 0

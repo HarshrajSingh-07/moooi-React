@@ -2,6 +2,7 @@
     margin: 25px 0;
     height: 100vh;
     position: absolute;
+    z-index: 2;
 }
 
 #BuyProduct:hover .productView {

@@ -20,19 +20,15 @@
     text-align: center;
     border-radius: 6px;
     position: fixed; /* Change to fixed positioning */
-    bottom: 0;
-    top: 50%; /* Adjust top position */
+    bottom: -8%;
+    top: 48%; /* Adjust top position */
     left: 50%;
     transform: translate(-50%, -50%); /* Center the container */
 }
 .signupContainer form{
     width: 100%;
 }
-.signup-fields{
-    /* height:50vh;
-    padding-top: 13px; 
-    /* overflow: scroll; */
-}
+
 .inputarea{
     border-radius: 6px;
     box-shadow: #1f1f1f;

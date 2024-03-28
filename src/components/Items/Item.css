@@ -10,7 +10,7 @@
     flex-direction: column;
     max-width: 80%;
     margin: auto;
-    padding: 9vw 2.7777777778vw 10vw;
+    padding: 8vw 2.7777777778vw 9vw;
 }
 
 .item-text {
@@ -28,7 +28,6 @@
 .item-text p {
     font-family: "Montserrat", sans-serif;
     font-weight: 250;
-    /* color: #909090; */
     color: #1f1f1f;
     font-size: 20px;
     padding: 7px 10vw;
@@ -225,30 +224,27 @@
 .suggesstionBtn{
     padding-top: 20px;
 }
- /* @media only screen and (max-width:1024px){
-    .suggestion{
-        margin: 12.5vw 5vw;
-    }
- } */
+
  @media only screen and (max-width:430px){
     .items-head{
         width: 90%;
+        padding: 5vw 2.7777777778vw 9vw;
     }
     .item-text h1{
         font-size: 50px;
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
     }
     .item-text p{
         font-size: 16px;
-        margin-top: 15px;
+        /* margin-top: 15px; */
     }
     .itemsBtn button{
-        min-width: 250px;
+        min-width: 200px;
         padding: 11px 20px;
         margin: 0;
     }
     .itemsBtn{
-        margin-top: 15px;
+        margin-top: 25px;
 
     }
     .suggestion{

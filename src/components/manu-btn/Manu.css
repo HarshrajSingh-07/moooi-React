@@ -2,7 +2,7 @@
     width: 100%;
     position: fixed;
     bottom: 10px;
-    z-index: 999;
+    z-index: 10;
 }
 .manuItem span{
     position: fixed;

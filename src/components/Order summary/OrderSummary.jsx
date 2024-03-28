@@ -73,6 +73,11 @@ const OrderSummary = () => {
                       </h1>
                       <span>60x70, Calligraphy Bird blue</span>
                       <div className="summaryCartBtn">
+                      <div className="mobilesummaryprice">
+                          <h4 className="Sumprice">
+                            ${value.price * value.quantity}
+                          </h4>
+                        </div>
                         <div className="itemCount">
                           <div
                             className="increaseQty"
@@ -96,7 +101,7 @@ const OrderSummary = () => {
                         </div>
                         <div className="SummaryPrice">
                           <h4 className="Sumprice">
-                            {value.price * value.quantity}
+                            ${value.price * value.quantity}
                           </h4>
                         </div>
                       </div>
@@ -117,7 +122,7 @@ const OrderSummary = () => {
           <div className="OrderSummary">
             <div className="subTotal">
               <p>Subtotal</p>
-              <span>£{subtotal}</span>
+              <span>${subtotal}</span>
             </div>
             <div className="shipping">
               <p>Shipping</p>
@@ -125,7 +130,7 @@ const OrderSummary = () => {
             </div>
             <div className="orderTotal">
               <h1>Total</h1>
-              <h2>£{subtotal}</h2>
+              <h2>${subtotal}</h2>
             </div>
           </div>
           <div className="FinalBuyBtn">

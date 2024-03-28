@@ -1,8 +1,8 @@
 #OrderSummary {
     font-family: "Playfair Display", serif;
-    padding: 11.1111111111vw 0 18.0555555556vw;
+    padding: 11.1111111111vw 0 22vw;
     position: relative;
-    top: 100px; 
+    top: 100px;
 }
 
 .summaryRow {
@@ -114,7 +114,7 @@
 
 .summarycart {
     width: 100%;
-    height: 200px;
+    min-height: 175px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -257,7 +257,7 @@
 .subTotal p {
     font-family: "Buda", sans-serif;
     color: #929292;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 550;
     letter-spacing: 1px;
     padding: 7px 0;
@@ -266,7 +266,7 @@
 .shipping span,
 .subTotal span {
     font-family: "Playfair Display", serif !important;
-    font-size: 15px;
+    font-size: 14px;
     font-family: "Buda", sans-serif;
     color: #929292;
 }
@@ -299,6 +299,10 @@
 }
 
 @media screen and (max-width: 991px) {
+    #OrderSummary {
+        padding: 11.1111111111vw 0 30vw;
+    }
+
     .summaryRow {
         flex-direction: column;
     }
@@ -307,12 +311,14 @@
         width: 100%;
     }
 
-    .ShoppingBag h1 {
+    .ShoppingBag>h1 {
         text-align: center;
     }
-    .emptyCard{
+
+    .emptyCard {
         margin: 10vh 0;
     }
+
     .summaryTotal {
         width: 100%;
     }
@@ -321,13 +327,89 @@
         display: none;
     }
 }
-@media screen and (max-width: 430px){
-    .emptyCard h1{
+
+@media screen and (max-width: 430px) {
+    #OrderSummary {
+        padding: 11.1111111111vw 0 50vw;
+    }
+    .orderTotal{
+        padding: 25px 0;
+    }
+    .emptyCard h1 {
         font-size: 1em;
     }
-}
-@media screen and (max-width: 430px){
-    .emptyCard h1{
+
+    .emptyCard h1 {
         font-size: 0.9em;
+    }
+
+    .summaryDetail h1 {
+        font-size: 16px;
+        letter-spacing: 0;
+        padding-bottom: 10px;
+    }
+
+    .summaryDetail>span {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .summaryCartBtn {
+        flex-wrap: wrap;
+    }
+
+    .itemCount {
+        width: min(230px, 100%);
+    }
+
+    .summaryCartBtn {
+        margin-top: 1em;
+        gap: 20px;
+    }
+
+    .summaryButtons {
+        width: min(230px, 100%);
+        justify-content: center;
+    }
+}
+.mobilesummaryprice{
+    justify-content: end;
+    display: flex;
+    width: 25%;
+    display: none;
+}
+@media screen and (max-width: 410px){
+    .itemCount{
+        margin-top: 20px;
+    }
+    .summaryButtons{
+        margin-bottom: 30px;
+    }
+    .summarycart{
+        flex-direction: column;
+        align-content: center;
+    }
+    .summaryCartBtn{
+        justify-content: center;
+        margin-top: 0.7em;
+        gap: 15px;
+    }
+    .summaryCartDetail {
+        width: 80%;
+        text-align: center;
+    }
+    .summaryDetail h1{
+        padding-bottom: 7px;
+        justify-content: center;
+    }
+    .summaryImg {
+        width: 30%;
+    }
+    .mobilesummaryprice{
+        display: block;
+    }
+    .SummaryPrice{
+        display: none;
     }
 }
