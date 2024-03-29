@@ -6,6 +6,7 @@ import { BsGrid1X2, BsJournalRichtext } from "react-icons/bs";
 import { FiShoppingBag } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Bag from "../Bag/Bag"; // Import the Bag component
+import { useEffect } from "react";
 
 const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead }) => {
   const [isBagOpen, setIsBagOpen] = useState(false); // State to manage bag visibility
@@ -13,7 +14,17 @@ const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead }) => {
   const toggleBag = () => {
     setIsBagOpen(!isBagOpen); // Toggle bag visibility
   };
-
+  useEffect(() => {
+    if(isBagOpen)
+    {
+      document.body.style.backdropFilter="blure(5px)";
+      document.body.style.overflow="hidden";
+    }
+else    {
+      document.body.style.backdropFilter="blure(5px)";
+      document.body.style.overflow="unset";
+    }
+  }, [isBagOpen])
   return (
     <>
       <header style={{ color: Textcolor, backgroundColor: backgroundColor }}>

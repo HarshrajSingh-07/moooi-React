@@ -30,31 +30,22 @@ import {
 import ProductDetail from "./components/Product-Detail/ProductDetail";
 import ScrollToTop from "./ScrollToTop.jsx";
 import OrderSummary from "./components/Order summary/OrderSummary.jsx";
+import Contact from "./components/Contact/Contact.jsx";
+import MenuBar from "./components/MenuBar/MenuBar.jsx";
 
 function App() {
-  const [show, setShow] = useState(null);
+  // const [show, setShow] = useState(null);
   const [menu, setMenu] = useState(false);
   const [urlMain, setUrlMain] = useState("");
   const [open, setOpen] = useState(false);
-  const [SuccessMsg,setSuccessMsg]=useState(null)
-  
+  const [SuccessMsg, setSuccessMsg] = useState(null);
+
   const handleOpen = (msg) => {
-    setOpen(true)
+    setOpen(true);
     setSuccessMsg(msg);
-  }
-  const handleClose = () => setOpen(false);
+  };
   function handleShow() {
     setMenu(!menu);
-    setShow("login");
-  }
-  function handleLogin() {
-    // setMenu(!menu);
-    setShow("login");
-  }
-  function handleSignup() {
-    // setMenu(!menu);
-    setShow("signup");
-    console.log("signup");
   }
   useEffect(() => {
     const url = window.location.href;
@@ -64,38 +55,9 @@ function App() {
     console.log(categoryPath);
   });
 
-  
-
-
   return (
-    <>
+    <>{menu?<MenuBar/>:null}
       <ScrollToTop>
-        {/* {show === "show" ? (
-          <Login handleSignup={handleSignup} />
-        ) : show === "login" ? (
-          <Login handleSignup={handleSignup} />
-        ) : show === "signup" ? (
-          <Signup handleLogin={handleLogin} />
-        ) : null} */}
-        {menu ? (
-          <>
-            {show === "login" ? (
-              <Login
-                handleSignup={handleSignup}
-                open={open}
-                handleClose={handleClose}
-                handleOpen={handleOpen}
-              />
-            ) : (
-              <Signup
-                handleLogin={handleLogin}
-                open={open}
-                handleClose={handleClose}
-                handleOpen={handleOpen}
-              />
-            )}
-          </>
-        ) : null}
         <Routes>
           <Route
             path="/collection"
@@ -264,10 +226,15 @@ function App() {
               </>
             }
           />
+          <Route path="/login" element={
+            <Login/>
+          }
+            />
           <Route
             path="/"
             element={
               <>
+                {/* <Contact/> */}
                 <Header />
                 <Main />
                 <Manu handleShow={handleShow} />

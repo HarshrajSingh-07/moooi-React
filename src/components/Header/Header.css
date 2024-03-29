@@ -9,8 +9,8 @@ header{
     font-family: "Rubik", sans-serif;
     box-sizing: border-box;
     position: fixed;
-    z-index: 2;
     transition: top 0.3s ease;
+    z-index: 900;
 }
 
 header h3{

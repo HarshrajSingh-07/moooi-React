@@ -14,7 +14,7 @@
     background-color: #fff;
     border-radius: 10px;
     transition: all 0.6s ease-in-out;
-    z-index: 15;
+    z-index: 999;
 }
 
 .cartcards {
@@ -53,7 +53,7 @@
     background-color: #fff;
     border-radius: 10px;
     transition: all 0.6s ease-in-out;
-    z-index: 15;
+    z-index: 999;
 }
 
 .bagHeadIcons {

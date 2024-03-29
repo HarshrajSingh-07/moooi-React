@@ -57,7 +57,7 @@ const Bag = ({ isBagOpen, toggleBag }) => {
                       <span>60x70, Calligraphy Bird blue</span>
                     </div>
                     <div className="bagprice">
-                      {value.price * value.quantity}
+                      ${value.price * value.quantity}
                     </div>
                   </div>
                 ))}
