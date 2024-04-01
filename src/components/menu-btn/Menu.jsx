@@ -1,14 +1,13 @@
 import React from "react";
-import "../manu-btn/Manu.css";
+import "./Menu.css"
 
-
-function Manu({handleShow}) {
+function Menu({handleShow}) {
   return (
     <section>
-      <div className="manuItem">
+      <div className="MenuItem">
         <div className="innerBtn">
           <button onClick={()=>{handleShow()}}>
-            <img src="assets/images/manu-button.png" alt="" />
+            <img src="assets/images/Menu-button.png" alt="" />
             <span>Menu</span>
           </button>
         </div>
@@ -17,4 +16,4 @@ function Manu({handleShow}) {
   );
 }
 
-export default Manu;
+export default Menu;

@@ -1,13 +1,14 @@
-.manuItem{
-    width: 100%;
+.MenuItem{
     position: fixed;
-    bottom: 10px;
-    z-index: 17;
+    bottom: -25px;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    left: 50%;
 }
-.manuItem span{
+.MenuItem span{
     position: fixed;
 }
-.manuItem button{
+.MenuItem button{
     background-color: transparent;
     border:none;
     display: flex;

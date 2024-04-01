@@ -10,12 +10,12 @@ import { FaFacebook } from "react-icons/fa6";
 import { FaSpotify } from "react-icons/fa6";
 
 const Footer = () => {
-    const scrollToTop = () => {
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth" // Smooth scrolling animation
-        });
-    }
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", // Smooth scrolling animation
+    });
+  };
   return (
     <section id="footer">
       <div className="footer-main">
@@ -28,9 +28,11 @@ const Footer = () => {
                 <option value="United States">United States</option>
                 <option value="Netherlands">Netherlands</option>
                 <option value="Sweden">Sweden</option>
-                <option value="my country/region is not listed">My country/region is not listed</option>
+                <option value="my country/region is not listed">
+                  My country/region is not listed
+                </option>
               </select>
-              <span >
+              <span>
                 <SlArrowDown className="country-down-icon" />
               </span>
             </button>
@@ -41,13 +43,13 @@ const Footer = () => {
         </div>
         <div className="footer-mid">
           <ul>
-            <li>Store Locator</li>
-            <li>Material Library</li>
             <li>Shipping & Returns</li>
-            <li>FAQ</li>
+            <li>Material Library</li>
+            <li>Store Locator</li>
             <li>Newsletter</li>
             <li>Press Area</li>
             <li>Jobs</li>
+            <li>FAQ</li>
           </ul>
         </div>
         <div className="footer-bottom">

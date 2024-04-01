@@ -3,13 +3,11 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    gap: 30px;
+    padding: 100px 0;
 }
-body {
-    padding-bottom: 100px;
-  }
   
 .contactHead{
-    height: 75vh;
     max-width: 35vw;
     display: flex;
     flex-direction: column;
@@ -57,7 +55,6 @@ body {
 
 #contact {
     width: 100%;
-    height: 75vh;
   }
   
   .section-header {

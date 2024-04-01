@@ -1,6 +1,7 @@
 import React from "react";
 import "../Browse-our-collection/Collection.css";
-import "../manu-btn/Manu.css";
+// import "../Menu-btn/Menu.css";
+import '../menu-btn/Menu.css'
 import { Link } from "react-router-dom";
 
 const collectionData = [

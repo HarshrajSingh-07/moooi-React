@@ -5,7 +5,7 @@ import Collection from "./components/Browse-our-collection/Collection";
 import Design from "./components/Design-Dream/Design";
 import Header from "./components/Header/Header";
 import Main from "./components/main/Main";
-import Manu from "./components/manu-btn/Manu";
+import Menu from "./components/menu-btn/Menu";
 import Presents from "./components/moooi-Presents/Presents";
 import Podcast from "./components/podcast/Podcast";
 import Product from "./components/Product-story/Productstory";
@@ -36,6 +36,9 @@ import MenuBar from "./components/MenuBar/MenuBar.jsx";
 function App() {
   // const [show, setShow] = useState(null);
   const [menu, setMenu] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
+
   const [urlMain, setUrlMain] = useState("");
   const [open, setOpen] = useState(false);
   const [SuccessMsg, setSuccessMsg] = useState(null);
@@ -46,7 +49,22 @@ function App() {
   };
   function handleShow() {
     setMenu(!menu);
+    setShowLogin(false);
+    setShowSignup(false);
   }
+  function handleLogin(){
+    setShowLogin(true);
+    setShowSignup(false);
+    setMenu(false);
+  }
+  function handleSignup(){
+    setShowSignup(true);
+    setShowLogin(false);
+    setMenu(false);
+  }
+  const handleContactClick = () => {
+    setMenu(false); // Close the menu when contact link is clicked
+  };
   useEffect(() => {
     const url = window.location.href;
     const parsedUrl = new URL(url);
@@ -56,9 +74,24 @@ function App() {
   });
 
   return (
-    <>{menu?<MenuBar/>:null}
+    <> {menu && <MenuBar handleLogin={handleLogin} handleSignup={handleSignup} handleContactClick={handleContactClick}/>}
+    {showLogin && <Login handleSignup={handleSignup}/>}
+    {showSignup && <Signup handleLogin={handleLogin}/>}
       <ScrollToTop>
         <Routes>
+        <Route path="/contact" element={
+          <>
+            <Header
+                  Textcolor={"#000"}
+                  backgroundColor={"#fff"}
+                  leftHeader={"none"}
+                  CenterHead={"start"}
+                />
+                <Contact/>
+                <Menu handleShow={handleShow} />
+                <Footer />
+          </>
+        } />
           <Route
             path="/collection"
             element={
@@ -74,6 +107,7 @@ function App() {
                   cardItem={AllCollection}
                   obj={collectionhead}
                 />
+                <Menu handleShow={handleShow} />
                 <Footer />
               </>
             }
@@ -93,6 +127,7 @@ function App() {
                   cardItem={BeddingBath}
                   obj={BeddingBathhead}
                 />
+                <Menu handleShow={handleShow} />
                 <Footer />
               </>
             }
@@ -127,6 +162,7 @@ function App() {
                   cardItem={Furniture}
                   obj={Furnitureobj}
                 />
+                <Menu handleShow={handleShow} />
                 <Footer />
               </>
             }
@@ -147,6 +183,7 @@ function App() {
                   cardItem={Lighting}
                   obj={LightingHead}
                 />
+                <Menu handleShow={handleShow} />
                 <Footer />
               </>
             }
@@ -167,6 +204,7 @@ function App() {
                   cardItem={HomeAccessories}
                   obj={HomeAccessoriesHead}
                 />
+                <Menu handleShow={handleShow} />
                 <Footer />
               </>
             }
@@ -187,6 +225,7 @@ function App() {
                   cardItem={WallFloor}
                   obj={WallFloorHead}
                 />
+                <Menu handleShow={handleShow} />
                 <Footer />
               </>
             }
@@ -207,6 +246,7 @@ function App() {
                   cardItem={BodyBeauty}
                   obj={BodyBeautyHead}
                 />
+                <Menu handleShow={handleShow} />
                 <Footer />
               </>
             }
@@ -222,22 +262,19 @@ function App() {
                   CenterHead={"start"}
                 />
                 <OrderSummary />
+                <Menu handleShow={handleShow} />
                 <Footer />
               </>
             }
           />
-          <Route path="/login" element={
-            <Login/>
-          }
-            />
+          
           <Route
             path="/"
             element={
               <>
-                {/* <Contact/> */}
                 <Header />
                 <Main />
-                <Manu handleShow={handleShow} />
+                <Menu handleShow={handleShow} />
                 <Collection />
                 <Design />
                 <Product />

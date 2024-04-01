@@ -66,6 +66,7 @@
 .footer-mid ul li {
     font-size: 25px;
     padding: 14px 0;
+    padding-left: 10px;
 }
 
 /* Bottom section of the footer */
@@ -104,9 +105,12 @@
 
 /* Media query for smaller screens */
 @media only screen and (max-width: 600px) {
+    #footer{
+        padding: 10vw 4vw 30px;
+    }
     .footer-mid ul {
         columns: 1;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
     }
 
     .footer-bottom {
@@ -117,10 +121,9 @@
         width: 100%;
         justify-content: flex-start;
         flex-wrap: nowrap;
-        margin-bottom: 50px;
+        margin-bottom: 20px;
     }
-
-    .footer-mid ul {
-        margin-bottom: 50px;
+    .selectText button{
+        margin-bottom: 30px;
     }
 }

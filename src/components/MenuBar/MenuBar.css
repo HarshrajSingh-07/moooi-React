@@ -1,20 +1,41 @@
-#MenuBar{
+#MenuBar,#login,#signup{
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    z-index: 16;
-    filter: brightness(90%);
-    backdrop-filter: blur(5px);
+    filter: brightness(80%);
+    backdrop-filter: blur(1px);
+    z-index: 999;
 }
-.menuContainer{
+.menuContainer,.loginContainer,.signupContainer::-webkit-scrollbar {
+    width: 5px; /* Set the width of the scrollbar */
+}
+
+/* Track */
+.menuContainer,.loginContainer,.signupContainer::-webkit-scrollbar-track {
+    background: transparent; /* Background color of the scrollbar track */
+}
+
+/* Handle */
+.menuContainer,.loginContainer,.signupContainer::-webkit-scrollbar-thumb {
+    background: #888; /* Color of the scrollbar handle */
+    border-radius: 10px; /* Border radius of the scrollbar handle */
+}
+
+/* Handle on hover */
+.menuContainer, .loginContainer, .signupContainer::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Color of the scrollbar handle on hover */
+}
+.menuContainer,.loginContainer,.signupContainer{
+    
     position: absolute;
     top: 50%;
     left: 50%;
+    height: 60vh;
+    overflow-y: scroll;
     transform: translate(-50%, -50%);
     width: min(340px, 90%);
-    height: 500px;
     background: Linear-gradient(270deg,rgba(33,33,33,.6) 14.44%,rgba(70,69,67,.6) 93.61%),#000;
     color: white;
     display: flex;
