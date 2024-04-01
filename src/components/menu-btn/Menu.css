@@ -2,11 +2,11 @@
     position: fixed;
     bottom: -25px;
     transform: translate(-50%, -50%);
-    z-index: 999;
+    z-index: 993;
     left: 50%;
 }
 .MenuItem span{
-    position: fixed;
+    position: absolute;
 }
 .MenuItem button{
     background-color: transparent;

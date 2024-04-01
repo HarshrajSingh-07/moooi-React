@@ -30,7 +30,7 @@
 .menuContainer,.loginContainer,.signupContainer{
     
     position: absolute;
-    top: 50%;
+    top: 46%;
     left: 50%;
     height: 60vh;
     overflow-y: scroll;

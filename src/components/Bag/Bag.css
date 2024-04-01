@@ -4,7 +4,7 @@
 }
 
 .bagContainer__close {
-    height: 74vh;
+    height: min(74vh, calc(100vh - 60px));
     box-shadow: 3px 3px 11px rgba(0, 0, 0, .13);
     position: fixed;
     transform: translateX(120%);
@@ -43,7 +43,7 @@
 }
 
 .bagContainer {
-    height: 74vh;
+    height: min(74vh, calc(100vh - 60px));
     box-shadow: 3px 3px 11px rgba(0, 0, 0, .13);
     position: fixed;
     transform: translateX(0%);
@@ -203,11 +203,12 @@
 }
 
 .bagFooter {
-    height: 20%;
+    height: 18%;
     position: absolute;
     bottom: 30px;
     left: 7.5%;
     padding-top: 15px;
+    margin-bottom: 15px;
     width: 85%;
     border-top: 1px solid #929292;
     gap: 20px;
@@ -219,7 +220,7 @@
 
     .bagContainer,
     .bagContainer__close {
-        height: 100vh;
+        height: min(100vh, calc(100vh - 0px));
         top: 0;
         right: 0;
         width: min(430px, 100%);
@@ -228,11 +229,13 @@
 
     .bagFooter {
         flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
     }
 
     .bagButtons {
-        width: 60%;
-        justify-content: end;
+        width: 45%;
+        margin-right: 15px;
     }
 
     .subtotal {

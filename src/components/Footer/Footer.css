@@ -19,8 +19,8 @@
 
 /* Styling for text select component */
 .selectText button {
-    width: 21vw;
-    min-width: 200px;
+    width: 20vw;
+    min-width: 150px;
     padding: 15px 14px;
     margin-bottom: 75px;
     border: 1px solid #929292;
@@ -96,7 +96,7 @@
     text-decoration: none;
     color: #929292;
     font-size: 22px;
-    padding: 8px 15px;
+    padding: 5px 15px;
 }
 
 .socialicon {
@@ -110,7 +110,15 @@
     }
     .footer-mid ul {
         columns: 1;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
+    }
+    .footer-mid ul li { 
+        font-size: 22px; 
+        padding:10px 0;
+        padding-left: 10px;
+    }
+    .fnav a{
+        font-size: 20px;
     }
 
     .footer-bottom {
@@ -121,7 +129,7 @@
         width: 100%;
         justify-content: flex-start;
         flex-wrap: nowrap;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
     }
     .selectText button{
         margin-bottom: 30px;

@@ -13,26 +13,26 @@ const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead }) => {
   const [headerColor, setHeaderColor] = useState("header");
   const [divOffsetTop, setDivOffsetTop] = useState(0);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const div = document.getElementById("collection");
-      const rect = div.getBoundingClientRect();
-      const Productstory  = document.getElementById("design");
-      const presents  = document.getElementById("design");
-      const strategy  = document.getElementById("design");
-      const dream  = document.getElementById("design");
+  // useEffect(() => {
+  //   const handleScroll = () => {
+  //     const div = document.getElementById("collection");
+  //     const rect = div.getBoundingClientRect();
+  //     const Productstory  = document.getElementById("design");
+  //     const presents  = document.getElementById("design");
+  //     const strategy  = document.getElementById("design");
+  //     const dream  = document.getElementById("design");
    
-      if(rect.top<30)
-      {
-        setHeaderColor("collection")
-      }
-    };
+  //     if(rect.top<30)
+  //     {
+  //       setHeaderColor("collection")
+  //     }
+  //   };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
   const [isBagOpen, setIsBagOpen] = useState(false); // State to manage bag visibility
 
   const toggleBag = () => {
