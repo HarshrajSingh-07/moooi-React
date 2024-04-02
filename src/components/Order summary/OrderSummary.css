@@ -216,7 +216,7 @@
 }
 
 .summaryPrice {
-    justify-content: end;
+    justify-content: flex-end;
     display: flex;
     width: 25%;
 }
@@ -374,7 +374,7 @@
     }
 }
 .mobilesummaryprice{
-    justify-content: end;
+    justify-content: flex-end;
     display: flex;
     width: 25%;
     display: none;

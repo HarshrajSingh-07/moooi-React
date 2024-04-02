@@ -29,7 +29,7 @@
 }
 
 .main-head p {
-    margin-bottom: 15px;
+    margin-bottom: 30px;
     color: hsla(0, 0%, 100%, .8);
     ;
     font-size: 20px;
@@ -43,7 +43,7 @@
     font-family: "Cinzel", serif;
     border: none;
     padding: 12px 25px;
-    margin-top: 75px;
+    margin-top: 65px;
     background-color: #fff;
     border-radius: 2.5em;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, .1);
@@ -86,7 +86,7 @@
 
 @media only screen and (max-width: 576px) {
     .main-head {
-        width: 85%;
+        width: 87%;
     }
 
     .main-head h1 {
@@ -98,9 +98,9 @@
     }
 
     .main-head button {
-        margin-top: 35px;
+        margin: 35px 0;
         padding: 10px 14px;
-        font-size: 14px;
+        font-size: 16px;
     }
 }
 @media only screen and (max-height: 545px){

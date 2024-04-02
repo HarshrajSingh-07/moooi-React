@@ -1,6 +1,5 @@
 header{
     width: 100%;
-    color: rgb(236, 233, 233);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -8,10 +7,22 @@ header{
     font-size: 25px;
     font-family: "Rubik", sans-serif;
     box-sizing: border-box;
-    position: fixed;
-    transition: top 0.3s ease;
     z-index: 900;
 }
+.header {
+    color: rgb(236, 233, 233);
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease-in-out;
+  }
+  .visible {
+    transform: translateY(0);
+  }
+  
+  .hidden {
+    transform: translateY(-100%);
+  }
 
 header h3{
     margin: 0;

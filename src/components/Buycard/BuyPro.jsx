@@ -16,7 +16,7 @@ const BuyPro = ({ src, title, price }) => {
     setIsExpanded(!isExpanded);
     const buyDetail = document.getElementById("BuyDetail");
     if (!isExpanded) {
-      buyDetail.style.bottom = "-390px";
+      buyDetail.style.bottom = "-397px";
     } else {
       buyDetail.style.bottom = "0"; 
     }

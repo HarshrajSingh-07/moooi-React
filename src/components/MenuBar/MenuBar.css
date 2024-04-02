@@ -5,32 +5,29 @@
     right: 0;
     bottom: 0;
     filter: brightness(80%);
-    backdrop-filter: blur(1px);
-    z-index: 999;
+    backdrop-filter: blur(0px);
+    z-index: 996;
 }
 .menuContainer,.loginContainer,.signupContainer::-webkit-scrollbar {
-    width: 5px; /* Set the width of the scrollbar */
+    width: 5px; 
 }
 
-/* Track */
 .menuContainer,.loginContainer,.signupContainer::-webkit-scrollbar-track {
-    background: transparent; /* Background color of the scrollbar track */
+    background: transparent; 
 }
 
-/* Handle */
 .menuContainer,.loginContainer,.signupContainer::-webkit-scrollbar-thumb {
-    background: #888; /* Color of the scrollbar handle */
-    border-radius: 10px; /* Border radius of the scrollbar handle */
+    background: #888; 
+    border-radius: 10px; 
 }
 
-/* Handle on hover */
 .menuContainer, .loginContainer, .signupContainer::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Color of the scrollbar handle on hover */
+    background: #555; 
 }
 .menuContainer,.loginContainer,.signupContainer{
     
     position: absolute;
-    top: 46%;
+    top: 44%;
     left: 50%;
     height: 60vh;
     overflow-y: scroll;

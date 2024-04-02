@@ -3,6 +3,7 @@
   height: auto;
   font-family: "Ojuju", sans-serif;
   padding-top: 100px;
+  position: relative;
 }
 
 .productDetailHead {
@@ -245,7 +246,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
+  max-height: 100vh;
   gap: 50px;
 }
 
@@ -407,7 +408,7 @@
   }
 
   .ourCommitments {
-    height: 140vh;
+    height: 100vh;
     flex-direction: column;
     align-items: center;
   }
@@ -438,14 +439,28 @@
 }
 
 @media screen and (max-width: 550px) {
+  .ourCommitments{
+    gap:0;
+  }
+  .commitments p{
+    font-size: 17px;
+    margin: 0;
+    padding: 1vh 5vw;
+  }
   .productDetailHead{
     height: 80vh;
   }
   .productDetailHead h1 {
-    font-size: 45px;
+    font-size: 35px;
   }
+  .detailBtn{
+    margin-top:10px;
+  }
+  .detailRight ul {
+    margin-top: 10px;
+}
   .detailRight ul li{
-    padding-bottom: 7px;
+    padding-bottom: 0px;
   }
 
   .detailprice {
@@ -462,6 +477,26 @@
   }
 
   .detailLeft p {
+    font-size: 20px;
+  }
+}
+@media screen and (max-width: 430px){
+  .detailLeft h5{
     font-size: 22px;
+  }
+  .detailLeft p {
+    font-size: 18px;
+  }
+  
+}
+@media screen and (max-height: 768px) {
+  .productDetailHead {
+    height: 60vh; /* Adjust height for smaller screens */
+  }
+}
+
+@media screen and (max-height: 480px) {
+  .productDetailHead {
+    height: 50vh; /* Adjust height for even smaller screens */
   }
 }

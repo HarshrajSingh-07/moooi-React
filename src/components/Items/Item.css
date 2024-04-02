@@ -20,14 +20,14 @@
 .item-text h1 {
     color: #1f1f1f;
     font-weight: 50;
-    font-size: 72px;
-    /* font-style: italic; */
+    font-size: 65px;
+    font-style: italic;
     margin: 0;
 }
 
 .item-text p {
-    font-family: "Montserrat", sans-serif;
-    font-weight: 250;
+    font-family: "Poppins", sans-serif;
+    font-weight: 300;
     color: #1f1f1f;
     font-size: 20px;
     padding: 7px 10vw;
@@ -40,6 +40,7 @@
     justify-content: center;
     gap: 10px;
 }
+
 
 .itemsBtn button {
     width:min(220px,100%);
@@ -152,8 +153,12 @@
 }
 
 @media (max-width:576px) {
+    .items-head {
+        max-width: 100%;
+        padding: 5vw 5vw 9vw;
+    }
     .item-text h1 {
-        font-size: 50px;
+        font-size:55px;
     }
 
     .item-text p {
@@ -166,9 +171,6 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .item-text h1 {
-        font-size: 55px;
-    }
 
     .item-text p {
         padding: 7px 7vw;
@@ -227,12 +229,11 @@
 
  @media only screen and (max-width:430px){
     .items-head{
-        width: 90%;
-        padding: 5vw 2.7777777778vw 9vw;
+        width: 100%;
+        padding: 5vw 6vw 9vw;
     }
     .item-text h1{
-        font-size: 50px;
-        /* margin-bottom: 20px; */
+        font-size: 40px;
     }
     .item-text p{
         font-size: 16px;

@@ -34,7 +34,7 @@ import Contact from "./components/Contact/Contact.jsx";
 import MenuBar from "./components/MenuBar/MenuBar.jsx";
 
 function App() {
-  // const [show, setShow] = useState(null);
+  const[loggedIn,setLoggedIn]=useState(false)
   const [menu, setMenu] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
@@ -45,6 +45,10 @@ function App() {
 
   const handleOpen = (msg) => {
     setOpen(true);
+    setSuccessMsg(msg);
+  };
+  const handleClose = (msg) => {
+    setOpen(false);
     setSuccessMsg(msg);
   };
   function handleShow() {
@@ -63,20 +67,21 @@ function App() {
     setMenu(false);
   }
   const handleContactClick = () => {
-    setMenu(false); // Close the menu when contact link is clicked
+    setMenu(false); 
   };
   useEffect(() => {
     const url = window.location.href;
     const parsedUrl = new URL(url);
     const decodedPathname = decodeURIComponent(parsedUrl.pathname);
-    const categoryPath = decodedPathname.split("/").slice(1, 3).join("/");
+    const categoryPath = decodedPathname.split("/").slice(1, 3).join("/");  
     console.log(categoryPath);
   });
 
   return (
     <> {menu && <MenuBar handleLogin={handleLogin} handleSignup={handleSignup} handleContactClick={handleContactClick}/>}
-    {showLogin && <Login handleSignup={handleSignup}/>}
-    {showSignup && <Signup handleLogin={handleLogin}/>}
+    {showLogin && <Login handleSignup={handleSignup} handleOpen={handleOpen} open={open} handleClose={handleClose}
+    />}
+    {showSignup && <Signup handleLogin={handleLogin} handleOpen={handleOpen} open={open} handleClose={handleClose}/>}
       <ScrollToTop>
         <Routes>
         <Route path="/contact" element={

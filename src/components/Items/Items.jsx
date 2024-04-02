@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, {useState } from "react";
 import "./Item.css";
 import { HiOutlineChevronLeft } from "react-icons/hi";
 import { BsFilterRight } from "react-icons/bs";

@@ -5,63 +5,86 @@ import { IoMdSearch } from "react-icons/io";
 import { BsGrid1X2, BsJournalRichtext } from "react-icons/bs";
 import { FiShoppingBag } from "react-icons/fi";
 import { Link } from "react-router-dom";
-import Bag from "../Bag/Bag"; 
+import Bag from "../Bag/Bag";
 import { useEffect } from "react";
 import { LiaEyeSlashSolid } from "react-icons/lia";
 
 const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead }) => {
-  const [headerColor, setHeaderColor] = useState("header");
+  const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
+  const [visible, setVisible] = useState(true);
+  const [headerColor, setHeaderColor] = useState("white");
   const [divOffsetTop, setDivOffsetTop] = useState(0);
 
   // useEffect(() => {
   //   const handleScroll = () => {
-  //     const div = document.getElementById("collection");
-  //     const rect = div.getBoundingClientRect();
-  //     const Productstory  = document.getElementById("design");
-  //     const presents  = document.getElementById("design");
-  //     const strategy  = document.getElementById("design");
-  //     const dream  = document.getElementById("design");
-   
-  //     if(rect.top<30)
-  //     {
-  //       setHeaderColor("collection")
+  //     const sectionOffsets = {
+  //       collection: document.getElementById("collection").offsetTop,
+  //       design: document.getElementById("design").offsetTop,
+  //       presents: document.getElementById("Presents").offsetTop,
+  //       // Add more sections as needed
+  //     };
+
+  //     const scrollPosition = window.scrollY;
+
+  //     if (scrollPosition < sectionOffsets.design) {
+  //       setHeaderColor("white");
+  //     } else if (scrollPosition < sectionOffsets.presents) {
+  //       setHeaderColor("black");
+  //     } else if (scrollPosition < sectionOffsets.strategy) {
+  //       setHeaderColor("green");
+  //     } else {
+  //       setHeaderColor("blue");
   //     }
   //   };
 
   //   window.addEventListener("scroll", handleScroll);
+
   //   return () => {
   //     window.removeEventListener("scroll", handleScroll);
   //   };
   // }, []);
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollPos = window.pageYOffset;
+      setVisible(prevScrollPos > currentScrollPos);
+      setPrevScrollPos(currentScrollPos);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [prevScrollPos]);
   const [isBagOpen, setIsBagOpen] = useState(false); // State to manage bag visibility
 
   const toggleBag = () => {
     setIsBagOpen(!isBagOpen); // Toggle bag visibility
   };
-  useEffect(() => {
-    if(isBagOpen)
-    {
-      document.body.style.backdropFilter="blure(5px)";
-      document.body.style.overflow="hidden";
-    }
-else    {
-      document.body.style.backdropFilter="blure(5px)";
-      document.body.style.overflow="unset";
-    }
-  }, [isBagOpen])
+
   return (
     <>
       {/* <header style={{ color: Textcolor, backgroundColor: backgroundColor }} > */}
-      <header style={headerColor?{ color: Textcolor , backgroundColor: backgroundColor ,color:"black" }:null} >
+      <header className={`header ${visible ? "visible" : "hidden"}`}
+        style={
+          headerColor
+            ? {
+                color: Textcolor,
+                backgroundColor: backgroundColor,
+              }
+            : null
+        }
+      >
         <div className="headLeft" style={{ display: leftHeader }}>
           <IoMicOutline />
         </div>
-        <div className="headCent" style={{ justifyContent : CenterHead }}>
+        <div className="headCent" style={{ justifyContent: CenterHead }}>
           <Link to="/" element="./App.js">
-            <h3 style={headerColor?{ color: Textcolor,color:"black" }:null}>moooi</h3>
+            <h3
+              style={headerColor ? { color: Textcolor} : null}
+            >
+              moooi
+            </h3>
           </Link>
         </div>
-        <div className="headRight" >
+        <div className="headRight">
           <IoMdSearch />
           <BsGrid1X2 />
           {/* Attach onClick handler to FiShoppingBag to toggle bag visibility */}

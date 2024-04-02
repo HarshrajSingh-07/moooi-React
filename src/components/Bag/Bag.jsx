@@ -1,23 +1,28 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import "./Bag.css";
 import { IoMdSearch } from "react-icons/io";
 import { BsGrid1X2 } from "react-icons/bs";
-import { FiShoppingBag } from "react-icons/fi";
 import { useDispatch, useSelector } from "react-redux";
 import { totalPriceHandler } from "../Redux/features/cart/cartSlice";
 import { Link } from "react-router-dom";
 
 const Bag = ({ isBagOpen, toggleBag }) => {
   const dispatch = useDispatch();
-
+  const buyDetailRef = useRef(null); // Create a ref for the BuyDetail element
+  const buyDetail = document.getElementById("BuyDetail");
   const cartItem = useSelector((state) => state.cart.items);
 
+  // useEffect(() => {
+  //   // Accessing buyDetailRef.current only after the component is mounted
+  //   if (buyDetailRef.current) {
+  //     buyDetailRef.current.style.bottom = "-397px";
+  //   }
+  // }, [isBagOpen]);
   const subtotal = cartItem.reduce((acc, item) => {
     return +acc + item.price * item.quantity;
   }, 0);
 
   dispatch(totalPriceHandler(subtotal));
-
   return (
     <>
       <section id="Bag">

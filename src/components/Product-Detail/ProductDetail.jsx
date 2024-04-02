@@ -17,8 +17,6 @@ import Bag from "../Bag/Bag";
 import { AllCollection } from "../Items/AllCollection";
 
 
-
-
 const ProductDetail = () => {
   const [data, setData] = useState([]);
   const [mydata, setMyData] = useState({});
@@ -44,13 +42,16 @@ const ProductDetail = () => {
   }, [id]);
 
   return (
+    <>
+
     <section id="productDetail">
+
       <div className="prodimg">
         <img src={data.src}></img>
       </div>
       <div className="productDetailHead">
         <h1>{data.itemname}</h1>
-        <BuyPro src={data.src} title={data.itemname} price={data.price}/>
+        
         <span>MOOOI, 2021</span>
         <div className="varBtn">
           <button>
@@ -61,6 +62,7 @@ const ProductDetail = () => {
             </div>
           </button>
         </div>
+        
         <div className="detailRow">
           <div className="detailLeft">
             <p><h5>{data.type}</h5>
@@ -128,6 +130,8 @@ const ProductDetail = () => {
         </div>
       </div>
     </section>
+    <BuyPro src={data.src} title={data.itemname} price={data.price}/>
+    </>
   );
 };
 

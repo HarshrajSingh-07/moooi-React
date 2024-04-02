@@ -1,10 +1,8 @@
 import React, { useEffect, useState } from "react";
 import "./Login.css";
-import { initializeApp } from "firebase/app";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import "firebase/auth";
 import { auth } from "../../firebase";
-import { Box, Modal, Typography } from "@mui/material";
 import BasicModal from "./Modals";
 import {RemoveScroll} from 'react-remove-scroll';
 
@@ -41,8 +39,8 @@ const Login = ({ handleSignup, open, handleOpen, handleClose }) => {
   const handleSignInWithFirebase = async (email, password) => {
     try {
       const res = await signInWithEmailAndPassword(auth, email, password);
-      console.log("Login Successfully");
       handleOpen("Login Successfully !");
+      setData({email:"",password:""})
     } catch (error) {
       console.log(error.code);
       if (error.code === "auth/invalid-credential") {

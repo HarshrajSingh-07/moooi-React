@@ -2,7 +2,6 @@ export const Lighting = [
   {
     src: "https://www.moooi.com/_next/image?url=https%3A%2F%2Fcdn.moooi.com%2Ftmp%2Fimage-thumbnails%2FCollection%2FPerch%2FPerch%20Light%20Wall%2FPerch%20Light%20wall%2F1853%2Fimage-thumb__1853__header_fullscreen_2x_jpg%2FPerch-Light-Wall-USA.webp&w=1080&q=80",
     itemname: "Perch Light Wall ",
-    brandName:"by Paul Cocksedge",
     brandName:"by Umut Yamac",
     price: "$250",
     availability: "In Stock",
