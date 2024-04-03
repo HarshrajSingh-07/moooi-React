@@ -42,7 +42,13 @@ function App() {
   const [urlMain, setUrlMain] = useState("");
   const [open, setOpen] = useState(false);
   const [SuccessMsg, setSuccessMsg] = useState(null);
-
+  const [isExpanded, setIsExpanded] = useState(false);
+  const toggleCardHeight = () => {
+    setIsExpanded(!isExpanded);
+  }
+  const HideBuyWhenCartOpen = () => {
+    setIsExpanded(true);
+  }
   const handleOpen = (msg) => {
     setOpen(true);
     setSuccessMsg(msg);
@@ -86,7 +92,7 @@ function App() {
         <Routes>
         <Route path="/contact" element={
           <>
-            <Header
+            <Header toggleCardHeight={toggleCardHeight}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -101,7 +107,7 @@ function App() {
             path="/collection"
             element={
               <>
-                <Header
+                <Header toggleCardHeight={toggleCardHeight}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -121,7 +127,7 @@ function App() {
             path="/Bedding & Bath"
             element={
               <>
-                <Header
+                <Header toggleCardHeight={toggleCardHeight}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -141,13 +147,13 @@ function App() {
             path={`/productdetails/:id1/:id`}
             element={
               <>
-                <Header
+                <Header HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
                   CenterHead={"start"}
                 />
-                <ProductDetail />
+                <ProductDetail toggleCardHeight={toggleCardHeight} isExpanded={isExpanded} />
                 <Footer />
               </>
             }
@@ -156,7 +162,7 @@ function App() {
             path="/Furniture"
             element={
               <>
-                <Header
+                <Header toggleCardHeight={toggleCardHeight}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -177,7 +183,7 @@ function App() {
             path="/Lighting"
             element={
               <>
-                <Header
+                <Header toggleCardHeight={toggleCardHeight}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -198,7 +204,7 @@ function App() {
             path="/Home Accessories"
             element={
               <>
-                <Header
+                <Header toggleCardHeight={toggleCardHeight}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -219,7 +225,7 @@ function App() {
             path="/Wall & Floor"
             element={
               <>
-                <Header
+                <Header toggleCardHeight={toggleCardHeight}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -240,7 +246,7 @@ function App() {
             path="/Body & Beauty"
             element={
               <>
-                <Header
+                <Header toggleCardHeight={toggleCardHeight}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -260,7 +266,7 @@ function App() {
             path="/ordersummary"
             element={
               <>
-                <Header
+                <Header toggleCardHeight={toggleCardHeight}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -277,7 +283,7 @@ function App() {
             path="/"
             element={
               <>
-                <Header />
+                <Header toggleCardHeight={toggleCardHeight} />
                 <Main />
                 <Menu handleShow={handleShow} />
                 <Collection />

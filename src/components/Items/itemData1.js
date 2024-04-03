@@ -5,6 +5,7 @@ export const BeddingBath = [
     brandName:"BY MOOOI",
     price: "$250",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
   },
   {
@@ -13,6 +14,7 @@ export const BeddingBath = [
     brandName:"BY MOOOI",
     price: "$250",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
   },
   {
@@ -21,6 +23,7 @@ export const BeddingBath = [
     brandName:"BY MOOOI",
     price: "$250",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
   },
   {
@@ -29,6 +32,7 @@ export const BeddingBath = [
     brandName:"BY MOOOI",
     price: "$250",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
   },
   {
@@ -37,6 +41,7 @@ export const BeddingBath = [
     brandName:"BY MOOOI",
     price: "$250",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
   },
   {
@@ -45,6 +50,7 @@ export const BeddingBath = [
     brandName:"BY MOOOI",
     price: "$250",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
   },
   {
@@ -53,6 +59,7 @@ export const BeddingBath = [
     brandName:"BY MOOOI",
     price: "$250",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
   },
   {
@@ -61,6 +68,7 @@ export const BeddingBath = [
     brandName:"BY MOOOI",
     price: "$250",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
   },
   {
@@ -69,6 +77,7 @@ export const BeddingBath = [
     brandName:"BY MOOOI",
     price: "$250",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
   },
   {
@@ -77,6 +86,7 @@ export const BeddingBath = [
     brandName:"BY MOOOI",
     price: "$250",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
   },
   {
@@ -85,7 +95,9 @@ export const BeddingBath = [
     brandName:"BY MOOOI",
     price: "$250",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
+    category: "Bath"
   },
   {
     src: "https://www.moooi.com/_next/image?url=https%3A%2F%2Fcdn.moooi.com%2Ftmp%2Fimage-thumbnails%2FCollection%2FBath%2FBeach%20Towel%2Fimage-thumb__64384__header_fullscreen_2x_jpg%2FMenagerie-Beach-towel_Ivory_UV_UV_100x180-10_Topshot.webp&w=1080&q=80",
@@ -94,6 +106,7 @@ export const BeddingBath = [
     price: "$250",
     availability: "In Stock",
     type: "BeddingBath",
+    category: "Bath"
   },
   {
     src: "https://www.moooi.com/_next/image?url=https%3A%2F%2Fcdn.moooi.com%2Ftmp%2Fimage-thumbnails%2FCollection%2FBath%2FKimono%2Fimage-thumb__64209__header_fullscreen_2x_jpg%2FMenagerie-Kimono_Raven_UV_UV--L-10_Topshot.webp&w=1080&q=80",
@@ -102,6 +115,7 @@ export const BeddingBath = [
     price: "$250",
     availability: "In Stock",
     type: "BeddingBath",
+    category: "Bath"
   },
   {
     src: "https://www.moooi.com/_next/image?url=https%3A%2F%2Fcdn.moooi.com%2Ftmp%2Fimage-thumbnails%2FCollection%2FBath%2FBathrobe%2Fimage-thumb__64219__header_fullscreen_2x_jpg%2FDodo-Pavone-Bathrobe_White_UV_UV-10_Topshot.webp&w=1080&q=80",
@@ -110,6 +124,7 @@ export const BeddingBath = [
     price: "$250",
     availability: "In Stock",
     type: "BeddingBath",
+    category: "Bath"
   },
   {
     src: "https://www.moooi.com/_next/image?url=https%3A%2F%2Fcdn.moooi.com%2Ftmp%2Fimage-thumbnails%2FCollection%2FBath%2FTowel%2FMenagerie%20of%20Extinct%20Animals%20Towel%2Fimage-thumb__64294__header_fullscreen_2x_jpg%2FMenagerie-Towel_Ivory_UV_UV_100x150-10_Topshot.webp&w=1080&q=80",
@@ -118,6 +133,7 @@ export const BeddingBath = [
     price: "$250",
     availability: "In Stock",
     type: "BeddingBath",
+    category: "Bath"
   },
   {
     src: "https://www.moooi.com/_next/image?url=https%3A%2F%2Fcdn.moooi.com%2Ftmp%2Fimage-thumbnails%2FCollection%2FBedding%2FFitted%20Sheets%2FMenagerie%2Fimage-thumb__52883__header_fullscreen_2x_jpg%2FMenagerie_Green_US_UV_Mood_1.webp&w=1080&q=80",
@@ -125,6 +141,7 @@ export const BeddingBath = [
     brandName:"BY MOOOI",
     price: "$250",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
   },
   {
@@ -133,6 +150,7 @@ export const BeddingBath = [
     brandName:"BY MOOOI",
     price: "$250",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
   },
   {
@@ -141,6 +159,7 @@ export const BeddingBath = [
     brandName:"BY MOOOI",
     price: "$250",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
   },
   {
@@ -149,6 +168,7 @@ export const BeddingBath = [
     price: "$250",
     brandName:"BY MOOOI",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
   },
   {
@@ -157,6 +177,7 @@ export const BeddingBath = [
     brandName:"BY MOOOI",
     price: "$250",
     availability: "In Stock",
+    category: "Bedding",
     type: "BeddingBath",
   },
 ];

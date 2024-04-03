@@ -1,4 +1,4 @@
-header{
+header {
     width: 100%;
     display: flex;
     align-items: center;
@@ -9,66 +9,99 @@ header{
     box-sizing: border-box;
     z-index: 900;
 }
+.expanded {
+    transform: translateY(48vh);
+}
+
 .header {
     color: rgb(236, 233, 233);
     position: fixed;
     top: 0;
     left: 0;
     transition: transform 0.3s ease-in-out;
-  }
-  .visible {
-    transform: translateY(0);
-  }
-  
-  .hidden {
-    transform: translateY(-100%);
-  }
+}
 
-header h3{
+.visible {
+    transform: translateY(0);
+}
+
+.hidden {
+    transform: translateY(-100%);
+}
+
+header h3 {
     margin: 0;
     font-size: 35px;
     font-weight: 450;
     letter-spacing: 10px;
 }
-.headLeft{
+
+.headLeft {
     width: 33.3%;
     display: flex;
     justify-content: flex-start;
 }
-.headCent{
+
+.headCent {
     width: 33.3%;
     display: flex;
     justify-content: center;
 }
-.headCent a{
+
+.headCent a {
     color: rgb(236, 233, 233);
     text-decoration: none;
 }
-.headRight{
+
+.headRight {
     width: 33.3%;
     display: flex;
     justify-content: flex-end;
     gap: 50px;
 }
-@media only screen and (max-width: 768px){
-   .headRight{
-        gap: 25px;
-    }
-    header{
-        padding: 30px 20px;
-    }
-    
+
+.shopingBag {
+    position: relative;
 }
 
-@media only screen and (max-width: 576px){
-    .headRight{
+.CartQnty {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: -7px;
+    right: -12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+    color: #000;
+    border-radius: 50%;
+    background-color: #e3d9c6;
+    font-family: auto;
+}
+
+@media only screen and (max-width: 768px) {
+    .headRight {
+        gap: 25px;
+    }
+
+    header {
+        padding: 30px 20px;
+    }
+
+}
+
+@media only screen and (max-width: 576px) {
+    .headRight {
         gap: 12px;
     }
-    header{
-        font-size: 20px ;
+
+    header {
+        font-size: 20px;
     }
-    header h3{
+
+    header h3 {
         font-size: 25px;
     }
 }
-

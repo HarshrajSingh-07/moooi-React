@@ -8,13 +8,15 @@ import { Link } from "react-router-dom";
 import Bag from "../Bag/Bag";
 import { useEffect } from "react";
 import { LiaEyeSlashSolid } from "react-icons/lia";
+import { useSelector } from "react-redux";
 
-const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead }) => {
+const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead,HideBuyWhenCartOpen}) => {
+  const cartItem = useSelector((state) => state.cart.items);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(true);
   const [headerColor, setHeaderColor] = useState("white");
   const [divOffsetTop, setDivOffsetTop] = useState(0);
-
+  
   // useEffect(() => {
   //   const handleScroll = () => {
   //     const sectionOffsets = {
@@ -40,9 +42,10 @@ const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead }) => {
   //   window.addEventListener("scroll", handleScroll);
 
   //   return () => {
-  //     window.removeEventListener("scroll", handleScroll);
+  //     window.removeEventListener("scroll", handleScroll); 
   //   };
   // }, []);
+  
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
@@ -57,6 +60,7 @@ const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead }) => {
 
   const toggleBag = () => {
     setIsBagOpen(!isBagOpen); // Toggle bag visibility
+    HideBuyWhenCartOpen();
   };
 
   return (
@@ -88,7 +92,10 @@ const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead }) => {
           <IoMdSearch />
           <BsGrid1X2 />
           {/* Attach onClick handler to FiShoppingBag to toggle bag visibility */}
-          <FiShoppingBag onClick={toggleBag} />
+          <div className="shopingBag" onClick={toggleBag} >
+          <FiShoppingBag />
+          <span className="CartQnty">{cartItem.length}</span>
+          </div>
         </div>
       </header>
       {/* Render the Bag component conditionally based on the state */}

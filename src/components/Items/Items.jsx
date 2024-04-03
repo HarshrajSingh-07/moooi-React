@@ -1,16 +1,32 @@
-import React, {useState } from "react";
+import React, {useEffect, useState } from "react";
 import "./Item.css";
 import { HiOutlineChevronLeft } from "react-icons/hi";
 import { BsFilterRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const Items = ({link, cardItem, obj }) => {
-  const [targetIndex, setTargetIndex] = useState(0);
- 
-  const pageHandlerBtn = (e) => {
-    const index = parseInt(e.target.value, 10);
-    setTargetIndex(index);
-  };
+  // const [targetIndex, setTargetIndex] = useState(0);
+  const [data,setData]=useState(cardItem);
+  const [filter,setFilter]=useState(obj.btn[0]);
+  useEffect(()=>{
+    if( filter!==obj.btn[0]){
+      const localData=cardItem.filter((element)=>{
+        return element.category===filter
+      })
+      console.log(localData);
+      setData(localData);
+    }else{
+      setData(cardItem)
+    }  
+  },[filter])
+  const filterHandler=(val)=>{
+    setFilter(val);
+  }
+  // const pageHandlerBtn = (e) => {
+  //   filterHandler(e.target.value)
+  //   const index = parseInt(e.target.value, 10);
+  //   setTargetIndex(index);
+  // };
 
   return (
     <section id="items">
@@ -29,17 +45,18 @@ const Items = ({link, cardItem, obj }) => {
               <HiOutlineChevronLeft />
             </button>
           </Link>
-          {obj.btn.map((item, index) => (
-            <Link to={`/${item.toLowerCase()}`} key={index}>
+          {obj.btn.map((item, index) => (<>
+            {/* <Link to={`/${item.toLowerCase()}`} key={index}> */}
             <button
               key={index}
-              className={index === targetIndex ? "active" : null}
-              value={index}
-              onClick={(e) => pageHandlerBtn(e)}
+              className={item === filter ? "active" : null}
+              value={item}
+              onClick={(e) =>  filterHandler(e.target.value)}
             >
               {item}
             </button>
-            </Link>
+            {/* </Link> */}
+            </>
           ))}
         </div>
         <div className="filterBtn">
@@ -51,9 +68,9 @@ const Items = ({link, cardItem, obj }) => {
           </button>
         </div>
       </div>
-
+   
       <div className="cards">
-        {cardItem.map((item, index) => (
+        {data.map((item, index) => (
           <Link key={index} to={`/productdetails/${item.type}/${index}`}>
             <div className="carditem">
               <div className="cartimg">
@@ -79,8 +96,10 @@ const Items = ({link, cardItem, obj }) => {
             return (
               <button
                 key={index}
-                className={index === targetIndex ? "active" : null}
-                onClick={(e) => pageHandlerBtn(e)}
+                value={item}
+
+                className={item === filter ? "active" : null}
+                onClick={(e) =>  filterHandler(e.target.value)}
               >
                 {item}{" "}
               </button>

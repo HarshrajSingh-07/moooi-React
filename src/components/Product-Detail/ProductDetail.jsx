@@ -17,7 +17,8 @@ import Bag from "../Bag/Bag";
 import { AllCollection } from "../Items/AllCollection";
 
 
-const ProductDetail = () => {
+const ProductDetail = ({toggleCardHeight,isExpanded}) => {
+  console.log(isExpanded);
   const [data, setData] = useState([]);
   const [mydata, setMyData] = useState({});
   let { id, id1 } = useParams();
@@ -130,7 +131,7 @@ const ProductDetail = () => {
         </div>
       </div>
     </section>
-    <BuyPro src={data.src} title={data.itemname} price={data.price}/>
+    <BuyPro src={data.src} title={data.itemname} price={data.price} toggleCardHeight ={toggleCardHeight} isExpanded={isExpanded}/>
     </>
   );
 };

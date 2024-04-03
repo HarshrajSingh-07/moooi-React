@@ -1,36 +1,44 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./BuyPro.css";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Redux/features/cart/cartSlice";
 import { PiArrowFatLinesUpFill, PiArrowFatLinesDownFill } from "react-icons/pi";
+import { setRef } from "@mui/material";
 
-const BuyPro = ({ src, title, price }) => {
+const BuyPro = ({ src, title, price ,isExpanded,toggleCardHeight }) => {
   const dispatch = useDispatch();
-  const [isExpanded, setIsExpanded] = useState(false);
-
+  // const [isExpanded, setIsExpanded] = useState(false);
+  
   const addHandle = (item) => {
     dispatch(addToCart(item));
   };
 
-  const toggleCardHeight = () => {
-    setIsExpanded(!isExpanded);
-    const buyDetail = document.getElementById("BuyDetail");
-    if (!isExpanded) {
-      buyDetail.style.bottom = "-397px";
-    } else {
-      buyDetail.style.bottom = "0"; 
-    }
-  };
+  // const toggleCardHeight = () => {
+  //   setIsExpanded(!isExpanded);
+  //   const buyDetail = document.getElementById("BuyDetail");
+  //   if (!isExpanded) {
+  //     buyDetail.style.bottom = "-397px";
+  //   } else {
+  //     buyDetail.style.bottom = "0"; 
+  //   }
+  // };
+  useEffect(()=>{
+    setTimeout(() => {
+      toggleCardHeight();
+    }, 4000);
+  },[])
 
   return (
     <section id="BuyProduct">
       <div
         id="BuyDetail"
         className={isExpanded ? "expanded" : "hideDown"}
-        style={{ transition: "bottom 0.5s ease-in-out" }}
+        style={{ transition: "all 0.5s ease-in-out" }}
       >
         <div className="BuyProDetail">
-          <div className="arrow" onClick={toggleCardHeight}>
+          <div className="arrow"
+           onClick={toggleCardHeight}
+           >
             {isExpanded ? (
               <PiArrowFatLinesUpFill className="upDown" />
             ) : (

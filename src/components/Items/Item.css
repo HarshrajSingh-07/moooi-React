@@ -43,7 +43,6 @@
 
 
 .itemsBtn button {
-    width:min(220px,100%);
     color: #1f1f1f;
     font-family: "Nunito", sans-serif;
     font-size: 17px;
@@ -56,7 +55,8 @@
 }
 
 .arow {
-    padding: 7px 10px !important;
+    border-radius: 50% !important;
+    padding: 10px 13px !important;
 }
 
 .active {
@@ -240,7 +240,7 @@
         /* margin-top: 15px; */
     }
     .itemsBtn button{
-        min-width: 200px;
+        width:min(332px,100%);
         padding: 11px 20px;
         margin: 0;
     }

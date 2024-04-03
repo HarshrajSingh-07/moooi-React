@@ -19,8 +19,9 @@
 
 .cartcards {
     padding: 0 20px;
-    height: 50%;
+    height: calc(100% - 15% -  200px);
     overflow-y: auto;
+    position: relative;
 }
 
 .cartcards::-webkit-scrollbar {
@@ -203,12 +204,15 @@
 }
 
 .bagFooter {
-    height: 18%;
-    position: absolute;
-    bottom: 30px;
+    height: min(120px, 200px);
+    position: relative;
+  
+    /* bottom: 30px; */
+    margin-top: 5vh;
+    background-color: white;
     left: 7.5%;
-    padding-top: 15px;
-    margin-bottom: 15px;
+    /* padding-top: 15px;
+    margin-bottom: 15px; */
     width: 85%;
     border-top: 1px solid #929292;
     gap: 20px;
