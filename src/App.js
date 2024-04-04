@@ -1,5 +1,5 @@
 import "./App.css";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Route, Routes } from "react-router-dom";
 import Collection from "./components/Browse-our-collection/Collection";
 import Design from "./components/Design-Dream/Design";
@@ -34,7 +34,7 @@ import Contact from "./components/Contact/Contact.jsx";
 import MenuBar from "./components/MenuBar/MenuBar.jsx";
 
 function App() {
-  const[loggedIn,setLoggedIn]=useState(false)
+  const [loggedIn, setLoggedIn] = useState(false);
   const [menu, setMenu] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
@@ -42,13 +42,26 @@ function App() {
   const [urlMain, setUrlMain] = useState("");
   const [open, setOpen] = useState(false);
   const [SuccessMsg, setSuccessMsg] = useState(null);
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
+
+  const [searchQuery, setSearchQuery] = useState("");
+  const sectionRefs = useRef({});
+
+  const handleSearch = () => {
+    // Logic to scroll to the section based on the search query
+    const sectionId = searchQuery.toLowerCase().replace(" ", "-");
+    const sectionRef = sectionRefs.current[sectionId];
+    if (sectionRef) {
+      sectionRef.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const toggleCardHeight = () => {
     setIsExpanded(!isExpanded);
-  }
+  };
   const HideBuyWhenCartOpen = () => {
-    setIsExpanded(true);
-  }
+    setIsExpanded(false);
+  };
   const handleOpen = (msg) => {
     setOpen(true);
     setSuccessMsg(msg);
@@ -62,52 +75,79 @@ function App() {
     setShowLogin(false);
     setShowSignup(false);
   }
-  function handleLogin(){
+  function handleLogin() {
     setShowLogin(true);
     setShowSignup(false);
     setMenu(false);
   }
-  function handleSignup(){
+  function handleSignup() {
     setShowSignup(true);
     setShowLogin(false);
     setMenu(false);
   }
   const handleContactClick = () => {
-    setMenu(false); 
+    setMenu(false);
   };
   useEffect(() => {
     const url = window.location.href;
     const parsedUrl = new URL(url);
     const decodedPathname = decodeURIComponent(parsedUrl.pathname);
-    const categoryPath = decodedPathname.split("/").slice(1, 3).join("/");  
+    const categoryPath = decodedPathname.split("/").slice(1, 3).join("/");
     console.log(categoryPath);
   });
 
   return (
-    <> {menu && <MenuBar handleLogin={handleLogin} handleSignup={handleSignup} handleContactClick={handleContactClick}/>}
-    {showLogin && <Login handleSignup={handleSignup} handleOpen={handleOpen} open={open} handleClose={handleClose}
-    />}
-    {showSignup && <Signup handleLogin={handleLogin} handleOpen={handleOpen} open={open} handleClose={handleClose}/>}
+    <>
+      {menu && (
+        <MenuBar
+          handleLogin={handleLogin}
+          handleSignup={handleSignup}
+          handleContactClick={handleContactClick}
+        />
+      )}
+      {showLogin && (
+        <Login
+          handleSignup={handleSignup}
+          handleOpen={handleOpen}
+          open={open}
+          handleClose={handleClose}
+        />
+      )}
+      {showSignup && (
+        <Signup
+          handleLogin={handleLogin}
+          handleOpen={handleOpen}
+          open={open}
+          handleClose={handleClose}
+        />
+      )}
       <ScrollToTop>
         <Routes>
-        <Route path="/contact" element={
-          <>
-            <Header toggleCardHeight={toggleCardHeight}
+          <Route
+            path="/contact"
+            element={
+              <>
+                <Header
+                  toggleCardHeight={toggleCardHeight}
+                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
                   CenterHead={"start"}
                 />
-                <Contact/>
+                <Contact />
                 <Menu handleShow={handleShow} />
                 <Footer />
-          </>
-        } />
+              </>
+            }
+          />
           <Route
             path="/collection"
             element={
               <>
-                <Header toggleCardHeight={toggleCardHeight}
+                <Header
+                  toggleCardHeight={toggleCardHeight}
+                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -127,7 +167,9 @@ function App() {
             path="/Bedding & Bath"
             element={
               <>
-                <Header toggleCardHeight={toggleCardHeight}
+                <Header
+                  toggleCardHeight={toggleCardHeight}
+                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -147,13 +189,18 @@ function App() {
             path={`/productdetails/:id1/:id`}
             element={
               <>
-                <Header HideBuyWhenCartOpen={HideBuyWhenCartOpen}
+                <Header
+                  toggleCardHeight={toggleCardHeight}
+                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
                   CenterHead={"start"}
                 />
-                <ProductDetail toggleCardHeight={toggleCardHeight} isExpanded={isExpanded} />
+                <ProductDetail
+                  toggleCardHeight={toggleCardHeight}
+                  isExpanded={isExpanded}
+                />
                 <Footer />
               </>
             }
@@ -162,7 +209,9 @@ function App() {
             path="/Furniture"
             element={
               <>
-                <Header toggleCardHeight={toggleCardHeight}
+                <Header
+                  toggleCardHeight={toggleCardHeight}
+                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -183,7 +232,9 @@ function App() {
             path="/Lighting"
             element={
               <>
-                <Header toggleCardHeight={toggleCardHeight}
+                <Header
+                  toggleCardHeight={toggleCardHeight}
+                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -204,7 +255,9 @@ function App() {
             path="/Home Accessories"
             element={
               <>
-                <Header toggleCardHeight={toggleCardHeight}
+                <Header
+                  toggleCardHeight={toggleCardHeight}
+                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -225,7 +278,9 @@ function App() {
             path="/Wall & Floor"
             element={
               <>
-                <Header toggleCardHeight={toggleCardHeight}
+                <Header
+                  toggleCardHeight={toggleCardHeight}
+                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -246,7 +301,9 @@ function App() {
             path="/Body & Beauty"
             element={
               <>
-                <Header toggleCardHeight={toggleCardHeight}
+                <Header
+                  toggleCardHeight={toggleCardHeight}
+                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -266,7 +323,9 @@ function App() {
             path="/ordersummary"
             element={
               <>
-                <Header toggleCardHeight={toggleCardHeight}
+                <Header
+                  toggleCardHeight={toggleCardHeight}
+                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
@@ -278,12 +337,16 @@ function App() {
               </>
             }
           />
-          
+
           <Route
             path="/"
             element={
               <>
-                <Header toggleCardHeight={toggleCardHeight} />
+                <Header
+                  handleSearch={handleSearch}
+                  toggleCardHeight={toggleCardHeight}
+                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
+                />
                 <Main />
                 <Menu handleShow={handleShow} />
                 <Collection />

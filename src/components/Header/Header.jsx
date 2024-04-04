@@ -7,15 +7,15 @@ import { FiShoppingBag } from "react-icons/fi";
 import { Link } from "react-router-dom";
 import Bag from "../Bag/Bag";
 import { useEffect } from "react";
-import { LiaEyeSlashSolid } from "react-icons/lia";
 import { useSelector } from "react-redux";
 
-const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead,HideBuyWhenCartOpen}) => {
+const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead,toggleCardHeight,HideBuyWhenCartOpen,handleSearch}) => {
   const cartItem = useSelector((state) => state.cart.items);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(true);
   const [headerColor, setHeaderColor] = useState("white");
   const [divOffsetTop, setDivOffsetTop] = useState(0);
+  const [isSearchVisible, setIsSearchVisible] = useState(false);
   
   // useEffect(() => {
   //   const handleScroll = () => {
@@ -59,8 +59,16 @@ const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead,HideBuyWhen
   const [isBagOpen, setIsBagOpen] = useState(false); // State to manage bag visibility
 
   const toggleBag = () => {
+    const mediaQuery = window.matchMedia('(max-width: 575.98px)');
     setIsBagOpen(!isBagOpen); // Toggle bag visibility
-    HideBuyWhenCartOpen();
+    if (mediaQuery.matches) {
+      HideBuyWhenCartOpen();
+    }else{
+      toggleCardHeight()
+    }
+  };
+  const toggleSearch = () => {
+    setIsSearchVisible(!isSearchVisible);
   };
 
   return (
@@ -89,7 +97,9 @@ const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead,HideBuyWhen
           </Link>
         </div>
         <div className="headRight">
-          <IoMdSearch />
+          {isSearchVisible &&
+            <input type="text" placeholder="Search..."   />}
+            <IoMdSearch onClick={toggleSearch} />
           <BsGrid1X2 />
           {/* Attach onClick handler to FiShoppingBag to toggle bag visibility */}
           <div className="shopingBag" onClick={toggleBag} >

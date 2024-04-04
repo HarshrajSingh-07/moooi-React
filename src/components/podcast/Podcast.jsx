@@ -1,7 +1,7 @@
 import React from "react";
 import './Podcast.css'
 import "../Product-story/Productstory.css";
-const Podcast = ({ src, span, btnText, children }) => {
+const Podcast = ({ src, span, btnText, children}) => {
   return (
     <section id="productStory" >
       <div className="left-product">

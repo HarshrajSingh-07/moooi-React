@@ -13,7 +13,6 @@
 .main-head {
     width: 60%;
     height: 90%;
-    /* padding-top: 25vh; */
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -24,7 +23,7 @@
 .main-head h1 {
     text-align: center;
     margin: 0;
-    font-size: 97px;
+    font-size: clamp(35px, 6vw, 97px);
     font-weight: 500;
 }
 
@@ -43,18 +42,15 @@
     font-family: "Cinzel", serif;
     border: none;
     padding: 12px 25px;
-    margin-top: 65px;
+    margin-top: clamp(25px, 5vw, 65px);
     background-color: #fff;
     border-radius: 2.5em;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, .1);
 }
 
 @media only screen and (max-width: 1024px) {
-    .main-head{
+    .main-head {
         width: 75%;
-    }
-    .main-head h1 {
-        font-size: 75px;
     }
 
     .main-head p {
@@ -67,18 +63,9 @@
     }
 }
 
-@media only screen and (max-width: 991px) {
 
-    .main-head h1 {
-        font-size: 70px;
-    }
-}
 
 @media only screen and (max-width: 768px) {
-    .main-head h1 {
-        font-size: 65px;
-    }
-
     .main-head {
         width: 70%;
     }
@@ -98,32 +85,28 @@
     }
 
     .main-head button {
-        margin: 35px 0;
         padding: 10px 14px;
         font-size: 16px;
     }
 }
-@media only screen and (max-height: 545px){
-    .main-head p{
+
+@media only screen and (max-height: 545px) {
+    .main-head p {
         font-size: 15px;
     }
-    .main-head h1{
-        font-size: 55px;
-    }
-    .main-head button{
+
+    .main-head button {
         font-size: 16px;
-        margin-top: 25px;
         padding: 10px 25px;
     }
 }
-@media only screen and (max-height: 545px) and (max-width:770px){
-   .main-head h1{
-    font-size: 30px;
-   }
-   .main-head {
-    width: 85%;
-}
-.main-head button{
-    font-size: 15px;
-}
+
+@media only screen and (max-height: 545px) and (max-width:770px) {
+    .main-head {
+        width: 85%;
+    }
+
+    .main-head button {
+        font-size: 15px;
+    }
 }

@@ -13,20 +13,17 @@ const BuyPro = ({ src, title, price ,isExpanded,toggleCardHeight }) => {
     dispatch(addToCart(item));
   };
 
-  // const toggleCardHeight = () => {
-  //   setIsExpanded(!isExpanded);
-  //   const buyDetail = document.getElementById("BuyDetail");
-  //   if (!isExpanded) {
-  //     buyDetail.style.bottom = "-397px";
-  //   } else {
-  //     buyDetail.style.bottom = "0"; 
-  //   }
-  // };
-  useEffect(()=>{
-    setTimeout(() => {
-      toggleCardHeight();
-    }, 4000);
-  },[])
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 575.98px)');
+  
+    if (mediaQuery.matches) {
+      const timeoutId = setTimeout(() => {
+        toggleCardHeight();
+      }, 4000);
+      
+      return () => clearTimeout(timeoutId);
+    }
+  }, []);
 
   return (
     <section id="BuyProduct">

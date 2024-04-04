@@ -1,4 +1,4 @@
-#design{
+#design {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -23,7 +23,8 @@
 
 .left-content h1 {
     color: #dedcdc;
-    font-size: 72px;
+    /* font-size: 72px; */
+    font-size: clamp(24px, 5vw, 72px);
     margin: 0;
     padding: .9444444444vw 7.555556vw;
 }
@@ -45,42 +46,50 @@
     height: 100%;
     object-fit: cover;
 }
-@media only screen and (max-width: 1024px){
-    #design{
-        height:100vh;
+
+@media only screen and (max-width: 1024px) {
+    #design {
+        height: 100vh;
         flex-direction: column-reverse;
     }
-    .left-section{
+
+    .left-section {
         width: 100%;
-        height: 35vh;  
+        height: 35vh;
     }
-    .right-section{
+
+    .right-section {
         width: 100%;
-        height: 65vh;  
+        height: 65vh;
     }
-    .left-content{
-        padding:0 10px;
+
+    .left-content {
+        padding: 0 10px;
     }
-    .left-content span{
+
+    .left-content span {
         font-size: 13px;
-        margin-bottom:20px;
+        margin-bottom: 20px;
     }
-    .left-section h1{
+
+    .left-section h1 {
         font-size: 35px;
         padding: 0.9444444444vw 11.555556vw;
     }
 }
-@media only screen and (max-width: 576px){
-    .left-content{
-        padding:0;
+
+@media only screen and (max-width: 576px) {
+    .left-content {
+        padding: 0;
     }
-    .left-section h1{
+
+    .left-section h1 {
         font-size: 25px;
     }
 }
+
 @media only screen and (max-height:545px) {
-    .left-content h1{
-        font-size: 40px;
+    .left-content h1 {
         padding: 0.9444444444vw 11.555556vw;
     }
 

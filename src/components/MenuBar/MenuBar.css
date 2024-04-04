@@ -1,4 +1,6 @@
-#MenuBar,#login,#signup{
+#MenuBar,
+#login,
+#signup {
     position: fixed;
     top: 0;
     left: 0;
@@ -8,24 +10,36 @@
     backdrop-filter: blur(0px);
     z-index: 996;
 }
-.menuContainer,.loginContainer,.signupContainer::-webkit-scrollbar {
-    width: 5px; 
+
+.menuContainer,
+.loginContainer,
+.signupContainer::-webkit-scrollbar {
+    width: 5px;
 }
 
-.menuContainer,.loginContainer,.signupContainer::-webkit-scrollbar-track {
-    background: transparent; 
+.menuContainer,
+.loginContainer,
+.signupContainer::-webkit-scrollbar-track {
+    background: transparent;
 }
 
-.menuContainer,.loginContainer,.signupContainer::-webkit-scrollbar-thumb {
-    background: #888; 
-    border-radius: 10px; 
+.menuContainer,
+.loginContainer,
+.signupContainer::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
 }
 
-.menuContainer, .loginContainer, .signupContainer::-webkit-scrollbar-thumb:hover {
-    background: #555; 
+.menuContainer,
+.loginContainer,
+.signupContainer::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
-.menuContainer,.loginContainer,.signupContainer{
-    
+
+.menuContainer,
+.loginContainer,
+.signupContainer {
+
     position: absolute;
     top: 44%;
     left: 50%;
@@ -33,52 +47,61 @@
     overflow-y: scroll;
     transform: translate(-50%, -50%);
     width: min(340px, 90%);
-    background: Linear-gradient(270deg,rgba(33,33,33,.6) 14.44%,rgba(70,69,67,.6) 93.61%),#000;
+    background: Linear-gradient(270deg, rgba(33, 33, 33, .6) 14.44%, rgba(70, 69, 67, .6) 93.61%), #000;
     color: white;
     display: flex;
     flex-direction: column;
-     padding: 2.7777777778vw 1.3888888889vw;
+    padding: 2.7777777778vw 1.3888888889vw;
     justify-content: space-around;
     text-align: center;
     border-radius: 6px;
 }
-.MenuHead h3{
+
+.MenuHead h3 {
     font-size: 40px;
     font-weight: 400;
     margin: 0;
 }
-.menuSearchHead{
+
+.menuSearchHead {
     display: flex;
     font-size: 19px;
 }
-.menuInputSearch{
+
+.menuInputSearch {
     width: 76%;
 }
-.menuInputSearch input{
+
+.menuInputSearch input {
     width: 100%;
-    font-size: 16px;   
-    text-align: start; 
+    font-size: 16px;
+    text-align: start;
     background: transparent;
     outline: none;
     border: none;
     color: white;
 }
-.menuSearch,.menuMic{
+
+.menuSearch,
+.menuMic {
     width: 12%;
 }
-.menuNavbar ul{
+
+.menuNavbar ul {
     font-family: "Montserrat", sans-serif;
     list-style: none;
     display: flex;
     align-items: center;
     flex-direction: column;
 }
-.menuNavbar a{
+
+.menuNavbar a {
     color: #fff;
     text-decoration: none !important;
 }
-.menuNavbar ul li{
-    
-    padding:7px 0;
+
+.menuNavbar ul li {
+
+    padding: 7px 0;
     font-family: "Montserrat", sans-serif;
 }

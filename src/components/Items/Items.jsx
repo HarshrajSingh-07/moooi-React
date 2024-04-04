@@ -22,17 +22,22 @@ const Items = ({link, cardItem, obj }) => {
   const filterHandler=(val)=>{
     setFilter(val);
   }
-  // const pageHandlerBtn = (e) => {
-  //   filterHandler(e.target.value)
-  //   const index = parseInt(e.target.value, 10);
-  //   setTargetIndex(index);
-  // };
+  // if (filter.includes("All")) {
+  //   // Remove "all" from the string
+  //   const newStateVariable = filter.replace("All ", "");
+  //   setFilter(newStateVariable);
+  // }
+  
 
   return (
     <section id="items">
       <div className="items-head">
         <div className="item-text">
-          <h1>{obj.title}</h1>
+          {/* <h1>{obj.title}</h1> */}
+          <h1>{filter.includes("All")?(
+            filter.replace("All ", "")
+          ):
+          filter}</h1>
           <p>
             Our collection contains work from emerging talent and
             internationally recognized designers. Together, we create A Life

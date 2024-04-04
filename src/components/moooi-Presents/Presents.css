@@ -1,21 +1,25 @@
-#Presents{
+#Presents {
     width: 100%;
     height: 100vh;
     display: flex;
 }
-.leftPresents{
+
+.leftPresents {
     width: 50%;
     background-color: white;
 }
-.rightPresents{
+
+.rightPresents {
     width: 50%;
 }
-.rightPresents img{
+
+.rightPresents img {
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-.leftContent{
+
+.leftContent {
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -23,29 +27,32 @@
     align-items: center;
     text-align: center;
 }
+
 .leftContent h1 {
     margin: 0;
     color: #2e2e2e;
-    font-size: 72px;
+    font-size: clamp(24px, 5vw, 72px);
     padding: .9444444444vw 5.5555555556vw;
 }
 
 .leftContent span {
     text-transform: uppercase;
     font-family: "Rubik", sans-serif;
-    font-size:16px;
+    font-size: 16px;
     margin-bottom: 30px;
     color: #716d66;
 }
-.cool-link{
+
+.cool-link {
     color: #2e2e2e;
-    font-size:25px;
+    font-size: clamp(16px, 5vw, 25px);
     font-weight: 300;
     opacity: 0.9;
     text-decoration: none;
     margin-top: 70px;
     border-bottom: 1px solid #2e2e2e;
 }
+
 .cool-link::after {
     content: '';
     display: block;
@@ -59,45 +66,38 @@
     width: 100%;
     transition: width .3s;
 }
-@media only screen and (max-width: 1024px){
-    #Presents{
+
+@media only screen and (max-width: 1024px) {
+    #Presents {
         flex-direction: column-reverse;
     }
-    .leftPresents{
+
+    .leftPresents {
         width: 100%;
         height: 35vh;
     }
-    .rightPresents{
+
+    .rightPresents {
         width: 100%;
         height: 65vh;
     }
-    .leftContent h1{
-        font-size: 35px;
+
+    .leftContent h1 {
         padding: 0.9444444444vw 11.555556vw;
     }
-    .leftContent span{
+
+    .leftContent span {
         margin-bottom: 20px;
         font-size: 13px;
     }
-    .leftContent a{
+
+    .leftContent a {
         margin-top: 35px;
     }
 }
-@media only screen and (max-width: 576px){
-    .leftContent h1{
-        font-size: 25px;
-    }
-    .leftContent a{
-        font-size: 18px;
+
+@media only screen and (max-width: 576px) {
+    .leftContent a {
         margin-top: 22px;
     }
-}
-@media only screen and (max-height: 545px){
-    .leftContent h1{
-        font-size: 40px;
-    }
-    .cool-link{
-        margin-top: 35px;
-    }
-
 }

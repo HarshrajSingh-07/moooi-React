@@ -30,6 +30,10 @@
     margin: 10px 0;
 }
 
+.hideDown{
+    transform: translateY(48vh);
+}
+
 .productView img {
     max-width: 100%;
     max-height: 100%;
@@ -171,10 +175,24 @@
     .BuyImg {
         width: 45%;
     }
+    .expanded {
+        transform: translateY(0);
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+    .hideDown{
+        position: absolute;
+        top: 120vh;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
 }
 
-@media screen and (min-width: 576px) {
+@media screen and (min-width: 577px) {
     .arrow {
         display: none;
     }
+
 }

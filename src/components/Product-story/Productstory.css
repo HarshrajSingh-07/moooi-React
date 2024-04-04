@@ -1,22 +1,26 @@
-#productStory{
+#productStory {
     width: 100%;
     height: 100vh;
     display: flex;
 }
-.left-product{
+
+.left-product {
     width: 50%;
     height: 100%;
 }
-.left-product img{
+
+.left-product img {
     width: 100%;
     height: 100vh;
     object-fit: cover;
 }
-.right-product{
+
+.right-product {
     width: 50%;
     height: 100%;
     background-color: #e3d9c6;
 }
+
 .rightContent {
     height: 100%;
     display: flex;
@@ -29,7 +33,7 @@
 .rightContent h1 {
     margin: 0;
     color: #2e2e2e;
-    font-size: 72px;
+    font-size: clamp(24px, 5vw, 72px);
     padding: .9444444444vw 4.5555555556vw;
 }
 
@@ -40,60 +44,56 @@
     margin-bottom: 30px;
     color: #716d66;
 }
-.productBtn button{
+
+.productBtn button {
     color: #fff;
-    font-size: 25px;
+    font-size: 24px;
     font-family: "Cinzel", serif;
     border: none;
     padding: 15px 35px;
-    margin-top: 70px;
-    background-color:#1f1f1f;
+    margin-top: clamp(25px, 5vw, 7vw);
+    background-color: #1f1f1f;
     border-radius: 2.5em;
-    box-shadow: 3px 3px 10px rgba(0,0,0,.1);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, .1);
 }
-@media only screen and (max-width: 1024px){
-    #productStory{
-        height:100vh;
+
+@media only screen and (max-width: 1024px) {
+    #productStory {
+        height: 100vh;
         flex-direction: column;
     }
-    .left-product{
+
+    .left-product {
         width: 100%;
         height: 60vh;
     }
-    .right-product{
+
+    .right-product {
         width: 100%;
         height: 40vh;
     }
-    .rightContent h1{
-        font-size: 35px;
+
+    .rightContent h1 {
         padding: 0.9444444444vw 11.555556vw;
     }
-    .rightContent span{
+
+    .rightContent span {
         font-size: 12px;
         margin-bottom: 20px;
     }
-    .productBtn button{
-        font-size: 16px;
+
+    .productBtn button {
+        font-size: 18px;
         padding: 8px 16px;
         margin-top: 30px;
     }
-   
-    }
-@media only screen and (max-width: 576px){
-    .rightContent h1{
-        font-size: 25px;
-    }
+
 }
+
 @media only screen and (max-height:545px) {
-    .productBtn button{
+    .productBtn button {
         padding: 10px 30px;
         margin-top: 35px;
-        font-size: 20px;
+        font-size: 16px;
     }
-    .rightContent h1{
-        font-size: 40px;
-    }
-
 }
-
-
