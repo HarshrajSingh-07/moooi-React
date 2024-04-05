@@ -17,7 +17,7 @@ const Footer = () => {
     });
   };
   return (
-    <section id="footer">
+    <section id="footer" className="section">
       <div className="footer-main">
         <div className="footer-top">
           <div className="selectText">

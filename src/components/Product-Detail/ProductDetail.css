@@ -2,33 +2,7 @@
   width: 100%;
   height: auto;
   font-family: "Ojuju", sans-serif;
-  padding-top: 100px;
-  position: relative;
-}
-
-.productDetailHead {
-  height: 70vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 0vh 3vw;
-}
-
-.productDetailHead h1 {
-  font-family: "Montserrat", sans-serif;
-  max-width: 66%;
-  font-size: 95px;
-  font-weight: 200;
-  margin: 0;
-  margin: 15px 0px;
-}
-
-.productDetailHead span {
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  margin-left: 10px;
-  font-family: "Quicksand", sans-serif;
+  padding-top: 10vh;
 }
 
 .prodimg {
@@ -45,13 +19,29 @@
   width: auto;
 }
 
-.productImg {
-  background-image: url("https://www.moooi.com/_next/image?url=https%3A%2F%2Fcdn.moooi.com%2Ftmp%2Fimage-thumbnails%2FCollection%2FHome-Fragrance%2FRoom%20Fragrance%20Defy%20Gravity%2Fimage-thumb__37659__header_fullscreen_2x_jpg%2Fgravity-hero.webp&w=3840&q=80");
-  width: 100%;
-  height: 100vh;
-  margin-top: -102px;
-  object-fit: cover;
-  background-position: center;
+.productDetailHead {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0vh 3vw;
+}
+
+.productDetailHead h1 {
+  font-family: "Montserrat", sans-serif;
+  /* max-width: 66%; */
+  font-size: clamp(40px, 5vw, 100px);
+  font-weight: 200;
+  margin: 0;
+  padding: 15px 0px;
+}
+
+.productDetailHead>span {
+  padding-bottom: 25px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  margin-left: 10px;
+  font-family: "Quicksand", sans-serif;
 }
 
 .detailRow {
@@ -59,11 +49,12 @@
   align-items: center;
   justify-content: space-between;
   padding-left: 5px;
+  font-family: "poppins", sans-serif;
 }
 
 .detailLeft {
   width: 60%;
-  margin-top: 50px;
+  padding-top: 4vh;
 }
 
 .proname {
@@ -76,15 +67,14 @@
 
 .detailLeft p {
   color: #1f1f1f;
-  font-size: 30px;
-  font-weight: 250;
-  font-family: "Montserrat", sans-serif;
+  font-size: clamp(18px, 3vw, 25px);
+  font-weight: 300;
 }
 
 .detailLeft h5 {
-  font-size: 40px;
-  margin-bottom: 15px;
-  font-weight: 500;
+  font-size: clamp(20px, 3vw, 40px);
+  padding-bottom: 15px;
+  font-weight: 400;
 }
 
 .detailRight {
@@ -93,12 +83,11 @@
 }
 
 .detailRight ul {
-  margin-top: 50px;
+  padding-top: 50px;
 }
 
 .detailRight li {
   font-size: 16px;
-  font-weight: 50;
   display: flex;
   align-items: center;
 }
@@ -108,7 +97,7 @@
 }
 
 .cart-icon {
-  font-size: 35px;
+  font-size: 40px;
   margin-right: 15px;
 }
 
@@ -117,7 +106,7 @@
   font-size: 18px;
   border: none;
   color: #3f3f3f;
-  margin-top: 25px;
+  padding-top: 25px;
   border-bottom: 0.5px solid #5f5f5f;
 }
 
@@ -151,7 +140,6 @@
   padding: 5px 12px;
   justify-content: space-between;
   align-items: center;
-  margin-top: 20px;
   box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -214,7 +202,7 @@
 
 .variant-name {
   text-align: center;
-  font-size: 18px;
+  font-size: 17px;
   color: #1f1f1f;
   margin: 0;
 }
@@ -246,8 +234,8 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  max-height: 100vh;
-  gap: 50px;
+  /* max-height: 100vh; */
+  /* gap: 50px; */
 }
 
 .commitments {
@@ -269,12 +257,11 @@
 }
 
 .commitments p {
-  font-family: "Montserrat", sans-serif;
-  font-weight: 200;
-  margin: 25px 0;
+  font-family: "poppins", sans-serif;
+  font-weight: 300;
   font-size: 40px;
-  padding: 0 5vw;
-  margin-bottom: 0;
+  padding: 2vh 5vw;
+  /* margin-bottom: 0; */
 }
 
 .policies {
@@ -295,8 +282,7 @@
 
 .policy-icon {
   color: #929292;
-  font-size: 70px;
-  min-height: 100px;
+  font-size: clamp(40px, 5vw, 55px);
 }
 
 
@@ -316,17 +302,8 @@
 
 @media screen and (max-width: 1024px) {
 
-  .commitments {
-    min-height: 30%;
-  }
-
   .commitments p {
     font-size: 30px;
-  }
-
-  .policy-icon {
-    min-height: 50px;
-    font-size: 50px;
   }
 
   .innerpolicy {
@@ -343,13 +320,7 @@
 }
 
 @media screen and (max-width: 991px) {
-  .productDetailHead h1 {
-    font-size: 74px;
-  }
 
-  .detailLeft p {
-    font-size: 23px;
-  }
 
   .policies {
     gap: 0;
@@ -366,7 +337,6 @@
 
   .productDetailHead h1 {
     max-width: 100%;
-    font-size: 65px;
   }
 
   .detailRow {
@@ -388,15 +358,11 @@
 
   .detailLeft {
     width: 95%;
-    margin: 20px 0;
+    padding-bottom: 20px;
   }
 
   .detailLeft h5 {
     font-size: 25px;
-  }
-
-  .detailLeft p {
-    font-size: 20px;
   }
 
   .detailRight {
@@ -408,21 +374,17 @@
   }
 
   .ourCommitments {
-    height: 100vh;
     flex-direction: column;
     align-items: center;
   }
 
-  .commitments {
-    min-height: 0;
-  }
+
 
   .commitments p {
     font-size: 23px;
   }
 
   .policies {
-    height: 90vh;
     width: 100%;
     flex-direction: column;
   }
@@ -433,33 +395,30 @@
   }
 
   .innerpolicy {
-    min-height: 150px;
     min-width: 100%;
   }
 }
 
 @media screen and (max-width: 550px) {
-  .ourCommitments{
-    gap:0;
+  .ourCommitments {
+    gap: 0;
   }
-  .commitments p{
+
+  .commitments p {
     font-size: 17px;
     margin: 0;
     padding: 1vh 5vw;
   }
-  .productDetailHead{
-    height: 80vh;
+
+  .detailBtn {
+    padding-top: 10px;
   }
-  .productDetailHead h1 {
-    font-size: 35px;
-  }
-  .detailBtn{
-    margin-top:10px;
-  }
+
   .detailRight ul {
     margin-top: 10px;
-}
-  .detailRight ul li{
+  }
+
+  .detailRight ul li {
     padding-bottom: 0px;
   }
 
@@ -476,27 +435,29 @@
     width: min(110px, 100%);
   }
 
-  .detailLeft p {
-    font-size: 20px;
-  }
+
 }
-@media screen and (max-width: 430px){
-  .detailLeft h5{
+
+@media screen and (max-width: 430px) {
+  .detailLeft h5 {
     font-size: 22px;
   }
-  .detailLeft p {
-    font-size: 18px;
-  }
-  
+
+
 }
+
 @media screen and (max-height: 768px) {
-  .productDetailHead {
-    height: 60vh; /* Adjust height for smaller screens */
-  }
+  /* .productDetailHead {
+    height: 60vh;
+  } */
 }
 
 @media screen and (max-height: 480px) {
-  .productDetailHead {
-    height: 50vh; /* Adjust height for even smaller screens */
+  /* .productDetailHead {
+    height: 50vh;
+  } */
+
+  .detailLeft p {
+    font-size: clamp(18px, 5vh, 25px);
   }
 }

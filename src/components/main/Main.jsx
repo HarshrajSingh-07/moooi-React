@@ -3,7 +3,7 @@ import "../main/Main.css";
 
 const Main = () => {
   return (
-    <section id="main">
+    <section id="main" className="section">
       <div className="main-head">
         <p>moooi presents</p>
         <h1>Gimme a Kisss Lounge Chair</h1>

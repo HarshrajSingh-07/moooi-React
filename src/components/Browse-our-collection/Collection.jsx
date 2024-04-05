@@ -1,7 +1,7 @@
 import React from "react";
 import "../Browse-our-collection/Collection.css";
 // import "../Menu-btn/Menu.css";
-import '../menu-btn/Menu.css'
+import "../menu-btn/Menu.css";
 import { Link } from "react-router-dom";
 
 const collectionData = [
@@ -34,27 +34,27 @@ const collectionData = [
     src: "assets/images/body_-_beauty.webp",
     title: "Body & Beauty",
     alt: "Body & Beauty",
-  }
+  },
 ];
 function Collection() {
   return (
-    <section id="collection">
+    <section id="collection" className="section">
       <div className="container">
-      <h3>BROWSE OUR COLLECTION</h3>
-      <div style={{width:"100%"}}>
-      <div className="card">
-          {collectionData.map((item,index) => {
-            return (
-              <Link to={item.title} key={index}>
-              <div className="item">
-                <img src={item.src} alt={item.alt} />
-                <span>{item.title}</span>
-              </div>
-              </Link>
-            );
-          })}
+        <h3>BROWSE OUR COLLECTION</h3>
+        <div style={{ width: "100%" }}>
+          <div className="card">
+            {collectionData.map((item, index) => {
+              return (
+                <Link to={item.title} key={index}>
+                  <div className="item">
+                    <img src={item.src} alt={item.alt} />
+                    <span>{item.title}</span>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
         </div>
-      </div>
       </div>
     </section>
   );

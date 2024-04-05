@@ -2,7 +2,7 @@ import React from "react";
 import "./Productstory.css";
 const product = () => {
   return (
-    <section id="productStory">
+    <section id="productStory" className="section">
       <div className="left-product">
         <div className="imgsec">
           <img src="../../assets/images/image.webp" alt="" />

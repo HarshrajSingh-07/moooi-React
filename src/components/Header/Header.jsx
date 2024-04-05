@@ -9,43 +9,48 @@ import Bag from "../Bag/Bag";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 
-const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead,toggleCardHeight,HideBuyWhenCartOpen,handleSearch}) => {
+const Header = ({
+  Textcolor,
+  backgroundColor,
+  leftHeader,
+  CenterHead,
+  toggleCardHeight,
+  HideBuyWhenCartOpen,
+  handleSearch,
+}) => {
   const cartItem = useSelector((state) => state.cart.items);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
   const [visible, setVisible] = useState(true);
   const [headerColor, setHeaderColor] = useState("white");
   const [divOffsetTop, setDivOffsetTop] = useState(0);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
-  
-  // useEffect(() => {
-  //   const handleScroll = () => {
-  //     const sectionOffsets = {
-  //       collection: document.getElementById("collection").offsetTop,
-  //       design: document.getElementById("design").offsetTop,
-  //       presents: document.getElementById("Presents").offsetTop,
-  //       // Add more sections as needed
-  //     };
 
-  //     const scrollPosition = window.scrollY;
+  const [activeSection, setActiveSection] = useState(null);
 
-  //     if (scrollPosition < sectionOffsets.design) {
-  //       setHeaderColor("white");
-  //     } else if (scrollPosition < sectionOffsets.presents) {
-  //       setHeaderColor("black");
-  //     } else if (scrollPosition < sectionOffsets.strategy) {
-  //       setHeaderColor("green");
-  //     } else {
-  //       setHeaderColor("blue");
-  //     }
-  //   };
+  useEffect(() => {
+    const handleScroll = () => {
+      const sections = document.querySelectorAll(".section");
 
-  //   window.addEventListener("scroll", handleScroll);
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        const sectionHeight = section.clientHeight;
+        console.log(window.scrollY, sectionTop, sectionHeight);
+        if (
+          window.scrollY >= sectionTop - 50 &&
+          window.scrollY < sectionTop + sectionHeight - 50
+        ) {
+          setActiveSection(section.id);
+        }
+      });
+    };
 
-  //   return () => {
-  //     window.removeEventListener("scroll", handleScroll); 
-  //   };
-  // }, []);
-  
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       const currentScrollPos = window.pageYOffset;
@@ -56,17 +61,18 @@ const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead,toggleCardH
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [prevScrollPos]);
-  const [isBagOpen, setIsBagOpen] = useState(false); // State to manage bag visibility
 
+  const [isBagOpen, setIsBagOpen] = useState(false);
   const toggleBag = () => {
-    const mediaQuery = window.matchMedia('(max-width: 575.98px)');
+    const mediaQuery = window.matchMedia("(max-width: 575.98px)");
     setIsBagOpen(!isBagOpen); // Toggle bag visibility
     if (mediaQuery.matches) {
       HideBuyWhenCartOpen();
-    }else{
-      toggleCardHeight()
+    } else {
+      toggleCardHeight();
     }
   };
+
   const toggleSearch = () => {
     setIsSearchVisible(!isSearchVisible);
   };
@@ -74,7 +80,12 @@ const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead,toggleCardH
   return (
     <>
       {/* <header style={{ color: Textcolor, backgroundColor: backgroundColor }} > */}
-      <header className={`header ${visible ? "visible" : "hidden"}`}
+      <header
+        className={`header ${visible ? "visible" : "hidden"} ${
+          activeSection === "collection" || activeSection === "productStory"
+            ? "bg_dark"
+            : null
+        }`}
         style={
           headerColor
             ? {
@@ -90,21 +101,26 @@ const Header = ({ Textcolor, backgroundColor, leftHeader, CenterHead,toggleCardH
         <div className="headCent" style={{ justifyContent: CenterHead }}>
           <Link to="/" element="./App.js">
             <h3
-              style={headerColor ? { color: Textcolor} : null}
+              className={`${
+                activeSection === "collection" ||
+                activeSection === "productStory"
+                  ? "bg_dark"
+                  : null
+              }`}
+              style={headerColor ? { color: Textcolor } : null}
             >
               moooi
             </h3>
           </Link>
         </div>
         <div className="headRight">
-          {isSearchVisible &&
-            <input type="text" placeholder="Search..."   />}
-            <IoMdSearch onClick={toggleSearch} />
+          {isSearchVisible && <input type="text" placeholder="Search..." />}
+          <IoMdSearch onClick={toggleSearch} />
           <BsGrid1X2 />
           {/* Attach onClick handler to FiShoppingBag to toggle bag visibility */}
-          <div className="shopingBag" onClick={toggleBag} >
-          <FiShoppingBag />
-          <span className="CartQnty">{cartItem.length}</span>
+          <div className="shopingBag" onClick={toggleBag}>
+            <FiShoppingBag />
+            <span className="CartQnty">{cartItem.length}</span>
           </div>
         </div>
       </header>

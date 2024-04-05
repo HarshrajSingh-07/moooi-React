@@ -10,6 +10,10 @@ header {
     z-index: 900;
 }
 
+.bg_dark {
+    color: #000 !important;
+}
+
 .header {
     color: rgb(236, 233, 233);
     position: fixed;
@@ -92,5 +96,12 @@ header h3 {
 @media only screen and (max-width: 576px) {
     .headRight {
         gap: 12px;
+    }
+
+    .CartQnty {
+        width: 17px;
+        height: 17px;
+        right: -9px;
+        font-size: 14px;
     }
 }
