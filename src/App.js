@@ -128,6 +128,9 @@ function App() {
             element={
               <>
                 <Header
+                  handleOpen={handleOpen}
+                  open={open}
+                  handleClose={handleClose}
                   toggleCardHeight={toggleCardHeight}
                   HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
@@ -146,6 +149,9 @@ function App() {
             element={
               <>
                 <Header
+                  handleOpen={handleOpen}
+                  open={open}
+                  handleClose={handleClose}
                   toggleCardHeight={toggleCardHeight}
                   HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
@@ -168,6 +174,9 @@ function App() {
             element={
               <>
                 <Header
+                  handleOpen={handleOpen}
+                  open={open}
+                  handleClose={handleClose}
                   toggleCardHeight={toggleCardHeight}
                   HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
@@ -190,6 +199,9 @@ function App() {
             element={
               <>
                 <Header
+                  handleOpen={handleOpen}
+                  open={open}
+                  handleClose={handleClose}
                   toggleCardHeight={toggleCardHeight}
                   HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
@@ -210,6 +222,9 @@ function App() {
             element={
               <>
                 <Header
+                  handleOpen={handleOpen}
+                  open={open}
+                  handleClose={handleClose}
                   toggleCardHeight={toggleCardHeight}
                   HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
@@ -233,6 +248,9 @@ function App() {
             element={
               <>
                 <Header
+                  handleOpen={handleOpen}
+                  open={open}
+                  handleClose={handleClose}
                   toggleCardHeight={toggleCardHeight}
                   HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
@@ -256,6 +274,9 @@ function App() {
             element={
               <>
                 <Header
+                  handleOpen={handleOpen}
+                  open={open}
+                  handleClose={handleClose}
                   toggleCardHeight={toggleCardHeight}
                   HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
@@ -279,6 +300,9 @@ function App() {
             element={
               <>
                 <Header
+                  handleOpen={handleOpen}
+                  open={open}
+                  handleClose={handleClose}
                   toggleCardHeight={toggleCardHeight}
                   HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
@@ -302,6 +326,9 @@ function App() {
             element={
               <>
                 <Header
+                  handleOpen={handleOpen}
+                  open={open}
+                  handleClose={handleClose}
                   toggleCardHeight={toggleCardHeight}
                   HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
@@ -324,6 +351,9 @@ function App() {
             element={
               <>
                 <Header
+                  handleOpen={handleOpen}
+                  open={open}
+                  handleClose={handleClose}
                   toggleCardHeight={toggleCardHeight}
                   HideBuyWhenCartOpen={HideBuyWhenCartOpen}
                   Textcolor={"#000"}
@@ -343,6 +373,9 @@ function App() {
             element={
               <>
                 <Header
+                  handleOpen={handleOpen}
+                  open={open}
+                  handleClose={handleClose}
                   handleSearch={handleSearch}
                   toggleCardHeight={toggleCardHeight}
                   HideBuyWhenCartOpen={HideBuyWhenCartOpen}

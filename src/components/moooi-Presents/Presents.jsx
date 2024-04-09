@@ -7,9 +7,9 @@ const Presents = () => {
         <div className="leftContent">
           <span>MOOOI PRESENTS</span>
           <h1>Kissing booth by Moooi X EveryHuman</h1>
-          <a className="cool-link" href="#">
+          <button className="cool-link">
             Discover this Room Fragrance
-          </a>
+          </button>
         </div>
       </div>
       <div className="rightPresents">

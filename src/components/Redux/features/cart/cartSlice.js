@@ -5,6 +5,8 @@ const cartSlice = createSlice({
   initialState: {
     items: [],
     totalPrice: 0,
+
+    wishlist: [],
   },
   reducers: {
     addToCart: (state, action) => {
@@ -35,9 +37,7 @@ const cartSlice = createSlice({
     },
     decreaseQuantity: (state, action) => {
       const itemName = action.payload;
-      const itemToDecrease = state.items.find(
-        (item) => item.name === itemName
-      );
+      const itemToDecrease = state.items.find((item) => item.name === itemName);
       if (itemToDecrease && itemToDecrease.quantity > 1) {
         itemToDecrease.quantity--;
         // state.totalPrice -= itemToDecrease.price; // Adjust total price
@@ -45,17 +45,25 @@ const cartSlice = createSlice({
     },
     increaseQuantity: (state, action) => {
       const itemName = action.payload;
-      const itemToIncrease = state.items.find(
-        (item) => item.name === itemName
-      );
+      const itemToIncrease = state.items.find((item) => item.name === itemName);
       if (itemToIncrease) {
         itemToIncrease.quantity++;
         // state.totalPrice += itemToIncrease.price; // Adjust total price
       }
     },
-    totalPriceHandler:(state,action)=>{
-      state.totalPrice=action.payload
-    }
+    totalPriceHandler: (state, action) => {
+      state.totalPrice = action.payload;
+    },
+    addToWishlist: (state, action) => {
+      const newItem = action.payload;
+      state.wishlist.push({ ...newItem });
+    },
+    removeFromWishlist: (state, action) => {
+      const itemNameToRemove = action.payload;
+      state.wishlist = state.wishlist.filter(
+        (item) => item.name !== itemNameToRemove
+      );
+    },
   },
 });
 
@@ -64,7 +72,9 @@ export const {
   removeFromCart,
   increaseQuantity,
   decreaseQuantity,
-  totalPriceHandler
+  totalPriceHandler,
+  addToWishlist,
+  removeFromWishlist,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

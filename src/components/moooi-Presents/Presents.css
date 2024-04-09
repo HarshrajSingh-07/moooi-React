@@ -44,12 +44,14 @@
 }
 
 .cool-link {
+    border: none;
+    background-color: transparent;
     color: #2e2e2e;
-    font-size: clamp(16px, 5vw, 25px);
+    font-size: clamp(16px, 3vw, 20px);
     font-weight: 300;
     opacity: 0.9;
     text-decoration: none;
-    margin-top: 70px;
+    margin-top: clamp(25px, 3vw, 70px);
     border-bottom: 1px solid #2e2e2e;
 }
 
@@ -91,13 +93,5 @@
         font-size: 13px;
     }
 
-    .leftContent a {
-        margin-top: 35px;
-    }
-}
 
-@media only screen and (max-width: 576px) {
-    .leftContent a {
-        margin-top: 22px;
-    }
 }

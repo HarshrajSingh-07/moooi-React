@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import Bag from "../Bag/Bag";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
+import WishModal from "../Wishlist/WishModal";
 
 const Header = ({
   Textcolor,
@@ -17,6 +18,9 @@ const Header = ({
   toggleCardHeight,
   HideBuyWhenCartOpen,
   handleSearch,
+  open,
+  handleOpen,
+  handleClose,
 }) => {
   const cartItem = useSelector((state) => state.cart.items);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
@@ -24,8 +28,10 @@ const Header = ({
   const [headerColor, setHeaderColor] = useState("white");
   const [divOffsetTop, setDivOffsetTop] = useState(0);
   const [isSearchVisible, setIsSearchVisible] = useState(false);
-
+  const [searchQuery, setSearchQuery] = useState("");
   const [activeSection, setActiveSection] = useState(null);
+  const [filteredSections, setFilteredSections] = useState([]);
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +40,6 @@ const Header = ({
       sections.forEach((section) => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
-        console.log(window.scrollY, sectionTop, sectionHeight);
         if (
           window.scrollY >= sectionTop - 50 &&
           window.scrollY < sectionTop + sectionHeight - 50
@@ -65,7 +70,7 @@ const Header = ({
   const [isBagOpen, setIsBagOpen] = useState(false);
   const toggleBag = () => {
     const mediaQuery = window.matchMedia("(max-width: 575.98px)");
-    setIsBagOpen(!isBagOpen); // Toggle bag visibility
+    setIsBagOpen(!isBagOpen);
     if (mediaQuery.matches) {
       HideBuyWhenCartOpen();
     } else {
@@ -73,13 +78,38 @@ const Header = ({
     }
   };
 
-  const toggleSearch = () => {
-    setIsSearchVisible(!isSearchVisible);
+  const handleInputChange = (e) => {
+    setSearchQuery(e.target.value);
   };
 
+  const handleSearchClick = () => {
+    setIsSearchVisible(!isSearchVisible);
+    if (searchQuery.trim() === "") {
+      console.log("Search query is empty.");
+      return;
+    }
+
+    const sectionId = searchQuery.trim().toLowerCase();
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setActiveSection(sectionId);
+      setMessage("");
+    } else {
+      console.log("Section not found.");
+      setMessage("Section not found.");
+    }
+
+    setSearchQuery("");
+  };
   return (
     <>
-      {/* <header style={{ color: Textcolor, backgroundColor: backgroundColor }} > */}
+      <WishModal
+        handleClose={handleClose}
+        handleOpen={handleOpen}
+        open={open}
+        msg={"Successfully !"}
+      />
       <header
         className={`header ${visible ? "visible" : "hidden"} ${
           activeSection === "collection" || activeSection === "productStory"
@@ -99,7 +129,8 @@ const Header = ({
           <IoMicOutline />
         </div>
         <div className="headCent" style={{ justifyContent: CenterHead }}>
-          <Link to="/" element="./App.js">
+          {/* <Link to="/" element="./App.js"> */}
+          <Link to="/">
             <h3
               className={`${
                 activeSection === "collection" ||
@@ -114,18 +145,30 @@ const Header = ({
           </Link>
         </div>
         <div className="headRight">
-          {isSearchVisible && <input type="text" placeholder="Search..." />}
-          <IoMdSearch onClick={toggleSearch} />
-          <BsGrid1X2 />
-          {/* Attach onClick handler to FiShoppingBag to toggle bag visibility */}
+          {isSearchVisible && (
+            <>
+              <input
+                type="text"
+                placeholder="Search..."
+                className="searchInput"
+                value={searchQuery}
+                onChange={handleInputChange}
+              />
+              <span className="searchMessage">{message}</span>
+            </>
+          )}
+          <div className="headerIcon">
+            <IoMdSearch onClick={handleSearchClick} />
+          </div>
+          <div className="headerIcon">
+            <BsGrid1X2 onClick={handleOpen} />
+          </div>
           <div className="shopingBag" onClick={toggleBag}>
             <FiShoppingBag />
             <span className="CartQnty">{cartItem.length}</span>
           </div>
         </div>
       </header>
-      {/* Render the Bag component conditionally based on the state */}
-      {/* {isBagOpen && <Bag toggleBag={toggleBag} />}   */}
       <Bag isBagOpen={isBagOpen} toggleBag={toggleBag} />
     </>
   );
