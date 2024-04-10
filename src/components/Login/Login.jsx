@@ -4,7 +4,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import "firebase/auth";
 import { auth } from "../../firebase";
 import BasicModal from "./Modals";
-import {RemoveScroll} from 'react-remove-scroll';
+import { RemoveScroll } from "react-remove-scroll";
 
 const Login = ({ handleSignup, open, handleOpen, handleClose }) => {
   const [data, setData] = useState({
@@ -40,7 +40,7 @@ const Login = ({ handleSignup, open, handleOpen, handleClose }) => {
     try {
       const res = await signInWithEmailAndPassword(auth, email, password);
       handleOpen("Login Successfully !");
-      setData({email:"",password:""})
+      setData({ email: "", password: "" });
     } catch (error) {
       console.log(error.code);
       if (error.code === "auth/invalid-credential") {
@@ -58,56 +58,55 @@ const Login = ({ handleSignup, open, handleOpen, handleClose }) => {
 
   return (
     <RemoveScroll>
-    <section id="login">
-      <div>
-        <BasicModal
-          handleClose={handleClose}
-          handleOpen={handleOpen}
-          open={open}
-          msg={"Login Successfully !"}
-        />
-      </div>
-      <div className="loginContainer ">
-        <div className="loginHead">
-          <h3>Good day!</h3>
-          <p>
-            Fill in your e-mail address and password to log in or create an
-            Account.
-          </p>
+      <section id="login">
+        <div>
+          <BasicModal
+            handleClose={handleClose}
+            handleOpen={handleOpen}
+            open={open}
+            msg={"Login Successfully !"}
+          />
         </div>
-        <form onSubmit={handleSignIn}>
-          <div className="loginfields">
-            <label>E-mail address*</label>
-            <input
-              type="email"
-              name="email"
-              autoComplete="on"
-              value={data.email}
-              onChange={handleLoginInputs}
-            />
+        <div className="loginContainer ">
+          <div className="loginHead">
+            <h3>Good day!</h3>
+            <p>
+              Fill in your e-mail address and password to log in or create an
+              Account.
+            </p>
           </div>
-          <div className="loginfields">
-            <label>Password*</label>
-            <input
-              type="password"
-              name="password"
-              autoComplete="off"
-              value={data.password}
-              onChange={handleLoginInputs}
-            />
+          <form onSubmit={handleSignIn}>
+            <div className="loginfields">
+              <label>E-mail address*</label>
+              <input
+                type="email"
+                name="email"
+                autoComplete="on"
+                value={data.email}
+                onChange={handleLoginInputs}
+              />
+            </div>
+            <div className="loginfields">
+              <label>Password*</label>
+              <input
+                type="password"
+                name="password"
+                autoComplete="off"
+                value={data.password}
+                onChange={handleLoginInputs}
+              />
+            </div>
+            <button type="submit">Continue</button>
+          </form>
+          <div className="Loginfooter">
+            <span>Don't have an account ?</span>
+            <button className="signupBtn" onClick={handleSignup}>
+              Signup Now
+            </button>
           </div>
-          <button type="submit">Continue</button>
-        </form>
-        <div className="Loginfooter">
-          <span>Don't have an account ?</span>
-          <button className="signupBtn" onClick={handleSignup}>
-            Signup Now
-          </button>
         </div>
-      </div> 
-    </section>
-    </RemoveScroll>  
-   
+      </section>
+    </RemoveScroll>
   );
 };
 
