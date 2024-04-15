@@ -16,6 +16,7 @@
     "firebase": "^10.8.0",
     "npm": "^7.24.0",
     "react": "^18.2.0",
+    "react-animated-heart": "^0.0.8",
     "react-bootstrap": "^2.10.1",
     "react-cookie": "^7.1.4",
     "react-dom": "^18.2.0",

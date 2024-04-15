@@ -5,22 +5,22 @@ import { addToCart } from "../Redux/features/cart/cartSlice";
 import { PiArrowFatLinesUpFill, PiArrowFatLinesDownFill } from "react-icons/pi";
 import { setRef } from "@mui/material";
 
-const BuyPro = ({ src, title, price ,isExpanded,toggleCardHeight }) => {
+const BuyPro = ({ src, title, price, isExpanded, toggleCardHeight }) => {
   const dispatch = useDispatch();
   // const [isExpanded, setIsExpanded] = useState(false);
-  
+
   const addHandle = (item) => {
     dispatch(addToCart(item));
   };
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 575.98px)');
-  
+    const mediaQuery = window.matchMedia("(max-width: 575.98px)");
+
     if (mediaQuery.matches) {
       const timeoutId = setTimeout(() => {
         toggleCardHeight();
       }, 4000);
-      
+
       return () => clearTimeout(timeoutId);
     }
   }, []);
@@ -33,13 +33,11 @@ const BuyPro = ({ src, title, price ,isExpanded,toggleCardHeight }) => {
         style={{ transition: "all 0.5s ease-in-out" }}
       >
         <div className="BuyProDetail">
-          <div className="arrow"
-           onClick={toggleCardHeight}
-           >
+          <div className="arrow" onClick={toggleCardHeight}>
             {isExpanded ? (
-              <PiArrowFatLinesUpFill className="upDown" />
-            ) : (
               <PiArrowFatLinesDownFill className="upDown" />
+            ) : (
+              <PiArrowFatLinesUpFill className="upDown" />
             )}
             <span className="arrow-text">Click here to buy</span>
           </div>
@@ -50,8 +48,8 @@ const BuyPro = ({ src, title, price ,isExpanded,toggleCardHeight }) => {
             <div className="Product-info">
               <h2>{title}</h2>
               <div className="priceStock">
-              <span className="buyprice">{price}</span>
-              <span>In Stock</span>
+                <span className="buyprice">{price}</span>
+                <span>In Stock</span>
               </div>
             </div>
             <div className="buyButton">

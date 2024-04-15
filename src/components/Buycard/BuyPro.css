@@ -3,7 +3,7 @@
     height: 100vh;
     position: fixed;
     bottom: 20px;
-    z-index: 2;
+    z-index: 999;
 }
 
 #BuyProduct:hover .productView {
@@ -30,7 +30,7 @@
     margin: 10px 0;
 }
 
-.hideDown{
+.hideDown {
     transform: translateY(48vh);
 }
 
@@ -59,13 +59,15 @@
     display: flex;
     margin: 10px 10px 5px;
 }
-.belowclick{
+
+.belowclick {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.priceStock{
-    display:flex;
+
+.priceStock {
+    display: flex;
     flex-direction: column;
     margin-top: 10px;
     margin-left: 7px;
@@ -125,23 +127,39 @@
     margin: 0;
 }
 
+
 @media screen and (max-width:576px) {
+
+    #BuyProduct {
+        height: 100vh;
+        position: fixed;
+        bottom: 15px;
+        z-index: 999;
+    }
+
     #BuyProduct:hover .productView {
         display: none;
     }
-    #BuyDetail{
+
+    #BuyDetail {
         height: 60vh;
     }
-    .BuyProDetail{
+
+    .BuyProDetail {
         height: 475px;
+        position: relative;
+        bottom: 10px;
         justify-content: space-between;
     }
-    .belowclick{
+
+    .belowclick {
         flex-direction: column;
     }
+
     .arrow {
         display: flex;
         flex-direction: column;
+        padding: 10px 0;
         align-items: center;
         justify-content: space-between;
     }
@@ -153,40 +171,42 @@
     .hideDown {
         display: none;
     }
-   
+
 
     .BuyProDetail {
         flex-direction: column;
         align-items: center;
-        padding: 10px 0;
     }
 
     .Product-info {
         width: 100%;
         align-items: center;
     }
-    .priceStock{
+
+    .priceStock {
         margin: 7px 0;
         margin-left: 0;
         align-items: center;
     }
-    
+
 
     .BuyImg {
-        width: 45%;
+        width: 18vh;
     }
+
     .expanded {
         transform: translateY(0);
         position: absolute;
         top: 70%;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
     }
-    .hideDown{
+
+    .hideDown {
         position: absolute;
         top: 120vh;
         left: 50%;
-        transform: translate(-50%,-50%);
+        transform: translate(-50%, -50%);
     }
 }
 

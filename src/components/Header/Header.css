@@ -68,7 +68,7 @@ header h3 {
     width: 38%;
     display: flex;
     justify-content: flex-end;
-    /* gap: 50px; */
+    align-items: center;
 }
 
 .shopingBag {

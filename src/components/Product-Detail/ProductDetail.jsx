@@ -17,8 +17,10 @@ import Bag from "../Bag/Bag";
 import { AllCollection } from "../Items/AllCollection";
 import { useDispatch, useSelector } from "react-redux";
 import { addToWishlist } from "../Redux/features/cart/cartSlice";
+import Heart from "react-animated-heart";
 
 const ProductDetail = ({ toggleCardHeight, isExpanded }) => {
+  const [isClick, setClick] = useState(false);
   const dispatch = useDispatch();
   const handleAddToWishlist = (item) => {
     console.log("item", item);
@@ -56,18 +58,9 @@ const ProductDetail = ({ toggleCardHeight, isExpanded }) => {
         </div>
         <div className="productDetailHead">
           <h1>{data.itemname}</h1>
-
           <span>MOOOI, 2021</span>
-          <div className="varBtn">
-            <button>
-              <h2 className="detailprice">{data.price}</h2>
-              <div className="detailicon" onClick={handleAddToWishlist}>
-                <IoIosAdd className="cartIcon" />
-                <button onClick={handleAddToWishlist}>
-                  <FiShoppingBag /> Add to Wishlist
-                </button>
-              </div>
-            </button>
+          <div className="hearIcon">
+            <Heart isClick={isClick} onClick={() => setClick(!isClick)} />
           </div>
 
           <div className="detailRow">

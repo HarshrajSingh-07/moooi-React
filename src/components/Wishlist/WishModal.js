@@ -9,6 +9,9 @@ import "./WishModal.css";
 // import { useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { CiHeart } from "react-icons/ci";
+import { RxHeartFilled } from "react-icons/rx";
+import { useState } from "react";
+import { IoHeartOutline, IoHeartSharp } from "react-icons/io5";
 
 const style = {
   position: "absolute",
@@ -22,9 +25,18 @@ const style = {
   p: 3,
 };
 
-export default function WishModal({ handleOpen, handleClose, open, msg }) {
+export default function WishModal({ handleOpen, handleClose, open, msg, id }) {
   const cartItem = useSelector((state) => state.cart.items);
-  // let { id, id1 } = useParams();
+  const [wish, setWish] = useState(false);
+  const [likeditems, setLikedItems] = useState([]);
+
+  const handleLike = (index) => {
+    setLikedItems((prevLikedItems) => {
+      const updatedLikedItems = [...prevLikedItems];
+      updatedLikedItems[index] = !updatedLikedItems[index];
+      return updatedLikedItems;
+    });
+  };
 
   return (
     <div>
@@ -74,8 +86,12 @@ export default function WishModal({ handleOpen, handleClose, open, msg }) {
                       </p>
                       <span>60x70, Calligraphy Bird blue</span>
                     </div>
-                    <div className="wishIcon">
-                      <CiHeart />
+                    <div className="wishIcon" onClick={() => handleLike(index)}>
+                      {likeditems[index] ? (
+                        <IoHeartSharp color="#ed4956" size={24} />
+                      ) : (
+                        <IoHeartOutline size={24} />
+                      )}
                     </div>
                   </div>
                 ))
