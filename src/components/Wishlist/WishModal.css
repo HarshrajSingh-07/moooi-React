@@ -1,5 +1,5 @@
 .wishHead {
-    font-size: 40px;
+    font-size: clamp(30px, 5vw, 40px);
     font-weight: 200;
     letter-spacing: 3px;
     padding-top: 30px;
@@ -24,6 +24,19 @@
     overflow-y: scroll;
 }
 
+.Wishclose {
+    top: 32px;
+    right: 23px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.Wishclose svg {
+    color: #3f3f3f;
+    width: clamp(21px, 5vw, 25px);
+    transform: rotate(45deg);
+}
+
 .Wishcards::-webkit-scrollbar {
     display: none;
 }
@@ -45,32 +58,37 @@
 }
 
 .wishPera p {
-    font-size: 16px;
+    font-size: clamp(10px, 5vw, 16px);
     letter-spacing: 0.8px;
     margin: 0;
 }
 
 .wishPera span {
     color: #929292;
+    font-size: clamp(12px, 5vw, 16px);
 }
 
 .wishIcon {
-    font-size: 18px;
     width: 10%;
+    text-align: right;
+}
+
+.wishIcon svg {
+    width: clamp(20px, 5vw, 25px);
 }
 
 @media screen and (max-width: 430px) {
     .wishImg img {
-        max-width: 95%;
+        max-width: 90%;
     }
 
-    .wishPera p {
+    /* .wishPera p {
         font-size: 14px;
         letter-spacing: 0.3px;
-    }
+    } */
 
-    .wishPera span {
+    /* .wishPera span {
         font-size: 13px
-    }
+    } */
 
 }

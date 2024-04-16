@@ -29,7 +29,6 @@
 
 .productDetailHead h1 {
   font-family: "Montserrat", sans-serif;
-  /* max-width: 66%; */
   font-size: clamp(40px, 5vw, 100px);
   font-weight: 200;
   margin: 0;
@@ -37,12 +36,16 @@
 }
 
 .productDetailHead>span {
-  /* padding-bottom: 25px; */
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 1.5px;
   margin-left: 10px;
   font-family: "Quicksand", sans-serif;
+}
+
+.hearIcon {
+  position: relative;
+  left: -25px;
 }
 
 .detailRow {
@@ -55,7 +58,6 @@
 
 .detailLeft {
   width: 60%;
-  /* padding-top: 4vh; */
 }
 
 .proname {
@@ -235,8 +237,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* max-height: 100vh; */
-  /* gap: 50px; */
+  padding: clamp(50px, 5vw, 100px) clamp(0px, 5vw, 25px);
 }
 
 .commitments {
@@ -252,7 +253,7 @@
 .commitments h2 {
   font-family: "Oswald", sans-serif;
   font-weight: 500;
-  font-size: 16px;
+  font-size: clamp(16px, 4vw, 15px);
   letter-spacing: 0.8px;
   margin: 0;
 }
@@ -260,8 +261,8 @@
 .commitments p {
   font-family: "poppins", sans-serif;
   font-weight: 300;
-  font-size: 40px;
-  padding: 2vh 5vw;
+  font-size: clamp(14px, 4vw, 35px);
+  padding: clamp(0vh, 3vw, 2vh) clamp(0vw, 1vw, 5vw);
   /* margin-bottom: 0; */
 }
 
@@ -292,32 +293,27 @@
   font-weight: 400;
   margin: 0;
   margin: 15px 0;
-  font-size: 23px;
+  font-size: clamp(15px, 4vw, 23px);
 }
 
 .innerpolicy p {
   margin: 0;
   color: #1f1f1f;
-  font-size: 20px;
+  font-size: clamp(14px, 4vw, 20px);
 }
 
 @media screen and (max-width: 1024px) {
 
-  .commitments p {
-    font-size: 30px;
-  }
+
 
   .innerpolicy {
     padding: 0 10px;
   }
 
-  .innerpolicy h2 {
-    font-size: 18px;
-  }
 
-  .innerpolicy p {
-    font-size: 16px;
-  }
+
+
+
 }
 
 @media screen and (max-width: 991px) {
@@ -377,13 +373,11 @@
   .ourCommitments {
     flex-direction: column;
     align-items: center;
-    padding-top: 50px;
   }
 
 
-  .commitments p {
-    font-size: 23px;
-  }
+
+
 
   .policies {
     width: 100%;
@@ -407,11 +401,7 @@
     gap: 0;
   }
 
-  .commitments p {
-    font-size: 17px;
-    margin: 0;
-    padding: 1vh 5vw;
-  }
+
 
   .detailBtn {
     padding-top: 10px;
@@ -449,17 +439,7 @@
 
 }
 
-@media screen and (max-height: 768px) {
-  /* .productDetailHead {
-    height: 60vh;
-  } */
-}
-
 @media screen and (max-height: 480px) {
-  /* .productDetailHead {
-    height: 50vh;
-  } */
-
   .detailLeft p {
     font-size: clamp(18px, 5vh, 25px);
   }

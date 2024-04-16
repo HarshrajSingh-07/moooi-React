@@ -11,8 +11,8 @@
 }
 
 .main-head {
-    width: 60%;
-    height: 90%;
+    width: clamp(70%, 5vw, 60%);
+    height: 85%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -23,90 +23,47 @@
 .main-head h1 {
     text-align: center;
     margin: 0;
-    font-size: clamp(35px, 6vw, 97px);
+    font-size: clamp(30px, 6vw, 95px);
     font-weight: 500;
 }
 
 .main-head p {
-    margin-bottom: 30px;
+    margin-bottom: clamp(10px, 5vw, 30px);
     color: hsla(0, 0%, 100%, .8);
-    ;
-    font-size: 20px;
+    font-size: clamp(14px, 3vw, 20px);
     letter-spacing: 4px;
     font-family: "Rubik", sans-serif;
 }
 
 .main-head button {
     color: #4d4d4d;
-    font-size: 20px;
+    font-size: clamp(14px, 3vw, 20px);
     font-family: "Cinzel", serif;
     border: none;
-    padding: 12px 25px;
+    padding: 10px clamp(14px, 3vw, 25px);
     margin-top: clamp(25px, 5vw, 65px);
     background-color: #fff;
     border-radius: 2.5em;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, .1);
 }
 
-@media only screen and (max-width: 1024px) {
-    .main-head {
-        width: 75%;
-    }
-
-    .main-head p {
-        font-size: 16px;
-    }
-
-    .main-head button {
-        font-size: 18px;
-        padding: 10px 15px;
-    }
-}
-
 
 
 @media only screen and (max-width: 768px) {
-    .main-head {
+    /* .main-head {
         width: 70%;
-    }
+    } */
 }
 
 @media only screen and (max-width: 576px) {
-    .main-head {
-        width: 87%;
-    }
+    /* .main-head {
+        width: 83%;
+    } */
 
-    .main-head h1 {
-        font-size: 45px;
-    }
-
-    .main-head p {
-        font-size: 14px;
-    }
-
-    .main-head button {
-        padding: 10px 14px;
-        font-size: 16px;
-    }
-}
-
-@media only screen and (max-height: 545px) {
-    .main-head p {
-        font-size: 15px;
-    }
-
-    .main-head button {
-        font-size: 16px;
-        padding: 10px 25px;
-    }
 }
 
 @media only screen and (max-height: 545px) and (max-width:770px) {
-    .main-head {
+    /* .main-head {
         width: 85%;
-    }
-
-    .main-head button {
-        font-size: 15px;
-    }
+    } */
 }

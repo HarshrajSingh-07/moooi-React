@@ -20,14 +20,15 @@
 /* Styling for text select component */
 .selectText button {
     width: 20vw;
-    min-width: 150px;
+    min-width: 200px;
     padding: 15px 14px;
     margin-bottom: 75px;
     border: 1px solid #929292;
     border-radius: 50px;
     background: transparent;
 }
-.country-down-icon{
+
+.country-down-icon {
     color: #fff;
 }
 
@@ -43,8 +44,8 @@
 
 .B2T {
     position: absolute;
-    right: 35px;
-    margin-top: 14px;
+    right: clamp(16px, 3vw, 35px);
+    margin-top: 8px;
     color: white;
     font-size: 28px;
 }
@@ -105,19 +106,22 @@
 
 /* Media query for smaller screens */
 @media only screen and (max-width: 600px) {
-    #footer{
+    #footer {
         padding: 10vw 4vw 30px;
     }
+
     .footer-mid ul {
         columns: 1;
         margin-bottom: 10px;
     }
-    .footer-mid ul li { 
-        font-size: 22px; 
-        padding:10px 0;
+
+    .footer-mid ul li {
+        font-size: 22px;
+        padding: 10px 0;
         padding-left: 10px;
     }
-    .fnav a{
+
+    .fnav a {
         font-size: 20px;
     }
 
@@ -131,7 +135,8 @@
         flex-wrap: nowrap;
         margin-bottom: 10px;
     }
-    .selectText button{
+
+    .selectText button {
         margin-bottom: 30px;
     }
 }

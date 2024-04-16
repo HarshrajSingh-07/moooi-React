@@ -20,7 +20,7 @@
 .item-text h1 {
     color: #1f1f1f;
     font-weight: 50;
-    font-size: 65px;
+    font-size: clamp(45px, 7vw, 65px);
     font-style: italic;
     margin: 0;
 }
@@ -29,8 +29,8 @@
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     color: #1f1f1f;
-    font-size: 20px;
-    padding: 7px 10vw;
+    font-size: clamp(15px, 3vw, 20px);
+    padding: 7px clamp(0, 5vw, 10vw);
 }
 
 .itemsBtn {
@@ -39,19 +39,19 @@
     flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
+    padding-top: 20px;
 }
 
 
 .itemsBtn button {
     color: #1f1f1f;
     font-family: "Nunito", sans-serif;
-    font-size: 17px;
+    font-size: clamp(13px, 5vw, 17px);
     background-color: transparent;
     border: none;
     padding: 8px 20px;
     border-radius: 50px;
     box-shadow: inset 0 0 0 1px #929292;
-    margin-top: 10px;
 }
 
 .arow {
@@ -152,18 +152,23 @@
     height: auto;
 }
 
+.suggesstionBtn {
+    padding-top: 15px;
+}
+
 @media (max-width:576px) {
     .items-head {
         max-width: 100%;
         padding: 5vw 5vw 9vw;
     }
-    .item-text h1 {
-        font-size:55px;
+
+    /* .item-text h1 {
+        font-size: 55px;
     }
 
     .item-text p {
         padding: 0;
-    }
+    } */
 }
 
 @media (min-width: 600px) {
@@ -172,9 +177,9 @@
     }
 
 
-    .item-text p {
+    /* .item-text p {
         padding: 7px 7vw;
-    }
+    } */
 }
 
 @media (min-width: 900px) {
@@ -182,39 +187,40 @@
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .item-text h1 {
+    /* .item-text h1 {
         font-size: 100px;
     }
 
     .item-text p {
         padding: 7px 20vw;
-    }
+    } */
 }
 
 .suggestion {
+    align-items: center;
     display: flex;
     flex-direction: column;
+    margin: 0 clamp(5vw, 5vw, 25vw);
+    padding-top: 100px;
+    padding-bottom: 150px;
     text-align: center;
-    align-items: center;
-    margin: 12.5vw 25vw;
-    padding:25px 0 100px 0;
 }
 
 .suggestion h2 {
-    font-size: 15px;
+    font-size: clamp(12px, 3vw, 14px);
     font-family: "Ojuju", sans-serif;
     margin: 0;
 }
 
 .suggestion p {
-    font-size: 48px;
-    padding: 20px 0;
+    font-size: clamp(22px, 5vw, 45px);
+    padding: clamp(5px, 3vw, 15px) 0;
     font-weight: 100;
     font-family: "Manrope", sans-serif;
 }
 
 .suggestion button {
-    width: min(200px,100%);
+    width: min(200px, 100%);
     color: #1f1f1f;
     background-color: transparent;
     border: none;
@@ -223,41 +229,35 @@
     box-shadow: inset 0 0 0 1px #929292;
     margin: 10px;
 }
-.suggesstionBtn{
-    padding-top: 20px;
-}
 
- @media only screen and (max-width:430px){
-    .items-head{
+
+@media only screen and (max-width:430px) {
+    /* .items-head {
         width: 100%;
         padding: 5vw 6vw 9vw;
     }
-    .item-text h1{
+
+    .item-text h1 {
         font-size: 40px;
     }
-    .item-text p{
+
+    .item-text p {
         font-size: 16px;
-        /* margin-top: 15px; */
-    }
-    .itemsBtn button{
-        width:min(332px,100%);
+    } */
+
+    .itemsBtn button {
+        width: min(332px, 100%);
         padding: 11px 20px;
         margin: 0;
     }
-    .itemsBtn{
+
+    .itemsBtn {
         margin-top: 25px;
 
     }
-    .suggestion{
-        height: 100vh;
-        justify-content: center;
-        margin: 12.5vw 5vw;
-        padding: 0;
-    }
-    .suggestion h2{
+
+    /* .suggestion h2 {
         font-size: 14px;
-    }
-    .suggestion p{
-        font-size: 26px;
-    }
- }
+    } */
+
+}

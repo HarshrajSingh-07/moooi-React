@@ -129,7 +129,6 @@ const Header = ({
           <IoMicOutline />
         </div>
         <div className="headCent" style={{ justifyContent: CenterHead }}>
-          {/* <Link to="/" element="./App.js"> */}
           <Link to="/">
             <h3
               className={`${
