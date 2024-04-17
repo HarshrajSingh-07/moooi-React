@@ -20,16 +20,17 @@
 .item-text h1 {
     color: #1f1f1f;
     font-weight: 50;
-    font-size: clamp(45px, 7vw, 65px);
+    font-size: clamp(35px, 10vw, 65px);
     font-style: italic;
     margin: 0;
+    padding-bottom: 7px;
 }
 
 .item-text p {
     font-family: "Poppins", sans-serif;
     font-weight: 300;
     color: #1f1f1f;
-    font-size: clamp(15px, 3vw, 20px);
+    font-size: clamp(14px, 3vw, 19px);
     padding: 7px clamp(0, 5vw, 10vw);
 }
 
@@ -246,13 +247,13 @@
     } */
 
     .itemsBtn button {
-        width: min(332px, 100%);
+        width: min(335px, 100%);
         padding: 11px 20px;
         margin: 0;
     }
 
     .itemsBtn {
-        margin-top: 25px;
+        margin-top: 20px;
 
     }
 

@@ -9,6 +9,7 @@ import Bag from "../Bag/Bag";
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import WishModal from "../Wishlist/WishModal";
+import { MdOutlineArrowRight } from "react-icons/md";
 
 const Header = ({
   Textcolor,
@@ -21,6 +22,8 @@ const Header = ({
   open,
   handleOpen,
   handleClose,
+  pagination,
+  paginationSection,
 }) => {
   const cartItem = useSelector((state) => state.cart.items);
   const [prevScrollPos, setPrevScrollPos] = useState(window.pageYOffset);
@@ -142,6 +145,11 @@ const Header = ({
               moooi
             </h3>
           </Link>
+        </div>
+        <div className="pagination" style={{ display: `${pagination}` }}>
+          <Link to="/">Home</Link>
+          <MdOutlineArrowRight />
+          {paginationSection}
         </div>
         <div className="headRight">
           {isSearchVisible && (

@@ -18,7 +18,7 @@
 
 .contactHead h1 {
   font-weight: 100;
-  font-size: 110px;
+  font-size: clamp(70px, 8vw, 110px);
 }
 
 .contactHead p {
@@ -83,10 +83,9 @@
   max-width: 840px;
 }
 
-/* Left contact page */
+
 .form-horizontal {
-  /*float: left;*/
-  max-width: 400px;
+  width: min(400px, 100%);
   font-family: 'Lato';
   font-weight: 400;
 }
@@ -100,7 +99,7 @@ textarea {
   width: 100%;
   padding: 6px 12px;
   border-radius: 6px;
-  max-width: 400px;
+  max-width: min(400px, 100%);
   background-color: #fff;
   color: #000;
   border: 1px solid #5f5f5f;
@@ -120,23 +119,23 @@ textarea {
   color: #fff;
   margin-top: 15px;
   height: 34px;
-  width: 400px;
+  width: min(400px, 100%);
   overflow: hidden;
   transition: all .2s ease-in-out;
 }
 
 .alt-send-button {
-  /* width: 400px; */
   font-size: 18px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 34px;
+  justify-content: space-around;
+  height: 60px;
+  gap: 0px;
   transition: all .2s ease-in-out;
 }
 
 .send-text {
-  display: none;
   font: 700 14px 'Lato', sans-serif;
   letter-spacing: 2px;
 }
@@ -145,12 +144,10 @@ textarea {
   transform: translate3d(0px, -29px, 0px);
 }
 
-/* Begin Right Contact Page */
 .direct-contact-container {
   max-width: 400px;
 }
 
-/* Location, Phone, Email Section */
 .contact-list {
 
   list-style-type: none;
@@ -162,21 +159,33 @@ textarea {
 }
 
 .contact-text {
-  font: 300 18px 'Lato', sans-serif;
+  font: 300 clamp(14px, 4vw, 16px) 'Lato', sans-serif;
   letter-spacing: 1.9px;
   color: #bbb;
 }
 
+.fa-2x {
+  font-size: clamp(18px, 5vw, 30px);
+}
+
+.fa-2x:hover {
+  color: #1f1f1f;
+}
+
 .place {
-  margin-left: 62px;
+  margin-left: clamp(35px, 7vw, 60px);
+}
+
+.place:hover {
+  color: #1f1f1f;
 }
 
 .phone {
-  margin-left: 56px;
+  margin-left: clamp(35px, 7vw, 60px);
 }
 
 .gmail {
-  margin-left: 53px;
+  margin-left: clamp(35px, 7vw, 60px);
 }
 
 .contact-text a {
@@ -186,15 +195,13 @@ textarea {
 }
 
 .contact-text a:hover {
-  color: #fff;
-  text-decoration: none;
+  color: #1f1f1f;
 }
 
 
-/* Social Media Icons */
 .social-media-list {
   position: relative;
-  font-size: 22px;
+  font-size: 20px;
   text-align: center;
   width: 100%;
   margin: 0 auto;
@@ -208,10 +215,10 @@ textarea {
 .social-media-list li {
   position: relative;
   display: inline-block;
-  height: 60px;
-  width: 60px;
+  height: 40px;
+  width: 40px;
   margin: 10px 3px;
-  line-height: 60px;
+  line-height: 40px;
   border-radius: 50%;
   color: #fff;
   background-color: rgb(27, 27, 27);
@@ -224,9 +231,9 @@ textarea {
   position: absolute;
   top: 0;
   left: 0;
-  width: 60px;
-  height: 60px;
-  line-height: 60px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
   border-radius: 50%;
   opacity: 0;
   box-shadow: 0 0 0 1px #fff;
@@ -248,7 +255,7 @@ textarea {
 }
 
 .copyright {
-  font: 200 14px 'Oswald', sans-serif;
+  font: 200 13px 'Oswald', sans-serif;
   color: #555;
   letter-spacing: 1px;
   text-align: center;
@@ -260,6 +267,10 @@ hr {
 
 /* Begin Media Queries*/
 @media screen and (max-width: 850px) {
+  .contactHead {
+    max-width: 85vw;
+  }
+
   .contact-wrapper {
     display: flex;
     flex-direction: column;
@@ -289,6 +300,19 @@ hr {
 }
 
 @media screen and (max-width: 569px) {
+  .cntBtn {
+    flex-direction: column;
+    padding-top: 20px;
+  }
+
+  .contactHead p {
+    font-size: 15px;
+  }
+
+  .cntBtn button {
+    margin: 7px 0;
+  }
+
   .css-slt5iz {
     width: 90%;
   }
@@ -301,16 +325,9 @@ hr {
 
   .form-control,
   textarea {
-
     margin: 0 auto;
   }
 
-
-  .name,
-  .email,
-  textarea {
-    width: 280px;
-  }
 
   .direct-contact-container {
     margin-top: 60px;
@@ -325,7 +342,7 @@ hr {
     height: 55px;
     width: 55px;
     line-height: 55px;
-    font-size: 2rem;
+
   }
 
   .social-media-list li:after {
@@ -337,7 +354,9 @@ hr {
 }
 
 @media screen and (max-width: 410px) {
-  .send-button {
-    width: 99%;
+  .social-media-list li {
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
   }
 }

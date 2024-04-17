@@ -15,7 +15,7 @@
 
 .container {
   margin: 0 auto;
-  padding: 150px clamp(25px, 5vw, 50px);
+  padding: 100px clamp(25px, 5vw, 50px);
 }
 
 .card {
@@ -56,9 +56,9 @@
 }
 
 @media screen and (max-width: 991px) {
-  #collection h3 {
+  /* #collection h3 {
     text-align: left;
-  }
+  } */
 
   .card>a {
     flex: 0 0 calc(30.33% - 20px);
@@ -87,11 +87,6 @@
   }
 }
 
-@media only screen and (max-width: 327px) {
-  #collection h3 {
-    text-align: center;
-  }
-}
 
 @media only screen and (max-width:275px) {
   .card>a {

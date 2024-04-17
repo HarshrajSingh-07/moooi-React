@@ -10,6 +10,18 @@ header {
     z-index: 900;
 }
 
+.pagination {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    font-weight: 300;
+    font-family: "Montserrat",
+        sans-serif;
+    gap: 3px;
+
+
+}
+
 .bg_dark {
     color: #000 !important;
 }
@@ -104,6 +116,10 @@ header h3 {
 }
 
 @media only screen and (max-width: 576px) {
+    .pagination {
+        display: none !important;
+    }
+
     /* .headRight {
         gap: 12px;
     } */

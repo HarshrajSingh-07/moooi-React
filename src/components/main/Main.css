@@ -11,7 +11,6 @@
 }
 
 .main-head {
-    width: clamp(70%, 5vw, 60%);
     height: 85%;
     margin: 0 auto;
     display: flex;
@@ -23,47 +22,26 @@
 .main-head h1 {
     text-align: center;
     margin: 0;
-    font-size: clamp(30px, 6vw, 95px);
+    font-size: clamp(25px, 7.5vw, 95px);
     font-weight: 500;
 }
 
 .main-head p {
     margin-bottom: clamp(10px, 5vw, 30px);
     color: hsla(0, 0%, 100%, .8);
-    font-size: clamp(14px, 3vw, 20px);
-    letter-spacing: 4px;
+    font-size: clamp(12px, 3vw, 20px);
+    letter-spacing: 3px;
     font-family: "Rubik", sans-serif;
 }
 
 .main-head button {
     color: #4d4d4d;
-    font-size: clamp(14px, 3vw, 20px);
+    font-size: clamp(12px, 3vw, 20px);
     font-family: "Cinzel", serif;
     border: none;
-    padding: 10px clamp(14px, 3vw, 25px);
-    margin-top: clamp(25px, 5vw, 65px);
+    padding: 10px clamp(15px, 3vw, 25px);
+    margin-top: clamp(25px, 5vw, 95px);
     background-color: #fff;
     border-radius: 2.5em;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, .1);
-}
-
-
-
-@media only screen and (max-width: 768px) {
-    /* .main-head {
-        width: 70%;
-    } */
-}
-
-@media only screen and (max-width: 576px) {
-    /* .main-head {
-        width: 83%;
-    } */
-
-}
-
-@media only screen and (max-height: 545px) and (max-width:770px) {
-    /* .main-head {
-        width: 85%;
-    } */
 }

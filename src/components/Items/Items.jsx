@@ -1,43 +1,36 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Item.css";
 import { HiOutlineChevronLeft } from "react-icons/hi";
 import { BsFilterRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-const Items = ({link, cardItem, obj }) => {
+const Items = ({ link, cardItem, obj }) => {
   // const [targetIndex, setTargetIndex] = useState(0);
-  const [data,setData]=useState(cardItem);
-  const [filter,setFilter]=useState(obj.btn[0]);
-  useEffect(()=>{
-    if( filter!==obj.btn[0]){
-      const localData=cardItem.filter((element)=>{
-        return element.category===filter
-      })
+  const [data, setData] = useState(cardItem);
+  const [filter, setFilter] = useState(obj.btn[0]);
+  useEffect(() => {
+    if (filter !== obj.btn[0]) {
+      const localData = cardItem.filter((element) => {
+        return element.category === filter;
+      });
       console.log(localData);
       setData(localData);
-    }else{
-      setData(cardItem)
-    }  
-  },[filter])
-  const filterHandler=(val)=>{
+    } else {
+      setData(cardItem);
+    }
+  }, [filter]);
+  const filterHandler = (val) => {
     setFilter(val);
-  }
-  // if (filter.includes("All")) {
-  //   // Remove "all" from the string
-  //   const newStateVariable = filter.replace("All ", "");
-  //   setFilter(newStateVariable);
-  // }
-  
+  };
 
   return (
     <section id="items">
       <div className="items-head">
         <div className="item-text">
           {/* <h1>{obj.title}</h1> */}
-          <h1>{filter.includes("All")?(
-            filter.replace("All ", "")
-          ):
-          filter}</h1>
+          <h1>
+            {filter.includes("All") ? filter.replace("All ", "") : filter}
+          </h1>
           <p>
             Our collection contains work from emerging talent and
             internationally recognized designers. Together, we create A Life
@@ -50,17 +43,18 @@ const Items = ({link, cardItem, obj }) => {
               <HiOutlineChevronLeft />
             </button>
           </Link>
-          {obj.btn.map((item, index) => (<>
-            {/* <Link to={`/${item.toLowerCase()}`} key={index}> */}
-            <button
-              key={index}
-              className={item === filter ? "active" : null}
-              value={item}
-              onClick={(e) =>  filterHandler(e.target.value)}
-            >
-              {item}
-            </button>
-            {/* </Link> */}
+          {obj.btn.map((item, index) => (
+            <>
+              {/* <Link to={`/${item.toLowerCase()}`} key={index}> */}
+              <button
+                key={index}
+                className={item === filter ? "active" : null}
+                value={item}
+                onClick={(e) => filterHandler(e.target.value)}
+              >
+                {item}
+              </button>
+              {/* </Link> */}
             </>
           ))}
         </div>
@@ -73,7 +67,7 @@ const Items = ({link, cardItem, obj }) => {
           </button>
         </div>
       </div>
-   
+
       <div className="cards">
         {data.map((item, index) => (
           <Link key={index} to={`/productdetails/${item.type}/${index}`}>
@@ -102,9 +96,8 @@ const Items = ({link, cardItem, obj }) => {
               <button
                 key={index}
                 value={item}
-
                 className={item === filter ? "active" : null}
-                onClick={(e) =>  filterHandler(e.target.value)}
+                onClick={(e) => filterHandler(e.target.value)}
               >
                 {item}{" "}
               </button>

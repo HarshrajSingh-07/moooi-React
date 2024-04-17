@@ -45,6 +45,7 @@ function App() {
   const [isExpanded, setIsExpanded] = useState(true);
 
   const [searchQuery, setSearchQuery] = useState("");
+  const [homeLink, setHomeLink] = useState("none");
   const sectionRefs = useRef({});
 
   const handleSearch = () => {
@@ -137,6 +138,8 @@ function App() {
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
                   CenterHead={"start"}
+                  pagination={"flex"}
+                  paginationSection={"Contact"}
                 />
                 <Contact />
                 <Menu handleShow={handleShow} />
@@ -158,6 +161,9 @@ function App() {
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
                   CenterHead={"start"}
+                  pagination={"flex"}
+                  paginationSection={"Collection"}
+                  obj={"Contact"}
                 />
                 <Items
                   link={"/"}
@@ -183,6 +189,8 @@ function App() {
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
                   CenterHead={"start"}
+                  pagination={"flex"}
+                  paginationSection={"Bedding & Bath"}
                 />
                 <Items
                   link={"/collection"}
@@ -208,6 +216,8 @@ function App() {
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
                   CenterHead={"start"}
+                  pagination={"flex"}
+                  paginationSection={"Product Details"}
                 />
                 <ProductDetail
                   toggleCardHeight={toggleCardHeight}
@@ -231,6 +241,8 @@ function App() {
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
                   CenterHead={"start"}
+                  pagination={"flex"}
+                  paginationSection={"Furniture"}
                 />
                 <Items
                   link={"/Bedding & Bath"}
@@ -257,6 +269,8 @@ function App() {
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
                   CenterHead={"start"}
+                  pagination={"flex"}
+                  paginationSection={"Lighting"}
                 />
                 <Items
                   link={"/Furniture"}
@@ -283,6 +297,8 @@ function App() {
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
                   CenterHead={"start"}
+                  pagination={"flex"}
+                  paginationSection={"Home Accessories"}
                 />
                 <Items
                   link={"/Lighting"}
@@ -309,6 +325,8 @@ function App() {
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
                   CenterHead={"start"}
+                  pagination={"flex"}
+                  paginationSection={"Wall & Floor"}
                 />
                 <Items
                   link={"/Furniture"}
@@ -335,6 +353,8 @@ function App() {
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
                   CenterHead={"start"}
+                  pagination={"flex"}
+                  paginationSection={"Body & Beauty"}
                 />
                 <Items
                   link={"/Furniture"}
@@ -360,6 +380,8 @@ function App() {
                   backgroundColor={"#fff"}
                   leftHeader={"none"}
                   CenterHead={"start"}
+                  pagination={"flex"}
+                  paginationSection={"Shopping bag"}
                 />
                 <OrderSummary />
                 <Menu handleShow={handleShow} />
@@ -379,6 +401,7 @@ function App() {
                   handleSearch={handleSearch}
                   toggleCardHeight={toggleCardHeight}
                   HideBuyWhenCartOpen={HideBuyWhenCartOpen}
+                  pagination={"none"}
                 />
                 <Main />
                 <Menu handleShow={handleShow} />

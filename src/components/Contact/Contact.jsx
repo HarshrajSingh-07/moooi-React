@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { RxCross2 } from "react-icons/rx";
 
+
 const style = {
   position: "absolute",
   top: "44%",
@@ -96,6 +97,7 @@ const Contact = () => {
   return (
     <>
       <section id="ContactUs">
+        
         <div className="contactHead">
           <h1>Contact</h1>
           <p>
