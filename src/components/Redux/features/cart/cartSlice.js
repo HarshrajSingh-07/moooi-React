@@ -5,7 +5,6 @@ const cartSlice = createSlice({
   initialState: {
     items: [],
     totalPrice: 0,
-
     wishlist: [],
   },
   reducers: {
@@ -20,7 +19,6 @@ const cartSlice = createSlice({
       } else {
         state.items.push({ ...newItem, quantity: 1 });
       }
-      // state.totalPrice += newItem.price;
     },
     removeFromCart: (state, action) => {
       const itemNameToRemove = action.payload;
@@ -29,7 +27,6 @@ const cartSlice = createSlice({
       );
 
       if (itemToRemove) {
-        // state.totalPrice -= itemToRemove.price * itemToRemove.quantity;
         state.items = state.items.filter(
           (item) => item.name !== itemNameToRemove
         );
@@ -40,7 +37,6 @@ const cartSlice = createSlice({
       const itemToDecrease = state.items.find((item) => item.name === itemName);
       if (itemToDecrease && itemToDecrease.quantity > 1) {
         itemToDecrease.quantity--;
-        // state.totalPrice -= itemToDecrease.price; // Adjust total price
       }
     },
     increaseQuantity: (state, action) => {
@@ -48,7 +44,6 @@ const cartSlice = createSlice({
       const itemToIncrease = state.items.find((item) => item.name === itemName);
       if (itemToIncrease) {
         itemToIncrease.quantity++;
-        // state.totalPrice += itemToIncrease.price; // Adjust total price
       }
     },
     totalPriceHandler: (state, action) => {

@@ -147,7 +147,7 @@
     .BuyProDetail {
         height: 475px;
         position: relative;
-        bottom: 10px;
+        bottom: 40  px;
         justify-content: space-between;
     }
 
@@ -156,6 +156,8 @@
     }
 
     .arrow {
+        width: 105%;
+        background-color: white;
         display: flex;
         flex-direction: column;
         padding: 10px 0;

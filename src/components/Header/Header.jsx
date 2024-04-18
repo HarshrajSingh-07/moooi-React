@@ -88,7 +88,7 @@ const Header = ({
   const handleSearchClick = () => {
     setIsSearchVisible(!isSearchVisible);
     if (searchQuery.trim() === "") {
-      console.log("Search query is empty.");
+      console.warn("Search query is empty.");
       return;
     }
 
@@ -99,7 +99,6 @@ const Header = ({
       setActiveSection(sectionId);
       setMessage("");
     } else {
-      console.log("Section not found.");
       setMessage("Section not found.");
     }
 

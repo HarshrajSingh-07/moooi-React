@@ -5,20 +5,20 @@ import { BsFilterRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 const Items = ({ link, cardItem, obj }) => {
-  // const [targetIndex, setTargetIndex] = useState(0);
   const [data, setData] = useState(cardItem);
   const [filter, setFilter] = useState(obj.btn[0]);
+
   useEffect(() => {
     if (filter !== obj.btn[0]) {
       const localData = cardItem.filter((element) => {
         return element.category === filter;
       });
-      console.log(localData);
       setData(localData);
     } else {
       setData(cardItem);
     }
   }, [filter]);
+
   const filterHandler = (val) => {
     setFilter(val);
   };
@@ -27,7 +27,6 @@ const Items = ({ link, cardItem, obj }) => {
     <section id="items">
       <div className="items-head">
         <div className="item-text">
-          {/* <h1>{obj.title}</h1> */}
           <h1>
             {filter.includes("All") ? filter.replace("All ", "") : filter}
           </h1>
@@ -45,7 +44,6 @@ const Items = ({ link, cardItem, obj }) => {
           </Link>
           {obj.btn.map((item, index) => (
             <>
-              {/* <Link to={`/${item.toLowerCase()}`} key={index}> */}
               <button
                 key={index}
                 className={item === filter ? "active" : null}
@@ -54,7 +52,6 @@ const Items = ({ link, cardItem, obj }) => {
               >
                 {item}
               </button>
-              {/* </Link> */}
             </>
           ))}
         </div>
@@ -70,7 +67,7 @@ const Items = ({ link, cardItem, obj }) => {
 
       <div className="cards">
         {data.map((item, index) => (
-          <Link key={index} to={`/productdetails/${item.type}/${index}`}>
+          <Link key={item.id} to={`/productdetails/${item.type}/${index}`}>
             <div className="carditem">
               <div className="cartimg">
                 <img src={item.src} alt={item.itemname} loading="lazy" />

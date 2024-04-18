@@ -32,20 +32,27 @@ import ScrollToTop from "./ScrollToTop.jsx";
 import OrderSummary from "./components/Order summary/OrderSummary.jsx";
 import Contact from "./components/Contact/Contact.jsx";
 import MenuBar from "./components/MenuBar/MenuBar.jsx";
+import Preloader from "./components/Preloder/Preloader.jsx";
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    // Simulate page loading delay
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 2600);
+
+    return () => clearTimeout(timer);
+  }, []);
   const [menu, setMenu] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
-
-  const [urlMain, setUrlMain] = useState("");
   const [open, setOpen] = useState(false);
   const [SuccessMsg, setSuccessMsg] = useState(null);
   const [isExpanded, setIsExpanded] = useState(true);
 
   const [searchQuery, setSearchQuery] = useState("");
-  const [homeLink, setHomeLink] = useState("none");
   const sectionRefs = useRef({});
 
   const handleSearch = () => {
@@ -89,12 +96,12 @@ function App() {
   const handleContactClick = () => {
     setMenu(false);
   };
+
   useEffect(() => {
     const url = window.location.href;
     const parsedUrl = new URL(url);
     const decodedPathname = decodeURIComponent(parsedUrl.pathname);
     const categoryPath = decodedPathname.split("/").slice(1, 3).join("/");
-    console.log(categoryPath);
   });
 
   return (
@@ -122,307 +129,311 @@ function App() {
           handleClose={handleClose}
         />
       )}
-      <ScrollToTop>
-        <Routes>
-          <Route
-            path="/contact"
-            element={
-              <>
-                <Header
-                  handleOpen={handleOpen}
-                  open={open}
-                  handleClose={handleClose}
-                  toggleCardHeight={toggleCardHeight}
-                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
-                  Textcolor={"#000"}
-                  backgroundColor={"#fff"}
-                  leftHeader={"none"}
-                  CenterHead={"start"}
-                  pagination={"flex"}
-                  paginationSection={"Contact"}
-                />
-                <Contact />
-                <Menu handleShow={handleShow} />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/collection"
-            element={
-              <>
-                <Header
-                  handleOpen={handleOpen}
-                  open={open}
-                  handleClose={handleClose}
-                  toggleCardHeight={toggleCardHeight}
-                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
-                  Textcolor={"#000"}
-                  backgroundColor={"#fff"}
-                  leftHeader={"none"}
-                  CenterHead={"start"}
-                  pagination={"flex"}
-                  paginationSection={"Collection"}
-                  obj={"Contact"}
-                />
-                <Items
-                  link={"/"}
-                  cardItem={AllCollection}
-                  obj={collectionhead}
-                />
-                <Menu handleShow={handleShow} />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/Bedding & Bath"
-            element={
-              <>
-                <Header
-                  handleOpen={handleOpen}
-                  open={open}
-                  handleClose={handleClose}
-                  toggleCardHeight={toggleCardHeight}
-                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
-                  Textcolor={"#000"}
-                  backgroundColor={"#fff"}
-                  leftHeader={"none"}
-                  CenterHead={"start"}
-                  pagination={"flex"}
-                  paginationSection={"Bedding & Bath"}
-                />
-                <Items
-                  link={"/collection"}
-                  cardItem={BeddingBath}
-                  obj={BeddingBathhead}
-                />
-                <Menu handleShow={handleShow} />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path={`/productdetails/:id1/:id`}
-            element={
-              <>
-                <Header
-                  handleOpen={handleOpen}
-                  open={open}
-                  handleClose={handleClose}
-                  toggleCardHeight={toggleCardHeight}
-                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
-                  Textcolor={"#000"}
-                  backgroundColor={"#fff"}
-                  leftHeader={"none"}
-                  CenterHead={"start"}
-                  pagination={"flex"}
-                  paginationSection={"Product Details"}
-                />
-                <ProductDetail
-                  toggleCardHeight={toggleCardHeight}
-                  isExpanded={isExpanded}
-                />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/Furniture"
-            element={
-              <>
-                <Header
-                  handleOpen={handleOpen}
-                  open={open}
-                  handleClose={handleClose}
-                  toggleCardHeight={toggleCardHeight}
-                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
-                  Textcolor={"#000"}
-                  backgroundColor={"#fff"}
-                  leftHeader={"none"}
-                  CenterHead={"start"}
-                  pagination={"flex"}
-                  paginationSection={"Furniture"}
-                />
-                <Items
-                  link={"/Bedding & Bath"}
-                  cardItem={Furniture}
-                  obj={Furnitureobj}
-                />
-                <Menu handleShow={handleShow} />
-                <Footer />
-              </>
-            }
-          />
 
-          <Route
-            path="/Lighting"
-            element={
-              <>
-                <Header
-                  handleOpen={handleOpen}
-                  open={open}
-                  handleClose={handleClose}
-                  toggleCardHeight={toggleCardHeight}
-                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
-                  Textcolor={"#000"}
-                  backgroundColor={"#fff"}
-                  leftHeader={"none"}
-                  CenterHead={"start"}
-                  pagination={"flex"}
-                  paginationSection={"Lighting"}
-                />
-                <Items
-                  link={"/Furniture"}
-                  cardItem={Lighting}
-                  obj={LightingHead}
-                />
-                <Menu handleShow={handleShow} />
-                <Footer />
-              </>
-            }
-          />
+      {loading ? (
+        <Preloader />
+      ) : (
+        <ScrollToTop>
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
+                  <Header
+                    handleOpen={handleOpen}
+                    open={open}
+                    handleClose={handleClose}
+                    handleSearch={handleSearch}
+                    toggleCardHeight={toggleCardHeight}
+                    HideBuyWhenCartOpen={HideBuyWhenCartOpen}
+                    pagination={"none"}
+                  />
+                  <Main />
+                  <Menu handleShow={handleShow} />
+                  <Collection />
+                  <Design />
+                  <Product />
+                  <Presents />
+                  <Strategy />
+                  <Podcast
+                    span={"PRODUCT STORY"}
+                    btnText={"Listen now!"}
+                    src={"/assets/images/phone.webp"}
+                  >
+                    Get inspired by our Design Dreams podcast
+                  </Podcast>
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/collection"
+              element={
+                <>
+                  <Header
+                    handleOpen={handleOpen}
+                    open={open}
+                    handleClose={handleClose}
+                    toggleCardHeight={toggleCardHeight}
+                    HideBuyWhenCartOpen={HideBuyWhenCartOpen}
+                    Textcolor={"#000"}
+                    backgroundColor={"#fff"}
+                    leftHeader={"none"}
+                    CenterHead={"start"}
+                    pagination={"flex"}
+                    paginationSection={"Collection"}
+                    obj={"Contact"}
+                  />
+                  <Items
+                    link={"/"}
+                    cardItem={AllCollection}
+                    obj={collectionhead}
+                  />
+                  <Menu handleShow={handleShow} />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/Bedding & Bath"
+              element={
+                <>
+                  <Header
+                    handleOpen={handleOpen}
+                    open={open}
+                    handleClose={handleClose}
+                    toggleCardHeight={toggleCardHeight}
+                    HideBuyWhenCartOpen={HideBuyWhenCartOpen}
+                    Textcolor={"#000"}
+                    backgroundColor={"#fff"}
+                    leftHeader={"none"}
+                    CenterHead={"start"}
+                    pagination={"flex"}
+                    paginationSection={"Bedding & Bath"}
+                  />
+                  <Items
+                    link={"/collection"}
+                    cardItem={BeddingBath}
+                    obj={BeddingBathhead}
+                  />
+                  <Menu handleShow={handleShow} />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path={`/productdetails/:id1/:id`}
+              element={
+                <>
+                  <Header
+                    handleOpen={handleOpen}
+                    open={open}
+                    handleClose={handleClose}
+                    toggleCardHeight={toggleCardHeight}
+                    HideBuyWhenCartOpen={HideBuyWhenCartOpen}
+                    Textcolor={"#000"}
+                    backgroundColor={"#fff"}
+                    leftHeader={"none"}
+                    CenterHead={"start"}
+                    pagination={"flex"}
+                    paginationSection={"Product Details"}
+                  />
+                  <ProductDetail
+                    toggleCardHeight={toggleCardHeight}
+                    isExpanded={isExpanded}
+                  />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/Furniture"
+              element={
+                <>
+                  <Header
+                    handleOpen={handleOpen}
+                    open={open}
+                    handleClose={handleClose}
+                    toggleCardHeight={toggleCardHeight}
+                    HideBuyWhenCartOpen={HideBuyWhenCartOpen}
+                    Textcolor={"#000"}
+                    backgroundColor={"#fff"}
+                    leftHeader={"none"}
+                    CenterHead={"start"}
+                    pagination={"flex"}
+                    paginationSection={"Furniture"}
+                  />
+                  <Items
+                    link={"/Bedding & Bath"}
+                    cardItem={Furniture}
+                    obj={Furnitureobj}
+                  />
+                  <Menu handleShow={handleShow} />
+                  <Footer />
+                </>
+              }
+            />
 
-          <Route
-            path="/Home Accessories"
-            element={
-              <>
-                <Header
-                  handleOpen={handleOpen}
-                  open={open}
-                  handleClose={handleClose}
-                  toggleCardHeight={toggleCardHeight}
-                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
-                  Textcolor={"#000"}
-                  backgroundColor={"#fff"}
-                  leftHeader={"none"}
-                  CenterHead={"start"}
-                  pagination={"flex"}
-                  paginationSection={"Home Accessories"}
-                />
-                <Items
-                  link={"/Lighting"}
-                  cardItem={HomeAccessories}
-                  obj={HomeAccessoriesHead}
-                />
-                <Menu handleShow={handleShow} />
-                <Footer />
-              </>
-            }
-          />
+            <Route
+              path="/Lighting"
+              element={
+                <>
+                  <Header
+                    handleOpen={handleOpen}
+                    open={open}
+                    handleClose={handleClose}
+                    toggleCardHeight={toggleCardHeight}
+                    HideBuyWhenCartOpen={HideBuyWhenCartOpen}
+                    Textcolor={"#000"}
+                    backgroundColor={"#fff"}
+                    leftHeader={"none"}
+                    CenterHead={"start"}
+                    pagination={"flex"}
+                    paginationSection={"Lighting"}
+                  />
+                  <Items
+                    link={"/Furniture"}
+                    cardItem={Lighting}
+                    obj={LightingHead}
+                  />
+                  <Menu handleShow={handleShow} />
+                  <Footer />
+                </>
+              }
+            />
 
-          <Route
-            path="/Wall & Floor"
-            element={
-              <>
-                <Header
-                  handleOpen={handleOpen}
-                  open={open}
-                  handleClose={handleClose}
-                  toggleCardHeight={toggleCardHeight}
-                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
-                  Textcolor={"#000"}
-                  backgroundColor={"#fff"}
-                  leftHeader={"none"}
-                  CenterHead={"start"}
-                  pagination={"flex"}
-                  paginationSection={"Wall & Floor"}
-                />
-                <Items
-                  link={"/Furniture"}
-                  cardItem={WallFloor}
-                  obj={WallFloorHead}
-                />
-                <Menu handleShow={handleShow} />
-                <Footer />
-              </>
-            }
-          />
+            <Route
+              path="/Home Accessories"
+              element={
+                <>
+                  <Header
+                    handleOpen={handleOpen}
+                    open={open}
+                    handleClose={handleClose}
+                    toggleCardHeight={toggleCardHeight}
+                    HideBuyWhenCartOpen={HideBuyWhenCartOpen}
+                    Textcolor={"#000"}
+                    backgroundColor={"#fff"}
+                    leftHeader={"none"}
+                    CenterHead={"start"}
+                    pagination={"flex"}
+                    paginationSection={"Home Accessories"}
+                  />
+                  <Items
+                    link={"/Lighting"}
+                    cardItem={HomeAccessories}
+                    obj={HomeAccessoriesHead}
+                  />
+                  <Menu handleShow={handleShow} />
+                  <Footer />
+                </>
+              }
+            />
 
-          <Route
-            path="/Body & Beauty"
-            element={
-              <>
-                <Header
-                  handleOpen={handleOpen}
-                  open={open}
-                  handleClose={handleClose}
-                  toggleCardHeight={toggleCardHeight}
-                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
-                  Textcolor={"#000"}
-                  backgroundColor={"#fff"}
-                  leftHeader={"none"}
-                  CenterHead={"start"}
-                  pagination={"flex"}
-                  paginationSection={"Body & Beauty"}
-                />
-                <Items
-                  link={"/Furniture"}
-                  cardItem={BodyBeauty}
-                  obj={BodyBeautyHead}
-                />
-                <Menu handleShow={handleShow} />
-                <Footer />
-              </>
-            }
-          />
-          <Route
-            path="/ordersummary"
-            element={
-              <>
-                <Header
-                  handleOpen={handleOpen}
-                  open={open}
-                  handleClose={handleClose}
-                  toggleCardHeight={toggleCardHeight}
-                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
-                  Textcolor={"#000"}
-                  backgroundColor={"#fff"}
-                  leftHeader={"none"}
-                  CenterHead={"start"}
-                  pagination={"flex"}
-                  paginationSection={"Shopping bag"}
-                />
-                <OrderSummary />
-                <Menu handleShow={handleShow} />
-                <Footer />
-              </>
-            }
-          />
+            <Route
+              path="/Wall & Floor"
+              element={
+                <>
+                  <Header
+                    handleOpen={handleOpen}
+                    open={open}
+                    handleClose={handleClose}
+                    toggleCardHeight={toggleCardHeight}
+                    HideBuyWhenCartOpen={HideBuyWhenCartOpen}
+                    Textcolor={"#000"}
+                    backgroundColor={"#fff"}
+                    leftHeader={"none"}
+                    CenterHead={"start"}
+                    pagination={"flex"}
+                    paginationSection={"Wall & Floor"}
+                  />
+                  <Items
+                    link={"/Furniture"}
+                    cardItem={WallFloor}
+                    obj={WallFloorHead}
+                  />
+                  <Menu handleShow={handleShow} />
+                  <Footer />
+                </>
+              }
+            />
 
-          <Route
-            path="/"
-            element={
-              <>
-                <Header
-                  handleOpen={handleOpen}
-                  open={open}
-                  handleClose={handleClose}
-                  handleSearch={handleSearch}
-                  toggleCardHeight={toggleCardHeight}
-                  HideBuyWhenCartOpen={HideBuyWhenCartOpen}
-                  pagination={"none"}
-                />
-                <Main />
-                <Menu handleShow={handleShow} />
-                <Collection />
-                <Design />
-                <Product />
-                <Presents />
-                <Strategy />
-                <Podcast
-                  span={"PRODUCT STORY"}
-                  btnText={"Listen now!"}
-                  src={"/assets/images/phone.webp"}
-                >
-                  Get inspired by our Design Dreams podcast
-                </Podcast>
-                <Footer />
-              </>
-            }
-          />
-        </Routes>
-      </ScrollToTop>
+            <Route
+              path="/Body & Beauty"
+              element={
+                <>
+                  <Header
+                    handleOpen={handleOpen}
+                    open={open}
+                    handleClose={handleClose}
+                    toggleCardHeight={toggleCardHeight}
+                    HideBuyWhenCartOpen={HideBuyWhenCartOpen}
+                    Textcolor={"#000"}
+                    backgroundColor={"#fff"}
+                    leftHeader={"none"}
+                    CenterHead={"start"}
+                    pagination={"flex"}
+                    paginationSection={"Body & Beauty"}
+                  />
+                  <Items
+                    link={"/Furniture"}
+                    cardItem={BodyBeauty}
+                    obj={BodyBeautyHead}
+                  />
+                  <Menu handleShow={handleShow} />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/ordersummary"
+              element={
+                <>
+                  <Header
+                    handleOpen={handleOpen}
+                    open={open}
+                    handleClose={handleClose}
+                    toggleCardHeight={toggleCardHeight}
+                    HideBuyWhenCartOpen={HideBuyWhenCartOpen}
+                    Textcolor={"#000"}
+                    backgroundColor={"#fff"}
+                    leftHeader={"none"}
+                    CenterHead={"start"}
+                    pagination={"flex"}
+                    paginationSection={"Shopping bag"}
+                  />
+                  <OrderSummary />
+                  <Menu handleShow={handleShow} />
+                  <Footer />
+                </>
+              }
+            />
+            <Route
+              path="/contact"
+              element={
+                <>
+                  <Header
+                    handleOpen={handleOpen}
+                    open={open}
+                    handleClose={handleClose}
+                    toggleCardHeight={toggleCardHeight}
+                    HideBuyWhenCartOpen={HideBuyWhenCartOpen}
+                    Textcolor={"#000"}
+                    backgroundColor={"#fff"}
+                    leftHeader={"none"}
+                    CenterHead={"start"}
+                    pagination={"flex"}
+                    paginationSection={"Contact"}
+                  />
+                  <Contact />
+                  <Menu handleShow={handleShow} />
+                  <Footer />
+                </>
+              }
+            />
+          </Routes>
+        </ScrollToTop>
+      )}
     </>
   );
 }

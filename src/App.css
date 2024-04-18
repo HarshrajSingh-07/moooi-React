@@ -11,6 +11,11 @@ Link {
     text-decoration: none;
 }
 
+a,
+Link,button {
+    cursor: pointer;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;

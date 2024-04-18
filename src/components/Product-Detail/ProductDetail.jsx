@@ -23,7 +23,6 @@ const ProductDetail = ({ toggleCardHeight, isExpanded }) => {
   const [isClick, setClick] = useState(false);
   const dispatch = useDispatch();
   const handleAddToWishlist = (item) => {
-    console.log("item", item);
     dispatch(addToWishlist(item)); // Dispatch addToWishlist action with the item
   };
 
