@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./Login.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import "firebase/auth";
 import { auth } from "../../firebase";
-import BasicModal from "./Modals";
 import { RemoveScroll } from "react-remove-scroll";
+import BasicModal from "./LoginSuccessModal";
+import LoginSuccessModal from "./LoginSuccessModal";
 
-const Login = ({ handleSignup, open, handleOpen, handleClose }) => {
+const Login = ({ handleSignup }) => {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -15,12 +15,15 @@ const Login = ({ handleSignup, open, handleOpen, handleClose }) => {
     email: "",
     password: "",
   });
+  const [openLoginSuccessModal, setOpenLoginSuccessModal] = useState(false);
 
   useEffect(() => {}, [data]);
+
   const handleLoginInputs = (e) => {
     const { name, value } = e.target;
     setData({ ...data, [name]: value });
   };
+
   const handleSignIn = (e) => {
     e.preventDefault();
     const newErrors = {};
@@ -36,10 +39,11 @@ const Login = ({ handleSignup, open, handleOpen, handleClose }) => {
       handleSignInWithFirebase(data.email, data.password);
     }
   };
+
   const handleSignInWithFirebase = async (email, password) => {
     try {
       const res = await signInWithEmailAndPassword(auth, email, password);
-      handleOpen("Login Successfully !");
+      setOpenLoginSuccessModal(true);
       setData({ email: "", password: "" });
     } catch (error) {
       console.log(error.code);
@@ -60,10 +64,9 @@ const Login = ({ handleSignup, open, handleOpen, handleClose }) => {
     <RemoveScroll>
       <section id="login">
         <div>
-          <BasicModal
-            handleClose={handleClose}
-            handleOpen={handleOpen}
-            open={open}
+          <LoginSuccessModal
+            handlePopClose={() => setOpenLoginSuccessModal(false)}
+            openPop={openLoginSuccessModal}
             msg={"Login Successfully !"}
           />
         </div>

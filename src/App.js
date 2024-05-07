@@ -49,6 +49,9 @@ function App() {
   const [showLogin, setShowLogin] = useState(false);
   const [showSignup, setShowSignup] = useState(false);
   const [open, setOpen] = useState(false);
+  const [openPop, setOpenPop] = useState(false);
+  const [openSignupPop, setOpenSignupPop] = useState(false);
+
   const [SuccessMsg, setSuccessMsg] = useState(null);
   const [isExpanded, setIsExpanded] = useState(true);
 
@@ -70,14 +73,37 @@ function App() {
   const HideBuyWhenCartOpen = () => {
     setIsExpanded(false);
   };
+
   const handleOpen = (msg) => {
     setOpen(true);
     setSuccessMsg(msg);
   };
+
   const handleClose = (msg) => {
     setOpen(false);
     setSuccessMsg(msg);
   };
+  // ----------------------Login------------------------
+  // const handlePop = (msg) => {
+  //   setOpenPop(true);
+  //   setSuccessMsg(msg);
+  // };
+
+  // const handlePopClose = (msg) => {
+  //   setOpenPop(false);
+  //   setSuccessMsg(msg);
+  // };
+  // ----------------------Signup------------------------
+  // const handleSinupPop = (msg) => {
+  //   setOpenSignupPop(true);
+  //   setSuccessMsg(msg);
+  // };
+
+  // const handlePopSignupClose = (msg) => {
+  //   setOpenSignupPop(false);
+  //   setSuccessMsg(msg);
+  // };
+  // ----------------------Signup------------------------
   function handleShow() {
     setMenu(!menu);
     setShowLogin(false);
@@ -113,22 +139,8 @@ function App() {
           handleContactClick={handleContactClick}
         />
       )}
-      {showLogin && (
-        <Login
-          handleSignup={handleSignup}
-          handleOpen={handleOpen}
-          open={open}
-          handleClose={handleClose}
-        />
-      )}
-      {showSignup && (
-        <Signup
-          handleLogin={handleLogin}
-          handleOpen={handleOpen}
-          open={open}
-          handleClose={handleClose}
-        />
-      )}
+      {showLogin && <Login handleSignup={handleSignup} />}
+      {showSignup && <Signup handleLogin={handleLogin} />}
 
       {loading ? (
         <Preloader />

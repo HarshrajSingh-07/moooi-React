@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 import "./Signup.css";
-import { FirebaseApp } from "firebase/app";
-import { collection, doc, setDoc } from "firebase/firestore";
+import SignupSuccessModal from "./SignupSuccessModal";
+import { doc, setDoc } from "firebase/firestore";
 import { auth, db } from "../../firebase";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import BasicModal from "../Login/Modals";
 import { RemoveScroll } from "react-remove-scroll";
 
-const Signup = ({ handleLogin, open, handleOpen, handleClose }) => {
+const Signup = ({ handleLogin }) => {
   const [user1, setUser1] = useState(null);
+  const [finalErr, setFinalErr] = useState("");
+  const [openSignupSuccessModal, setOpenSignupSuccessModal] = useState(false);
   const [user, setUser] = useState({
     email: "",
     fname: "",
@@ -23,7 +24,6 @@ const Signup = ({ handleLogin, open, handleOpen, handleClose }) => {
     password: "",
     confirmpassword: "",
   });
-  const [finalErr, setFinalErr] = useState("");
 
   useEffect(() => {
     console.log(user);
@@ -32,8 +32,9 @@ const Signup = ({ handleLogin, open, handleOpen, handleClose }) => {
   const handleInputs = (e) => {
     const { name, value } = e.target;
     setUser({ ...user, [name]: value });
-    setErrors({ ...errors, [name]: "" }); // Clear error when input changes
+    setErrors({ ...errors, [name]: "" });
   };
+
   const handleSignup = (e) => {
     e.preventDefault();
     const newErrors = {};
@@ -50,7 +51,7 @@ const Signup = ({ handleLogin, open, handleOpen, handleClose }) => {
       newErrors.fname =
         "First name and last name must be at least 3 characters";
       newErrors.lname =
-        "First name and last name must be at least 3 characters"; // Fix for last name error
+        "First name and last name must be at least 3 characters";
     }
     if (!user.password || user.password.length < 6) {
       newErrors.password = "Password must be at least 6 characters";
@@ -61,12 +62,11 @@ const Signup = ({ handleLogin, open, handleOpen, handleClose }) => {
 
     setErrors(newErrors);
 
-    // Proceed with signup if there are no errors
     if (Object.keys(newErrors).length === 0) {
-      // Perform signup
       handleSignupWithFirebase(user.email, user.password, user.fname);
     }
   };
+
   const handleSignupWithFirebase = async (email, password) => {
     try {
       const response = await createUserWithEmailAndPassword(
@@ -75,44 +75,43 @@ const Signup = ({ handleLogin, open, handleOpen, handleClose }) => {
         password
       );
       console.log("User signed up:", response.user);
-      handleOpen("Signup Successfully !");
-      setFinalErr("Sucessfully signup");
-      // handleLogin();
+      setOpenSignupSuccessModal(true);
+      setUser({
+        email: "",
+        fname: "",
+        lname: "",
+        password: "",
+        confirmpassword: "",
+      });
+      setFinalErr("Successfully signed up");
+
       await setDoc(doc(db, "users", response.user.uid), {
         username: user.fname,
-        // contact: contact
       });
-
-      // You can redirect the user to another page or show a success message
     } catch (error) {
       setFinalErr(error.message.substring(10) + "..!");
     }
   };
 
   useEffect(() => {
-    // Check if user is authenticated
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
-        // User is signed in
         setUser1(user);
         console.log(user1);
       } else {
-        // No user is signed in
         setUser1(null);
       }
     });
 
-    // Unsubscribe from the auth listener on unmount
     return () => unsubscribe();
   }, []);
 
   return (
     <RemoveScroll>
       <section id="signup">
-        <BasicModal
-          handleClose={handleClose}
-          handleOpen={handleOpen}
-          open={open}
+        <SignupSuccessModal
+          handleClose={() => setOpenSignupSuccessModal(false)}
+          open={openSignupSuccessModal}
           msg={"Signup Successfully !"}
         />
         <div className="signupContainer">
@@ -177,7 +176,7 @@ const Signup = ({ handleLogin, open, handleOpen, handleClose }) => {
               {finalErr && (
                 <span
                   className={
-                    finalErr.includes("Sucessfully")
+                    finalErr.includes("Successfully")
                       ? "txt-green"
                       : "finalerror"
                   }

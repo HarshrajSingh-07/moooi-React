@@ -19,13 +19,19 @@
 
 /* Styling for text select component */
 .selectText button {
+    display: flex;
+    align-items: center;
     width: 20vw;
     min-width: 200px;
-    padding: 15px 14px;
+    padding: 15px 25px;
     margin-bottom: 75px;
     border: 1px solid #929292;
     border-radius: 50px;
     background: transparent;
+}
+
+#flag-img {
+    width: 14%;
 }
 
 .country-down-icon {
@@ -35,6 +41,7 @@
 .selectText select {
     appearance: none;
     width: 70%;
+    padding: 0 10px;
     font-size: 20px;
     background: transparent;
     border: none;

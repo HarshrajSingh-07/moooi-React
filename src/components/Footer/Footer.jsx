@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Footer.css";
 import { SlArrowDown } from "react-icons/sl";
 import { HiArrowUp } from "react-icons/hi";
@@ -10,6 +10,36 @@ import { FaFacebook } from "react-icons/fa6";
 import { FaSpotify } from "react-icons/fa6";
 
 const Footer = () => {
+  const [selectedCountry, setSelectedCountry] = useState("Europe");
+  const [flagUrl, setFlagUrl] = useState("https://flagsapi.com/EU/flat/64.png");
+
+  useEffect(() => {
+    const countryCode = getCountryCode(selectedCountry);
+    setFlagUrl(`https://flagsapi.com/${countryCode}/flat/64.png`);
+  }, [selectedCountry]);
+
+  function updateFlag(event) {
+    const selectedValue = event.target.value;
+    setSelectedCountry(selectedValue);
+  }
+
+  function getCountryCode(countryName) {
+    switch (countryName) {
+      case "Europe":
+        return "EU";
+      case "United Kingdom":
+        return "GB";
+      case "United States":
+        return "US";
+      case "Netherlands":
+        return "NL";
+      case "Sweden":
+        return "SE";
+      default:
+        return ""; // Handle the case where the country is not listed
+    }
+  }
+
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -22,7 +52,13 @@ const Footer = () => {
         <div className="footer-top">
           <div className="selectText">
             <button>
-              <select name="country">
+              <img id="flag-img" src={flagUrl} alt="" />
+              <select
+                id="country-select"
+                name="country"
+                value={selectedCountry}
+                onChange={updateFlag}
+              >
                 <option value="Europe">Europe</option>
                 <option value="United Kingdom">United Kingdom</option>
                 <option value="United States">United States</option>

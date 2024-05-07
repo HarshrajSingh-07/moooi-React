@@ -138,3 +138,10 @@ header h3 {
     cursor: pointer;
     margin-right: clamp(5px, 2vw, 45px);
 }
+
+.searchBtn {
+    padding-bottom: 5px;
+    padding-right: 10px;
+    font-size: 15px;
+    padding-left: 10px;
+}

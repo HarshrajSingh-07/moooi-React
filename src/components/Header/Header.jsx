@@ -71,6 +71,7 @@ const Header = ({
   }, [prevScrollPos]);
 
   const [isBagOpen, setIsBagOpen] = useState(false);
+
   const toggleBag = () => {
     const mediaQuery = window.matchMedia("(max-width: 575.98px)");
     setIsBagOpen(!isBagOpen);
@@ -99,7 +100,7 @@ const Header = ({
       setActiveSection(sectionId);
       setMessage("");
     } else {
-      setMessage("Section not found.");
+      setMessage("Section not found !");
     }
 
     setSearchQuery("");
@@ -153,14 +154,19 @@ const Header = ({
         <div className="headRight">
           {isSearchVisible && (
             <>
-              <input
-                type="text"
-                placeholder="Search..."
-                className="searchInput"
-                value={searchQuery}
-                onChange={handleInputChange}
-              />
-              <span className="searchMessage">{message}</span>
+              <div className="searchBtn">
+                {message ? (
+                  <span className="searchMessage">{message}</span>
+                ) : (
+                  <input
+                    type="text"
+                    placeholder="Search..."
+                    className="searchInput"
+                    value={searchQuery}
+                    onChange={handleInputChange}
+                  />
+                )}
+              </div>
             </>
           )}
           <div className="headerIcon">

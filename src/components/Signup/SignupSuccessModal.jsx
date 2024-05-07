@@ -1,0 +1,53 @@
+// SignupSuccessModal.jsx
+import * as React from "react";
+import Box from "@mui/material/Box";
+import Typography from "@mui/material/Typography";
+import Modal from "@mui/material/Modal";
+import { RxCross2 } from "react-icons/rx";
+
+const style = {
+  position: "absolute",
+  top: "50%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  width: 400,
+  bgcolor: "#4CAF50",
+  color: "#fff",
+  borderRadius: 3,
+  boxShadow: 24,
+  p: 4,
+};
+
+const SignupSuccessModal = ({ open, handleClose, msg }) => {
+  return (
+    <Modal
+      open={open}
+      onClose={handleClose}
+      aria-labelledby="modal-modal-title"
+      aria-describedby="modal-modal-description"
+    >
+      <Box sx={style}>
+        <div textAlign={"right"}>
+          <RxCross2 onClick={handleClose} />
+        </div>
+        <Typography
+          id="modal-modal-title"
+          variant="h6"
+          component="h2"
+          textAlign={"center"}
+        >
+          {msg}
+        </Typography>
+        <Typography
+          id="modal-modal-description"
+          sx={{ mt: 2 }}
+          textAlign={"center"}
+        >
+          Congratulations! Your account has been created successfully.
+        </Typography>
+      </Box>
+    </Modal>
+  );
+};
+
+export default SignupSuccessModal;

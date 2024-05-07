@@ -56,9 +56,6 @@
 }
 
 @media screen and (max-width: 991px) {
-  /* #collection h3 {
-    text-align: left;
-  } */
 
   .card>a {
     flex: 0 0 calc(30.33% - 20px);
@@ -78,6 +75,10 @@
 }
 
 @media screen and (max-width: 480px) {
+  .container {
+    padding: 120px clamp(25px, 5vw, 50px);
+  }
+
   .card>a {
     flex: 0 0 calc(50% - 10px);
   }

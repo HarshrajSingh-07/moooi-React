@@ -11,7 +11,7 @@
 }
 
 .main-head {
-    height: 85%;
+    height: 80%;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -22,12 +22,12 @@
 .main-head h1 {
     text-align: center;
     margin: 0;
-    font-size: clamp(25px, 7.5vw, 95px);
+    font-size: clamp(28px, 7.5vw, 95px);
     font-weight: 500;
 }
 
 .main-head p {
-    margin-bottom: clamp(10px, 5vw, 30px);
+    margin-bottom: clamp(12px, 5vw, 30px);
     color: hsla(0, 0%, 100%, .8);
     font-size: clamp(12px, 3vw, 20px);
     letter-spacing: 3px;
@@ -36,7 +36,7 @@
 
 .main-head button {
     color: #4d4d4d;
-    font-size: clamp(12px, 3vw, 20px);
+    font-size: clamp(14px, 3vw, 20px);
     font-family: "Cinzel", serif;
     border: none;
     padding: 10px clamp(15px, 3vw, 25px);
