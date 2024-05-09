@@ -81,7 +81,6 @@ header h3 {
     width: 33%;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
 }
 
 .shopingBag {
@@ -136,10 +135,12 @@ header h3 {
 
 .headerIcon {
     cursor: pointer;
+    width: 1em;
+    height: 1em;
     margin-right: clamp(5px, 2vw, 45px);
 }
 
-.searchBtn {
+.headerIcon .searchBtn {
     padding-bottom: 5px;
     padding-right: 10px;
     font-size: 15px;
